@@ -9,9 +9,8 @@ theme:
   font:
     text: Lato
     code: Fira Code
-  icon:
-    logo: assets/map.png
-  favicon: assets/favicon.ico
+  logo: assets/map.png
+  favicon: assets/favicon.png
   features: 
     - content.code.copy
     - content.code.select
