@@ -1,19 +1,11 @@
-# Welcome to MkDocs
+# Welcome to GEOGC183 Cartographic Representation
 
-Drink :beers:
+This is your workbook for your labs and other tutorials. Please refer to it as a guide for your formative and summative assignments.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+!!! note
 
-## Commands
+    You might have noticed that the guides become less detailed as the course progresses. This is deliberate - we want you to get a feel for the process and start coding intuitively, learning to fill in the blanks so you are ready to teach yourself and deal with the truly terrible documentated that exists out there
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+

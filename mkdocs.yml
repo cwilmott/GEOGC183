@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: GEOGC183 - Cartographic Representation
 site_url: https://sitename.example
 theme:
   name: material
@@ -27,6 +27,8 @@ markdown_extensions:
       pygments_lang_class: true
       linenums: true
   - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.keys
@@ -34,3 +36,4 @@ markdown_extensions:
   - pymdownx.blocks.caption
   - pymdownx.tasklist:
       custom_checkbox: true
+      
