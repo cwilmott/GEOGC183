@@ -1,4 +1,6 @@
-# Welcome to GEOGC183 Cartographic Representation
+![Inuit Land Use Map](images/inuit-land-use-map-lg.jpg)
+
+#GEOG183 Cartographic Representation
 
 This is your workbook for your labs and other tutorials. Please refer to it as a guide for your formative and summative assignments.
 
