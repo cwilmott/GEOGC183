@@ -1,4 +1,4 @@
-# Learning to *Look It Up*!
+# Week 01 Looking it Up!
 
 This week aims to get you comfortable with hacking, making and creating culture by asking you to think about where and how you might find resources.
 
