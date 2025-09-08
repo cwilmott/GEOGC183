@@ -1,6 +1,6 @@
 # Week 03 Hand Drawn Map
 
-Last week, you learned how a Cartographer is figure situated within a deeply entangled context of cultural, political and scientific considerations. Now, you are taking responsibility for mapping the world (as it is partial to you). Additionally, we hope this gets you familiar with an undervalued, yet salient component of the Cartographic workflow: sketching it out.
+Last week, you learned how the Cartographer is a figure situated within a deeply entangled context of cultural, political and scientific considerations. Now, you are taking responsibility for mapping the world (as it is partial to you). Additionally, we hope this gets you familiar with an undervalued, yet salient component of the Cartographic workflow: sketching it out.
 
 The worksheet is attached below, in addition to being handed out in Monday's (9/8) lab meeting. Submission details, cartographic criteria and cartographic prompts found within.
  
