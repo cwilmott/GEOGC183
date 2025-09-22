@@ -9,3 +9,5 @@ This activity is a prelude to the 'unassigned' work you will be doing for the fi
 *Optional Resources for Objects of Study*
 
 [Earth Sciences and Map Library Research Guide](https://github.com/cwilmott/GEOGC183/blob/main/assets/Unearthing%20Treasures%20UC%20Berkeley%20Library.pdf)
+
+[Burning Worlds by Birgit Schneider](https://github.com/cwilmott/GEOGC183/blob/main/assets/Burning%20Worlds.pdf) - A great demonstration of an author deconstructing a set of maps. Builds through historical context, visual analysis and putting the images into conversation with Art History. 
