@@ -16,8 +16,8 @@ Use the knowledge gained last week in lecture concerning the mathematical, histo
 
  [Bill Rankin Projection Guide and Experiments](http://www.radicalcartography.net/index.html?projectionref)
 
-# Scribe-Pro Walkthrough
-#### [Made by Jack Moorehead with Scribe](https://scribehow.com/shared/Lab_6_-_Projection__MR2X2m2KRSan4Jm8zmJ8ow)
+# Foundations Walkthrough
+
 Using the freelance project request from a book publisher, we will go through the first step of determining the contextually appropriate GCS/PCS/Projection system for the Great Basin regional scale. 
 
 1\. **\[0 - NOT PART OF THE WALKTHROUGH\]** Refer to this step of the tutorial should you encounter this problem in future cartographic work.
@@ -399,5 +399,6 @@ Are you ready to do this independently, and carry the weight of responsibly mapp
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/ecf59737-2958-44b1-b294-da5859aa5ef9/File.jpeg?tl_px=0,310&br_px=1376,1080&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=444,320)
 #### [Made with Scribe](https://scribehow.com/shared/Lab_6_-_Projection__MR2X2m2KRSan4Jm8zmJ8ow)
+
 
 
