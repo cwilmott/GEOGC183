@@ -8,13 +8,14 @@ Use the knowledge gained last week in lecture concerning the mathematical, histo
  
  [Week 6 Lab Walkthrough: Projection](https://scribehow.com/viewer/Lab_6__Projection__MR2X2m2KRSan4Jm8zmJ8ow) Direct link to the scribe website if this is more accessible for students!
 
- [Week 6 Lab Data]() *Clancy add link to bCourses File section before AM Lab* 
-
+ [Week 6 Lab Data](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab6_Projection%20Data) Choose the dataset corresponding to your prompt. 
+ 
  *Optional Resources*
 
  [Leventhal Map Center Projection Exhibit "Bending Lines"](https://www.leventhalmap.org/digital-exhibitions/bending-lines/how-to-bend/projections/)
 
  [Bill Rankin Projection Guide and Experiments](http://www.radicalcartography.net/index.html?projectionref)
+ 
 
 # Foundations Walkthrough
 
@@ -399,6 +400,7 @@ Are you ready to do this independently, and carry the weight of responsibly mapp
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/ecf59737-2958-44b1-b294-da5859aa5ef9/File.jpeg?tl_px=0,310&br_px=1376,1080&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=444,320)
 #### [Made with Scribe](https://scribehow.com/shared/Lab_6_-_Projection__MR2X2m2KRSan4Jm8zmJ8ow)
+
 
 
 
