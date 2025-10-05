@@ -13,9 +13,9 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 
 [Scribe Pro Foundations Walkthrough]()
 
-[Week 7 Worksheet: Foundational]()
+[Week 7 Worksheet: Foundational](https://docs.google.com/document/d/16K_18lnyDqq7dHGjQTra-_p5R9TOYxk562q3-z2iRpA/edit?usp=sharing)
 
-[Week 7 Worksheet: Experimental]()
+[Week 7 Worksheet: Experimental](https://docs.google.com/document/d/1ZINop4WaTATQ2t1X6wwTN61rKLkNufuxOMkyEuvLYJc/edit?usp=sharing)
 
 
 ## Lab Resources
@@ -29,6 +29,7 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
 
 * Another highly technical reference, and solid resource for troubleshooting
+
 
 
 
