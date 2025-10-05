@@ -24,13 +24,10 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 
 [Sample Basemap Deliverable](https://github.com/cwilmott/GEOGC183/blob/main/assets/Jack%20-%20Spatial%20Data%20Acquisition.pdf)
 
-[Paul Bolstad Chapter on Geographic Data]()
-
-* For those into technical documentation, this is the authoritative source on GIS basics
-
 [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
 
-* Another highly technical reference, and solid resource for troubleshooting
+* A highly technical reference, and solid resource for troubleshooting
+
 
 
 
