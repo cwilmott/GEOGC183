@@ -6,7 +6,19 @@ Please ensure to visit the new [Lab Guidelines]() tab on the course gitbook, and
 
 Clancy and I have also put together a [Print Cartography Concept Map]() for each of the modules moving forward. This is intended to be a general guide should you need to reference where we are at in the class, and why we are doing something. 
 
+Below, do a brief 5 minute skim of the lab instructions, and decide which pathway you want to pursue. This will be the model for the rest of the semester. 
+
 ### Lab Documents
 
- []()
+> [Week 7 Worksheet: Foundational]()
+* [Sample Deliverable]()
 
+> [Week 7 Worksheet: Experimental]()
+
+ ### Lab Resources
+
+> [Paul Bolstad Chapter on Geographic Data]()
+* For those into technical documentation, this is the authoritative source on GIS basics
+
+> [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
+* Another highly technical reference, and solid resource for troubleshooting
