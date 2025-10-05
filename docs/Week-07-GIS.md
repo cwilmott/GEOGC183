@@ -4,7 +4,7 @@ In the second installment of inspecting the foundations of print cartography, we
 
 Please ensure to visit the new [Lab Guidelines](https://cwilmott.github.io/GEOGC183/1.%20Lab%20Guidelines/) tab on the course gitbook, and review the brief 10 minute activity we will be doing before lab starts. 
 
-Clancy and I have also put together a [Print Cartography Concept Map]() for each of the modules moving forward. This is intended to be a general guide should you need to reference where we are at in the class, and why we are doing something. 
+Clancy and I have also put together a [Print Cartography Concept Map](https://github.com/cwilmott/GEOGC183/blob/main/assets/C183%20Week%207%20-%20Cartographic%20Data%20Subway%20Stop.pdf) for each of the modules moving forward. This is intended to be a general guide should you need to reference where we are at in the class, and why we are doing something. 
 
 Below, do a brief 5 minute skim of the lab instructions, and decide which pathway you want to pursue. This will be the model for the rest of the semester. 
 
@@ -27,6 +27,7 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
 
 * A highly technical reference, and solid resource for troubleshooting
+
 
 
 
