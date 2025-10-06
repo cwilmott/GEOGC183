@@ -11,9 +11,9 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 
 ## Lab Documents
 
-[Week 7 Worksheet: Foundational](https://docs.google.com/document/d/16K_18lnyDqq7dHGjQTra-_p5R9TOYxk562q3-z2iRpA/edit?usp=sharing)
+[Week 7 Worksheet: Foundational](https://github.com/cwilmott/GEOGC183/blob/main/assets/C183%20Week%207%20-%20Cartographic%20Data%20Foundational.docx)
 
-[Week 7 Worksheet: Experimental](https://docs.google.com/document/d/1ZINop4WaTATQ2t1X6wwTN61rKLkNufuxOMkyEuvLYJc/edit?usp=sharing)
+[Week 7 Worksheet: Experimental](https://github.com/cwilmott/GEOGC183/blob/main/assets/C183%20Week%207%20-%20Cartographic%20Data%20Experimental.docx)
 
 
 ## Lab Resources
@@ -23,6 +23,7 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
 
 * A highly technical reference, and solid resource for troubleshooting
+
 
 
 
