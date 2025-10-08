@@ -1,5 +1,8 @@
 # Week 07 Cartographic Data
 
+
+## Lab Context
+
 In the second installment of inspecting the foundations of print cartography, we will be exploring data portals in search of layers we need for our project. After struggling with the limitations of data, we then encounter the limits of styling our map layers in GIS layout frames.
 
 Please ensure to visit the new [Lab Guidelines](https://cwilmott.github.io/GEOGC183/1.%20Lab%20Guidelines/) tab on the course gitbook, and review the brief 10 minute activity we will be doing before lab starts. 
@@ -23,6 +26,7 @@ Below, do a brief 5 minute skim of the lab instructions, and decide which pathwa
 [Penn State, Nature of Geographic Data](https://www.e-education.psu.edu/natureofgeoinfo/node/1672)
 
 * A highly technical reference, and solid resource for troubleshooting
+
 
 
 
