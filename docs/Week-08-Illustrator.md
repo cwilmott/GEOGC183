@@ -1,15 +1,16 @@
 [TOC]
-> !!! tip
->
-> All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: [https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2] (https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2)
 
+This week we are going to look at Illustrator! Don't be afraid to play around at all! You don't need to hand in a lab for this week - the lab hand in is the Print Map, due Friday 11.59pm.
+
+!!! tip
+
+    All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: [https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-        product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2](https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x product-location=Search%3AForums%3Alink%2F3.7.2-dev.2)
 
 
 ### **Foundations**
 
-> !!! warning
->
-> If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
+!!! warning
+      If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
 - [ ] **Export** your map as SVG from ArcGIS Pro
       (https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm)
@@ -112,6 +113,7 @@
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
