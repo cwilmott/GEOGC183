@@ -18,37 +18,37 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
       * Alternatively, you can drag the SVG file from your computer directly into the Illustrator application window.
 
 - Change **Color Profile** to CMYK
-  * *Go to File > Document Color Mode.* 
+      * *Go to File > Document Color Mode.* 
 
 - **Save** onto the Adobe Cloud
-   * Log into Adobe Creative Cloud
-   * *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
+     * Log into Adobe Creative Cloud
+       mdi:arrow-right-bottom *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
 - Create a new **Layer**
-  <https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html>
+    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html>
 
 -  Play around with the **Toolbar**
-  * Select different tools
-  * Find the hidden tools
-    <https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html>
+    * Select different tools
+    * Find the hidden tools
+    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html>
 
 - Select a **Shape**. 
-  * Change the Fill
-    <https://helpx.adobe.com/illustrator/using/painting-fills-strokes.html>
-  * Change the Stroke
-  * Using the *Appearance Panel*, change the opacity/transperancy
-    <https://helpx.adobe.com/illustrator/using/appearance-attributes.html>
+    * Change the Fill
+    mdi:arrow-right-bottom<https://helpx.adobe.com/illustrator/using/painting-fills-strokes.html>
+    * Change the Stroke
+    * Using the *Appearance Panel*, change the opacity/transperancy
+    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/appearance-attributes.html>
 
 - Use the **Pen Tool**. 
-  * Make a shape.
-     <https://helpx.adobe.com/illustrator/using/tool-techniques/pen-tool.html>
+    * Make a shape.
+    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/tool-techniques/pen-tool.html>
 
 - Use the **Type Tool**. 
-  <https://helpx.adobe.com/illustrator/using/tool-techniques/type-tool.html>
-  * Change the font 
-  * Change the size.
-  * Create a drop shadow 
-    * *Effect > Stylize > Drop Shadow*.
+    mdi:arrow-right-bottom<https://helpx.adobe.com/illustrator/using/tool-techniques/type-tool.html>
+      * Change the font
+      * Change the size.
+      * Create a drop shadow 
+        mdi:arrow-right-bottom *Effect > Stylize > Drop Shadow*.
 
 !!! note "Experimental Path Detour"
     This is for students who are feeling confident or are more familiar with Illustrator or other vector graphic software
@@ -69,13 +69,11 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 
 ### All Together
 
-- [ ] Make an **Artboard** 
-
-  https://www.adobe.com/learn/illustrator/web/visual-dictionary-artboard?learnIn=1
+- [ ] Make an **Artboard**
+      mdi:arrow-right-bottom <https://www.adobe.com/learn/illustrator/web/visual-dictionary-artboard?learnIn=1>
 
 - [ ] **Export** the artboard as .tiff
-
-  https://helpx.adobe.com/illustrator/using/exporting-artwork.html
+      mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/exporting-artwork.html>
 
 
 
@@ -84,6 +82,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
