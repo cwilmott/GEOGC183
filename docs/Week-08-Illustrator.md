@@ -66,31 +66,20 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 
     *Effect > Stylize > Drop Shadow*.
 
-!!! note "Experimental Path Detour
->
-> This is for students who are feeling confident or are more familiar with Illustrator or other vector graphic software
-
-> - [ ] Organise your **Layers**
->
->   * [ ] Rename them
->   * [ ] Create folders and create a filing system
->
-> - [ ] Use the **Pen Tool** 
->
->   * [ ] add a point
->   * [ ] subtract a point
->
-> - [ ] Use the **Smooth** tool.
->
->   https://helpx.adobe.com/illustrator/using/tool-techniques/smooth-tool.html
->
-> - [ ] Find the **Brush Library**
->
->   * [ ] Use a new brush
->
-> - [ ] Make an **Icon**
->
->   https://www.youtube.com/watch?v=ubx-Bhw7fy8https://adobe.design/stories/leading-design/how-to-design-effective-icons-part-1
+!!! note "Experimental Path Detour"
+    This is for students who are feeling confident or are more familiar with Illustrator or other vector graphic software
+    - [ ] Organise your **Layers**
+        * [ ] Rename them
+        * [ ] Create folders and create a filing system
+    - [ ] Use the **Pen Tool** 
+        * [ ] add a point
+        * [ ] subtract a point
+    - [ ] Use the **Smooth** tool.
+         [https://helpx.adobe.com/illustrator/using/tool-techniques/smooth-tool.html] (https://helpx.adobe.com/illustrator/using/tool-techniques/smooth-tool.html)
+    - [ ] Find the **Brush Library**
+        * [ ] Use a new brush
+    - [ ] Make an **Icon**
+    https://www.youtube.com/watch?v=ubx-Bhw7fy8https://adobe.design/stories/leading-design/how-to-design-effective-icons-part-1
 
 
 
@@ -111,6 +100,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
