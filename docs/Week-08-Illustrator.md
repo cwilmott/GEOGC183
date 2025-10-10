@@ -6,7 +6,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 ### **Foundations**
 
 !!! warning
-    If you break something, ++ctrl+z++ (PC) or ++cmd+Z++ (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
+    If you break something, ++ctrl+z++ (PC) or ++command+z++ (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
 #### Setting Up Your Document
 
@@ -87,6 +87,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - Set up **Rulers and Guides**
 > - Use **Masks**
 > - Create your own **Brush**
+
 
 
 
