@@ -8,7 +8,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 ### **Foundations**
 
 !!! warning
-    If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
+    If you break something, ++ctrl+z++ (PC) or ++cmd+Z++ (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
 - **Export** your map as SVG from ArcGIS Pro
       <https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm>
@@ -50,6 +50,24 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
       * Create a drop shadow 
         mdi:arrow-right-bottom *Effect > Stylize > Drop Shadow*.
 
+  !!! example
+
+    === "Unordered List"
+
+        ``` markdown
+        * Sed sagittis eleifend rutrum
+        * Donec vitae suscipit est
+        * Nulla tempor lobortis orci
+        ```
+
+    === "Ordered List"
+
+        ``` markdown
+        1. Sed sagittis eleifend rutrum
+        2. Donec vitae suscipit est
+        3. Nulla tempor lobortis orci
+        ```
+
 !!! note "Experimental Path Detour"
     This is for students who are feeling confident or are more familiar with Illustrator or other vector graphic software
     - Organise your **Layers**
@@ -82,6 +100,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
