@@ -1,7 +1,7 @@
 [TOC]
 > !!! tip
 >
-> All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2
+> All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: (https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2)
 
 
 
@@ -12,22 +12,18 @@
 > If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
 - [ ] **Export** your map as SVG from ArcGIS Pro
-
-  https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm
+      (https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm)
 
 - [ ] **Open** your map in Illustrator
-
-  1. File > Open, navigate to your SVG file, and click Open. 
-  2. Alternatively, you can drag the SVG file from your computer directly into the Illustrator application window.
+      1. File > Open, navigate to your SVG file, and click Open.
+      2. Alternatively, you can drag the SVG file from your computer directly into the Illustrator application window.
 
 - [ ] Change **Color Profile** to CMYK
-
-  *Go to File > Document Color Mode.* 
+      *Go to File > Document Color Mode.* 
 
 - [ ] **Save** onto the Adobe Cloud
-
-  * [ ] Log into Adobe Creative Cloud
-  * [ ] *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
+   * [ ] Log into Adobe Creative Cloud
+   * [ ] *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
 - [ ] Create a new **Layer**
 
@@ -116,6 +112,7 @@
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
