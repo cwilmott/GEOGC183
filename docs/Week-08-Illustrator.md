@@ -1,7 +1,5 @@
 ## Week 8: Carto-GRAPHICS
 
-[TOC]
-
 > [!TIP]
 >
 > All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2
@@ -121,6 +119,7 @@
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
