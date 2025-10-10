@@ -1,6 +1,6 @@
 ## Week 8: Carto-GRAPHICS
-
-> [!TIP]
+[TOC]
+> !!! tip
 >
 > All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2
 
@@ -8,7 +8,7 @@
 
 ### **Foundations**
 
-> [!WARNING]
+> !!! warning
 >
 > If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
@@ -72,9 +72,7 @@
 
     *Effect > Stylize > Drop Shadow*.
 
-### Experimental Detour
-
-> [!CAUTION]
+!!! note "Experimental Path Detour
 >
 > This is for students who are feeling confident or are more familiar with Illustrator or other vector graphic software
 
@@ -119,6 +117,7 @@
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
