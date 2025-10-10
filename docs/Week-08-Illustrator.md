@@ -21,23 +21,24 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
       * *Go to File > Document Color Mode.* 
 
 - **Save** onto the Adobe Cloud
-     * Log into Adobe Creative Cloud
-       :material-arrow-right-bottom: *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
+     * Log into Adobe Creative Cloud <br>
+       :material-arrow-right-bottom: *File > Save*. <br>
+       :material-arrow-right-bottom: In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
-- Create a new **Layer**
-    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html>
+- Create a new **Layer** <br>
+    :material-arrow-right-bottom: <https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html>
 
 -  Play around with the **Toolbar**
     * Select different tools
-    * Find the hidden tools
-    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html>
+    * Find the hidden tools <br>
+    :material-arrow-right-bottom: <https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html>
 
 - Select a **Shape**. 
     * Change the Fill
     mdi:arrow-right-bottom<https://helpx.adobe.com/illustrator/using/painting-fills-strokes.html>
     * Change the Stroke
-    * Using the *Appearance Panel*, change the opacity/transperancy
-    mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/using/appearance-attributes.html>
+    * Using the *Appearance Panel*, change the opacity/transperancy <br>
+    :material-arrow-right-bottom: <https://helpx.adobe.com/illustrator/using/appearance-attributes.html>
 
 - Use the **Pen Tool**. 
     * Make a shape.
@@ -50,8 +51,8 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
       * Create a drop shadow 
         mdi:arrow-right-bottom *Effect > Stylize > Drop Shadow*.
 
-  !!! example
-
+  !!! note "Experimental Path Detour"
+  
     === "Unordered List"
 
         ``` markdown
@@ -59,7 +60,6 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
         * Donec vitae suscipit est
         * Nulla tempor lobortis orci
         ```
-
     === "Ordered List"
 
         ``` markdown
@@ -100,6 +100,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
