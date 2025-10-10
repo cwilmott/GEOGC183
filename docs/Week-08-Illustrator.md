@@ -1,4 +1,3 @@
-## Week 8: Carto-GRAPHICS
 [TOC]
 > !!! tip
 >
@@ -27,8 +26,8 @@
 
 - [ ] **Save** onto the Adobe Cloud
 
-  - [ ] Log into Adobe Creative Cloud
-  - [ ] *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
+  * [ ] Log into Adobe Creative Cloud
+  * [ ] *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
 - [ ] Create a new **Layer**
 
@@ -36,27 +35,27 @@
 
 - [ ] Play around with the **Toolbar**
 
-  - [ ] Select different tools
+  * [ ] Select different tools
 
-  - [ ] Find the hidden tools
+  * [ ] Find the hidden tools
 
     https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html
 
 - [ ] Select a **Shape**. 
 
-  - [ ] Change the Fill 
+  * [ ] Change the Fill 
 
     https://helpx.adobe.com/illustrator/using/painting-fills-strokes.html
 
-  - [ ] Change the Stroke
+  * [ ] Change the Stroke
 
-  - [ ] Using the *Appearance Panel*, change the opacity/transperancy
+  * [ ] Using the *Appearance Panel*, change the opacity/transperancy
 
     https://helpx.adobe.com/illustrator/using/appearance-attributes.html
 
 - [ ] Use the **Pen Tool**. 
 
-  - [ ] Make a shape.
+  * [ ] Make a shape.
 
      https://helpx.adobe.com/illustrator/using/tool-techniques/pen-tool.html
 
@@ -64,11 +63,11 @@
 
   https://helpx.adobe.com/illustrator/using/tool-techniques/type-tool.html
 
-  - [ ] Change the font 
+  * [ ] Change the font 
 
-  - [ ] Change the size.
+  * [ ] Change the size.
 
-  - [ ] Create a drop shadow 
+  * [ ] Create a drop shadow 
 
     *Effect > Stylize > Drop Shadow*.
 
@@ -78,13 +77,13 @@
 
 > - [ ] Organise your **Layers**
 >
->   - [ ] Rename them
->   - [ ] Create folders and create a filing system
+>   * [ ] Rename them
+>   * [ ] Create folders and create a filing system
 >
 > - [ ] Use the **Pen Tool** 
 >
->   - [ ] add a point
->   - [ ] subtract a point
+>   * [ ] add a point
+>   * [ ] subtract a point
 >
 > - [ ] Use the **Smooth** tool.
 >
@@ -92,7 +91,7 @@
 >
 > - [ ] Find the **Brush Library**
 >
->   - [ ] Use a new brush
+>   * [ ] Use a new brush
 >
 > - [ ] Make an **Icon**
 >
@@ -117,6 +116,7 @@
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
