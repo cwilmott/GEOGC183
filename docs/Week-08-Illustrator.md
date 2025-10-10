@@ -3,17 +3,16 @@
 This week we are going to look at Illustrator! Don't be afraid to play around at all! You don't need to hand in a lab for this week - the lab hand in is the Print Map, due Friday 11.59pm.
 
 !!! tip
-
-    All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: [https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-        product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2](https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x product-location=Search%3AForums%3Alink%2F3.7.2-dev.2)
+    All those little icons in Illustrator are called "Tools". If you need a navigation aid, look here: [https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-        product=Helpx%2F1.0.0&x-product-location=Search%3AForums%3Alink%2F3.7.2-dev.2](https://helpx.adobe.com/illustrator/using/tools-in-illustrator.html?x-product=Helpx%2F1.0.0&x  product-location=Search%3AForums%3Alink%2F3.7.2-dev.2)
 
 
 ### **Foundations**
 
 !!! warning
-      If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
+    If you break something, CTRL + Z (PC) or COMMAND + Z (Mac) is your absolute best friend. And if that doesn't work, revel in the chaos.
 
 - [ ] **Export** your map as SVG from ArcGIS Pro
-      (https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm)
+      [https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm] (https://pro.arcgis.com/en/pro-app/latest/help/sharing/overview/svg-or-svgz-export.htm)
 
 - [ ] **Open** your map in Illustrator
       1. File > Open, navigate to your SVG file, and click Open.
@@ -27,8 +26,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
    * [ ] *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
 - [ ] Create a new **Layer**
-
-  https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html
+      [https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html] (https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html)
 
 - [ ] Play around with the **Toolbar**
 
@@ -113,6 +111,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
