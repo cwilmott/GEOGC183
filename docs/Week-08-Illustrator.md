@@ -22,7 +22,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 
 - **Save** onto the Adobe Cloud
      * Log into Adobe Creative Cloud
-       mdi:arrow-right-bottom *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
+       :material-arrow-right-bottom: *File > Save*. In the *Save to Creative Cloud* window, type in a name and select *Save*.
 
 - Create a new **Layer**
     mdi:arrow-right-bottom <https://helpx.adobe.com/illustrator/desktop/manage-layers/create-and-organize-layers/add-layers-and-sublayers.html>
@@ -100,6 +100,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - [ ] Set up **Rulers and Guides**
 > - [ ] Use **Masks**
 > - [ ] Create your own **Brush**
+
 
 
 
