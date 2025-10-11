@@ -11,6 +11,7 @@ theme:
     code: Fira Code
   icon:
     logo: octicons/code-square-24
+    annotation: material/arrow-right-circle
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -39,6 +40,7 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
       linenums: true
+  - md_in_html
   - pymdownx.inlinehilite
   - admonition
   - pymdownx.details
