@@ -63,10 +63,13 @@ Now, repeat these steps for each address:
 #### Export your GeoJSON
 
 When you're done, you're ready to export your GeoJSON for the final time.
-- Go to **Save** and choose **geoJSON**
-- Find the location of the *last* geojson you saved, and rename it ```183data.geojson```. (2) DO NOT CLOSE THIS FOLDER.
+ - Go to **Save** and choose **geoJSON**
+ - Find the location of the *last* geojson you saved, and rename it ```183data.geojson```. (2)
+DO NOT CLOSE THIS FOLDER.
 { .annotate }
+
 2. 	To rename a folder, **right click** and select **rename**
+
 
 ### Set up your Github
 
@@ -75,7 +78,8 @@ Now we need somewhere to put your new ```.geojson``` file! Github is a free repo
 #### Sign Up to Github
 
  - In your browser, create a new window or tab, and navigate to <https://github.com/>
- - On the top-right of the page, select **Sign Up** . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3) { .annotate }
+ - On the top-right of the page, select **Sign Up** . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3)
+{ .annotate }
 3. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
 
 #### Set Up A Repository
@@ -125,7 +129,8 @@ There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like t
  - Create a Google Sheet
  - Select the top left corner cell 
  - Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en>
-     *See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1) { .annotate }
+     *See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1)
+{ .annotate }
    
 1.   Functions start with ```=```. This worked for me:  ```
     =IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
@@ -135,7 +140,8 @@ There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like t
 Now that you [should] have the data imported as a table, you can start to work with the data. If you're familar with python, you may find it easier to do this using data wrangling, but honestly, if someone has made a decent tool already, why not start there? We're going to use a few free web tools to help us manage our data.
 
  - Start by exporting your new Feature Collection to **.csv**
- - Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online. Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> (4) { .annotate }
+ - Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online. Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> (4)
+{ .annotate }
 
 4.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
 
@@ -165,6 +171,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
