@@ -41,12 +41,13 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 - Repeat this step for the following categories:
     * "Address"
     * "Architect + Date"
-    * "Link" (5)
+    * "Link" (1)
     * "Designated"
     * "Notes"
-- Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. { .annotate}
+- Then copy (++control+c++) and paste (++control+v++) the information for each of the categories.
+{ .annotate }
 
-5. **Right-click** on the Landmark name (if it is underlined) and select **Copy Link Address"** to fill in the "Link" Column.
+1.  **Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column. 
 
 #### Fill out your GeoJSON Feature Collection
 
@@ -164,6 +165,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
