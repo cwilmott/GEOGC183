@@ -1,46 +1,46 @@
 # Week 09 Geodata
 
 This exercise asks you to:
-- digitize historic landmarks from the Berkeley Architectural Heritage Association (BAHA), and;
-- set up Github as a host for this data, and your future web map. 
+ - digitize historic landmarks from the Berkeley Architectural Heritage Association (BAHA), and;
+ - set up Github as a host for this data, and your future web map. 
 
-We will be using geoJSON as the key data format.
+We will be using ```geoJSON``` as the key data format.
 
 ## Foundations Pathway
 
 !!! tip "For Tech-Tortoises"
-    This pathway is for those who want to go through slowly and carefully, learning the fundamentals and foundations of web mapping.       If you're technologically nervous, or like lots of instructions, choose this path!
+    This pathway is for those who want to go through slowly and carefully, learning the fundamentals and foundations of web mapping.<br>
+	If you're technologically nervous, or like lots of instructions, choose this path!
 
 ### Create Your GeoJSON
 
-This tasks asks you to manually geolocate a ten data points from the BAHA.  
+This tasks asks you to manually geolocate 10 data points from the BAHA.  
 
 #### Find your Data
 - Open your web browser
-	* In one tab, *Tab-BAHA* go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html>
-	* In another tab, *Tab-JSON*, go to <geojson.io>
-- In *Tab-BAHA* on the BAHA Site, select 10 buildings you would like to digitize.
+	* In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html>
+	* In another tab, **Tab-JSON**, go to <https://geojson.io>
+- In **Tab-BAHA** on the BAHA Site, select 10 buildings you would like to digitize.
 
 #### Start Digitizing
-- In *Tab-BAHA*, copy (++control+c++) the street address from the table.
-- In *Tab-JSON*, paste (++control+v++) the street address in the search bar. This should take you to the address in Berkeley. If not, you may need to look it up.
+- In **Tab-BAHA**, copy (++control+c++) the **street address** from the table.
+- In **Tab-JSON**, paste (++control+v++) the street address in the **search bar**. This should take you to the address in Berkeley. If not, you may need to find it on the map.
     * Select the "Point" marker from the toolbar on the right - when you toggle, it says *Draw Point (m)* - or press ++m++ on the keyboard.
     * Place the marker on the map.
 
 #### Add Feature Categories (or variables)
-- Still in *Tab-JSON*, now select the tab on the right-hand side which says **Table**.
+- Still in **Tab-JSON**, now select the tab on the right-hand side which says **Table**.
 - Then select **new column**
     * In the new column pop-up, write "Landmark"
 - Repeat this step for the following categories:
     * "Address"
     * "Architect + Date"
-    * "Link"
+    * "Link" (5)
     * "Designated"
     * "Notes"
-- Then copy (++control+c++) and paste (++control+v++) the information for each of the categories.
+- Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. { .annotate}
 
-!!! info "For the Link Column"
-     Right-click on the "Landmark" name (if it is underlined) and select *"Copy Link Address"* to fill in the "Link" Column.
+5. **Right-click** on the Landmark name (if it is underlined) and select **Copy Link Address"** to fill in the "Link" Column.
 
 #### Fill out your GeoJSON Feature Collection
 
@@ -51,24 +51,24 @@ Now, repeat these steps for each address:
 - Fill Out the Column Data
 
 !!! warning
-    Don't forget to save periodically to avoid losing your work. geojson.io has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*. Tell your instructor when you do this so we can see where it is saving.
+    Don't forget to save periodically to avoid losing your work. geojson.io has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*. Tell your instructor if you're one of the first to do this, so we can see where it is saving.
 
 #### Export your GeoJSON
 
 When you're done, you're ready to export your GeoJSON for the final time.
-- Go to *Save* and choose *geoJSON*
-- Find the location of the *last* geojson you saved, and rename it "183data.geojson". (2) DO NOT CLOSE THIS FOLDER.
+- Go to **Save** and choose **geoJSON**
+- Find the location of the *last* geojson you saved, and rename it ```183data.geojson```. (2) DO NOT CLOSE THIS FOLDER.
 { .annotate }
-2. 	To rename a folder, right click and select "rename"
+2. 	To rename a folder, **right click** and select **rename**
 
 ### Set up your Github
 
-Now we need somewhere to put your new .geojson file! Github is a free repository where we can put code and share it with other people - one of the cornerstones of open source (for free) software development. It has the added bonus of also being a web-publisher, where we can actually host relatively sophisticated websites.
+Now we need somewhere to put your new ```.geojson``` file! Github is a free repository where we can put code and share it with other people - one of the cornerstones of open source (for free) software development. It has the added bonus of also being a web-publisher, where we can actually host relatively sophisticated websites.
 
 #### Sign Up to Github
 
  - In your browser, create a new window or tab, and navigate to <https://github.com/>
- - On the top-right of the page, select *Sign Up* . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3) { .annotate }
+ - On the top-right of the page, select **Sign Up** . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3) { .annotate }
 3. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
 
 #### Set Up A Repository
@@ -76,25 +76,25 @@ Now we need somewhere to put your new .geojson file! Github is a free repository
 ![New Repository]([https://dummyimage.com/600x400/eee/aaa](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ){ align=left }
  - In the "Repository name" box, type **BAHA Map**
  - In the "Description" box, type a short description. For example, type "This repository is for the BAHA Map"
- - Select *Public* for your repository.
- - Select *Add a README file*.
- - Click *Create repository*.
+ - Select **Public** for your repository.
+ - Select **Add a README file**.
+ - Click **Create repository**.
 
 ### Add your Data
 Now that you have your Github account up and running, we need to create a basic file structure to house your data. It's not hard.
 
 So far, you should only see one file listed in the repository, the ```README.md``` file you created when you initialized the repository. Now, we'll upload some of our own files.
 
- - To the right of the page, select the *Add file* dropdown menu.
+ - To the right of the page, select the **Add file** dropdown menu.
  - From the dropdown menu, click *Upload* files.
  - On your computer, return to the the folder containing your ```183data.geojson``` file, then drag and drop it into the browser.
- - At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click *Commit changes*.
+ - At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click **Commit changes**.
 
 #### Tidy Your Files
 We don't want this to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder.
  - To do this, you need to select the 183data.geojson file.
- - Then, select the "Edit" icon to edit this file. ![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp){ align=right }
- - Then, locate the file structure bar at the top, ![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp){ align=right }
+ - Then, select the "Edit" icon to edit this file. ![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp){align=right}
+ - Then, locate the file structure bar at the top, ![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp){align=right}
     * Copy and paste (or write directly) this into the file structure bar ``` /data ```  
 
 ### Publish to Web Using Github Pages
@@ -158,6 +158,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
