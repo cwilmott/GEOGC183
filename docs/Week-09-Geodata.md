@@ -83,8 +83,8 @@ Now we need somewhere to put your new ```.geojson``` file! Github is a free repo
 3. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
 
 #### Set Up A Repository
-- In the upper-right corner of any page, select, then click *New repository*.
-![New Repository]([https://dummyimage.com/600x400/eee/aaa](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ){ align=left }
+ - In the upper-right corner of any page, select, then click *New repository*.
+![New Repository](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ){ align=left }
  - In the "Repository name" box, type **BAHA Map**
  - In the "Description" box, type a short description. For example, type "This repository is for the BAHA Map"
  - Select **Public** for your repository.
@@ -102,11 +102,13 @@ So far, you should only see one file listed in the repository, the ```README.md`
  - At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click **Commit changes**.
 
 #### Tidy Your Files
-We don't want this to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder.
+We don't want this to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder. <br>
  - To do this, you need to select the 183data.geojson file.
- - Then, select the "Edit" icon to edit this file. ![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp){align=right}
- - Then, locate the file structure bar at the top, ![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp){align=right}
-    * Copy and paste (or write directly) this into the file structure bar ``` /data ```  
+ - Then, select the "Edit" icon to edit this file.
+![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp){align=right}
+ - Then, locate the file structure bar at the top. 
+ - Copy and paste (or write directly) ``` /data ```  into the file structure bar
+![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp){align=right}
 
 ### Publish to Web Using Github Pages
 
@@ -171,6 +173,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
