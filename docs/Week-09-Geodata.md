@@ -6,6 +6,12 @@ This exercise asks you to:
 
 We will be using ```geoJSON``` as the key data format.
 
+Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
+{ .annotate }
+
+1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
+    text__, images, ... basically anything that can be expressed in Markdown.
+
 ## Foundations Pathway
 
 !!! tip "For Tech-Tortoises"
@@ -158,6 +164,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
