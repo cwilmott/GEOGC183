@@ -63,11 +63,29 @@ When you're done, you're ready to export your GeoJSON for the final time.
 	This pathway is for students who love to bash at things until they work, and run before they can walk. If you have low attention spans and lots of tech confidence, this is the pathway for you. 
 	
 #### Scrape + Clean Data
-We are trying to scrape the data from this website:
 
+##### Examine the Code Structure.
+
+##### Scrape Data 
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets using the =IMPORT function.
 
 See if you can figure it out first - and at the bottom, I'll give you a hint.
+
+##### Geocode the Data
+
+This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/>
+
+##### Convert the Data
+For some reason, you can't just pull the geocoded CSV into geojson.io. Probably because it's trying to be annoying.
+So, easier to just convert the data, rather than fight with it. 
+There are lots of good csv to geoJSON converters out there. Have a search, but this one worked for me (the Czech are *great* for open source tools).
+<https://mygeodata.cloud/converter/csv-to-geojson> 
+
+##### Export and Save
+
+Now you should be able to upload the data to geojson.io, using the "Open" option.
+
+Clean the data as you see fit, and then *Save > geoJSON*
 
 #### Set up your Github
 #### Build your File Structure
@@ -76,10 +94,12 @@ See if you can figure it out first - and at the bottom, I'll give you a hint.
 
 #### Hints
 
-The code for the Google Sheets import is 
-``` javascript
-=IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
-```
+??? info "Google Sheets Formula"
+    The code for the Google Sheets import is 
+    ``` javascript
+    =IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
+    ```
+
 
 
 
