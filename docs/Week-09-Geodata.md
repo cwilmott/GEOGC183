@@ -57,8 +57,8 @@ Now, repeat these steps for each address:
 
 When you're done, you're ready to export your GeoJSON for the final time.
 - Go to *Save* and choose *geoJSON*
-- Find the location of the *last* geojson you saved, and rename it "183data.geojson". (2) DO NOT CLOSE THIS FOLDER. ( . annotate }
-
+- Find the location of the *last* geojson you saved, and rename it "183data.geojson". (2) DO NOT CLOSE THIS FOLDER.
+{ .annotate }
 2. 	To rename a folder, right click and select "rename"
 
 ### Set up your Github
@@ -68,13 +68,13 @@ Now we need somewhere to put your new .geojson file! Github is a free repository
 #### Sign Up to Github
 
  - In your browser, create a new window or tab, and navigate to <https://github.com/>
- - On the top-right of the page, select *Sign Up* . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3) { . annotate }
+ - On the top-right of the page, select *Sign Up* . I like to use my Berkeley credentials, but you may want to use your personal email as well. (3) { .annotate }
 3. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
 
 #### Set Up A Repository
 - In the upper-right corner of any page, select, then click *New repository*.
 ![New Repository]([https://dummyimage.com/600x400/eee/aaa](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ){ align=left }
-- In the "Repository name" box, type ``` BAHA Map ```
+- In the "Repository name" box, type **BAHA Map**
 - In the "Description" box, type a short description. For example, type "This repository is for the BAHA Map"
 - Select *Public* for your repository.
 - Select *Add a README file*.
@@ -140,6 +140,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
