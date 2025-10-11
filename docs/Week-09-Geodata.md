@@ -73,7 +73,7 @@ Now we need somewhere to put your new .geojson file! Github is a free repository
 
 #### Set Up A Repository
 - In the upper-right corner of any page, select, then click *New repository*.
-![New Repository]([https://dummyimage.com/600x400/eee/aaa](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp){ align=left }
+![New Repository]([https://dummyimage.com/600x400/eee/aaa](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ){ align=left }
 - In the "Repository name" box, type ``` BAHA Map ```
 - In the "Description" box, type a short description. For example, type "This repository is for the BAHA Map"
 - Select *Public* for your repository.
@@ -140,6 +140,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
