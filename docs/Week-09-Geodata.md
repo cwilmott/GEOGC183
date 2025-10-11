@@ -61,11 +61,25 @@ When you're done, you're ready to export your GeoJSON for the final time.
 ### Experimental Pathway
 !!! tip "For Tech-Hares"
 	This pathway is for students who love to bash at things until they work, and run before they can walk. If you have low attention spans and lots of tech confidence, this is the pathway for you. 
+	
 #### Scrape + Clean Data
+We are trying to scrape the data from this website:
+
+There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets using the =IMPORT function.
+
+See if you can figure it out first - and at the bottom, I'll give you a hint.
 
 #### Set up your Github
 #### Build your File Structure
 #### Publish to Web
 #### Make A Basic HTML Page 
+
+#### Hints
+
+The code for the Google Sheets import is 
+``` javascript
+=IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
+```
+
 
 
