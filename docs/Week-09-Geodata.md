@@ -1,7 +1,7 @@
 # Week 09 Geodata
 
 This exercise asks you to: <br>
- - digitize historic landmarks from the Berkeley Architectural Heritage Association (BAHA), and;
+ - digitize historic landmarks from the Berkeley Architectural Heritage Association (BAHA), and; <br>
  - set up Github as a host for this data, and your future web map. 
 
 We will be using ```geoJSON``` as the key data format.
@@ -24,8 +24,8 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 
 #### Find your Data
 :material-numeric-1-circle: Open your web browser <br>
- - In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
- - In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
+:material-arrow-right-bottom: In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
+:material-arrow-right-bottom: In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
 :material-numeric-2-circle: In **Tab-BAHA** on the BAHA Site, select 10 buildings you would like to digitize.<br>
 
 #### Start Digitizing
@@ -51,10 +51,10 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 #### Fill out your GeoJSON Feature Collection
 
 Now, repeat these steps for each address: <br>
-- Search for the address
-- Select the point tool
-- Make a point
-- Fill Out the Column Data
+:material-arrow-right-bottom: Search for the address
+:material-arrow-right-bottom: Select the point tool
+:material-arrow-right-bottom: Make a point
+:material-arrow-right-bottom: Fill Out the Column Data
 
 !!! warning
     Don't forget to save periodically to avoid losing your work. geojson.io has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*. Tell your instructor if you're one of the first to do this, so we can see where it is saving.
@@ -167,6 +167,7 @@ Once you've set up your Github Repository, you'll need to add a folder to the re
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
