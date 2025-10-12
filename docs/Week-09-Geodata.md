@@ -12,7 +12,7 @@ Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
 1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
     text__, images, ... basically anything that can be expressed in Markdown.
 
-## Foundations Pathway
+## Foundations Pathway :turtle:
 
 !!! tip "For Tech-Tortoises"
     This pathway is for those who want to go through slowly and carefully, learning the fundamentals and foundations of web mapping.<br>
@@ -113,7 +113,7 @@ We don't want this to be in the main section because it's untidy (and you might 
 
 ### Publish to Web Using Github Pages
 
-## Experimental Pathway
+## Experimental Pathway :rabbit2:
 !!! tip "For Tech-Hares"
 	This pathway is for students who love to bash at things until they work, and run before they can walk. If you have low attention spans and lots of tech confidence, this is the pathway for you. 
 	
@@ -173,6 +173,7 @@ If you're feeling confident, and you still have 15-30 mins left, you can start m
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
 
 ### Hints
+
 
 
 
