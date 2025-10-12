@@ -39,16 +39,14 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 :material-numeric-2-circle: Then select **new column**<br>
 	:octicons-dot-16: In the new column pop-up, write "Landmark"<br>
 :material-numeric-3-circle: Repeat this step for the following categories:<br>
-	:octicons-dot-16: "Address"<br>
-	:octicons-dot-16:"Architect + Date"<br>
-	:octicons-dot-16: "Link" (1)
-{.annotate}
-1.  **Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column. <br>
-
-	:octicons-dot-16: "Designated"<br>
-	:octicons-dot-16: "Notes"<br>
+:octicons-dot-16: "Address"<br>
+:octicons-dot-16:"Architect + Date"<br>
+:octicons-dot-16: "Link" (1)<br>
+:octicons-dot-16: "Designated"<br>
+:octicons-dot-16: "Notes"<br>
 :material-numeric-4-circle: Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. <br>
- 
+{ .annotate }
+1. 	**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column.
 
 #### Fill out your GeoJSON Feature Collection
 
@@ -66,11 +64,10 @@ Now, repeat these steps for each address: <br>
 When you're done, you're ready to export your GeoJSON for the final time. <br>
 
 :material-numeric-1-circle: Go to **Save** and choose **geoJSON** <br>
-:material-numeric-2-circle: Find the location of the *last* geojson you saved, and rename it ```183data.geojson``` (2). DO NOT CLOSE THIS FOLDER.
+:material-numeric-2-circle: Find the location of the *last* geojson you saved, and rename it ```183data.geojson``` (1). Don't close the folder.
 { .annotate }
 
-2. 	To rename a folder, **right click** and select **rename**
-
+1.  To rename a folder, **right click** and select **rename**
 
 ### Set up your Github
 
@@ -79,9 +76,9 @@ Now we need somewhere to put your new ```.geojson``` file! Github is a free repo
 #### Sign Up to Github
 
 :material-numeric-1-circle: In your browser, create a new window or tab, and navigate to <https://github.com/> <br>
-:material-numeric-2-circle: On the top-right of the page, select **Sign Up** (3). I like to use my Berkeley credentials, but you may want to use your personal email as well. 
+:material-numeric-2-circle: On the top-right of the page, select **Sign Up** (1). I like to use my Berkeley credentials, but you may want to use your personal email as well. 
 { .annotate }
-3. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
+1. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
 
 #### Set Up A Repository
 :material-numeric-1-circle: In the upper-right corner of any page, select, then click *New repository*. <br>
@@ -131,10 +128,10 @@ The first thing you need to do is examine the HTML code structure: how is the da
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets. Since the data is in a table, we can use the ```IMPORTHTML``` function. <br>
 :material-numeric-1-circle: Create a Google Sheet <br>
 :material-numeric-2-circle: Select the top left corner cell <br>
-:material-numeric-3-circle: Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (5)
+:material-numeric-3-circle: Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1)
 { .annotate }
    
-5.   Functions start with ```=```. This worked for me:  ```
+1.   Functions start with ```=```. This worked for me:  ```
     =IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
     ```
 
@@ -142,10 +139,10 @@ There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like t
 Now that you [should] have the data imported as a table, you can start to work with the data. If you're familar with python, you may find it easier to do this using data wrangling, but honestly, if someone has made a decent tool already, why not start there? We're going to use a few free web tools to help us manage our data. <br>
 
 :material-numeric-1-circle: Start by exporting your new Feature Collection to **.csv** <br>
-:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online (6) . Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> 
+:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online (1) . Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> 
 { .annotate }
 
-6.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
+1.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
 
 #### Convert the Data
 
@@ -170,6 +167,7 @@ Once you've set up your Github Repository, you'll need to add a folder to the re
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
