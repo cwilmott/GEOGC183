@@ -131,10 +131,10 @@ The first thing you need to do is examine the HTML code structure: how is the da
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets. Since the data is in a table, we can use the ```IMPORTHTML``` function. <br>
 :material-numeric-1-circle: Create a Google Sheet <br>
 :material-numeric-2-circle: Select the top left corner cell <br>
-:material-numeric-3-circle: Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1)
+:material-numeric-3-circle: Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (5)
 { .annotate }
    
-1.   Functions start with ```=```. This worked for me:  ```
+5.   Functions start with ```=```. This worked for me:  ```
     =IMPORTHTML("https://berkeleyheritage.com/berkeley_landmarks/landmarks1-100.html", "table", 1, "en_US")
     ```
 
@@ -142,10 +142,10 @@ There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like t
 Now that you [should] have the data imported as a table, you can start to work with the data. If you're familar with python, you may find it easier to do this using data wrangling, but honestly, if someone has made a decent tool already, why not start there? We're going to use a few free web tools to help us manage our data. <br>
 
 :material-numeric-1-circle: Start by exporting your new Feature Collection to **.csv** <br>
-:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online (4) . Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> 
+:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online (6) . Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> 
 { .annotate }
 
-4.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
+6.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
 
 #### Convert the Data
 
@@ -170,6 +170,7 @@ Once you've set up your Github Repository, you'll need to add a folder to the re
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
