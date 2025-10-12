@@ -6,12 +6,6 @@ This exercise asks you to: <br>
 
 We will be using ```geoJSON``` as the key data format.
 
-Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-{ .annotate }
-
-1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be expressed in Markdown.
-
 ## Foundations Pathway :turtle:
 
 !!! tip "For Tech-Tortoises"
@@ -24,8 +18,8 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 
 #### Find your Data
 :material-numeric-1-circle: Open your web browser <br>
-:material-arrow-right-bottom: In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
-:material-arrow-right-bottom: In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
+	* :material-arrow-right-bottom: In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
+	* :material-arrow-right-bottom: In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
 :material-numeric-2-circle: In **Tab-BAHA** on the BAHA Site, select 10 buildings you would like to digitize.<br>
 
 #### Start Digitizing
@@ -39,14 +33,13 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 :material-numeric-2-circle: Then select **new column**<br>
 	:octicons-dot-16: In the new column pop-up, write "Landmark"<br>
 :material-numeric-3-circle: Repeat this step for the following categories:<br>
-:octicons-dot-16: "Address"<br>
-:octicons-dot-16:"Architect + Date"<br>
-:octicons-dot-16: "Link" (1)<br>
-:octicons-dot-16: "Designated"<br>
-:octicons-dot-16: "Notes"<br>
+    * "Address"
+    * "Architect + Date"
+    * ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
+    * "Designated"<br>
+    * "Notes"<br>
 :material-numeric-4-circle: Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. <br>
-{ .annotate }
-1. 	**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column.
+
 
 #### Fill out your GeoJSON Feature Collection
 
@@ -64,10 +57,8 @@ Now, repeat these steps for each address: <br>
 When you're done, you're ready to export your GeoJSON for the final time. <br>
 
 :material-numeric-1-circle: Go to **Save** and choose **geoJSON** <br>
-:material-numeric-2-circle: Find the location of the *last* geojson you saved, and rename it ```183data.geojson``` (1). Don't close the folder.
-{ .annotate }
-
-1.  To rename a folder, **right click** and select **rename**
+:material-numeric-2-circle: Find the location of the *last* geojson you saved, and [rename]("To rename a folder, **right click** and select **rename**") it ```183data.geojson```. Don't close the folder.
+ 
 
 ### Set up your Github
 
@@ -76,11 +67,10 @@ Now we need somewhere to put your new ```.geojson``` file! Github is a free repo
 #### Sign Up to Github
 
 :material-numeric-1-circle: In your browser, create a new window or tab, and navigate to <https://github.com/> <br>
-:material-numeric-2-circle: On the top-right of the page, select **Sign Up** (1). I like to use my Berkeley credentials, but you may want to use your personal email as well. 
-{ .annotate }
-1. 	Github provides lots of support for the sign up process here: <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
+:material-numeric-2-circle: On the top-right of the page, select [**Sign Up**](<https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github> "Github provides lots of support for the sign up process here"). I like to use my Berkeley credentials, but you may want to use your personal email as well. 
 
 #### Set Up A Repository
+Let's set up a repository to hold your hard-earned data. 
 :material-numeric-1-circle: In the upper-right corner of any page, select, then click *New repository*. <br>
 ![New Repository](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ) <br>
 :material-numeric-2-circle: In the "Repository name" box, type **BAHA Map** <br>
@@ -94,10 +84,10 @@ Now that you have your Github account up and running, we need to create a basic 
 
 So far, you should only see one file listed in the repository, the ```README.md``` file you created when you initialized the repository. Now, we'll upload some of our own files.
 
-:material-numeric-1-circle: To the right of the page, select the **Add file** dropdown menu. <br>
-:material-numeric-2-circle: From the dropdown menu, click *Upload* files. <br>
-:material-numeric-3-circle: On your computer, return to the the folder containing your ```183data.geojson``` file, then drag and drop it into the browser. <br>
-:material-numeric-4-circle: At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click **Commit changes**. <br>
+ :material-numeric-1-circle: To the right of the page, select the **Add file** dropdown menu. <br>
+ :material-numeric-2-circle: From the dropdown menu, click *Upload* files. <br>
+ :material-numeric-3-circle: On your computer, return to the the folder containing your ```183data.geojson``` file, then drag and drop it into the browser. <br>
+ :material-numeric-4-circle: At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click **Commit changes**. <br>
 
 #### Tidy Your Files
 We don't want this to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder. <br>
@@ -122,7 +112,7 @@ The first thing you need to do is examine the HTML code structure: how is the da
 :material-numeric-1-circle: Go to the BAHA website at <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
 :material-numeric-2-circle: Choose a list of 100 sites and click. <br>
 :material-numeric-3-circle: Right-click on the table with the data and select *Inspect*, *View Page Source*, *Developer Tools* - or similar. <br>
-	:material-arrow-right-bottom: You will see that the code is nested in a ```<table>``` tag, with sub-tags ```<td>``` and ```<tr>```. This means that the data is structured as a table within the HTML page.
+    :material-arrow-right-bottom: You will see that the code is nested in a ```<table>``` tag, with sub-tags ```<td>``` and ```<tr>```. This means that the data is structured as a table within the HTML page.
 
 #### Scrape Data 
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets. Since the data is in a table, we can use the ```IMPORTHTML``` function. <br>
@@ -139,10 +129,7 @@ There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like t
 Now that you [should] have the data imported as a table, you can start to work with the data. If you're familar with python, you may find it easier to do this using data wrangling, but honestly, if someone has made a decent tool already, why not start there? We're going to use a few free web tools to help us manage our data. <br>
 
 :material-numeric-1-circle: Start by exporting your new Feature Collection to **.csv** <br>
-:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online (1) . Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/> 
-{ .annotate }
-
-1.	If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
+:material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online. Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/>. If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
 
 #### Convert the Data
 
@@ -154,8 +141,8 @@ There are lots of good csv to geoJSON converters out there. Again, have a search
 #### Export and Save
 
 Now you should be able to upload the data to geojson.io, using the "Open" option. <br>
-:material-numeric-1-circle: Clean the data as you see fit, and then *Save > geoJSON* <br>
-:material-numeric-2-circle: Locate the downloaded file, and rename it to **183data.geosjon** <br>
+   :material-numeric-1-circle: Clean the data as you see fit, and then *Save > geoJSON* <br>
+   :material-numeric-2-circle: Locate the downloaded file, and rename it to **183data.geosjon** <br>
 
 ### Set up your Github
 ### Build your File Structure
@@ -167,6 +154,7 @@ Once you've set up your Github Repository, you'll need to add a folder to the re
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
