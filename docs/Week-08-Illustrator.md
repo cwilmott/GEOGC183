@@ -2,25 +2,6 @@
 
 This week we are going to look at Illustrator! Don't be afraid to play around at all! You don't need to hand in a lab for this week - the lab hand in is the Print Map, due Friday 11.59pm.
 
-*References*
-
-> [Week 8 Lab Slides](https://docs.google.com/presentation/d/157tbAk1_-lMffWwcc_ygse4Tf4RUchuHIygd2Pf1bJA/edit?usp=sharing)
-
-
-> [NPS Cartography Adobe Illustrator Files](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20NPS%20.AI%20Files)
-
-* Inspect the "Yosemite Map" file and play with the layers. Notice the colors, type, symbols, brushes, hillshade, etc.
-
-> [Berkeley Art Center Adobe Illustrator Basics](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20Berkeley%20Art%20Center%20Adobe%20Illustrator%20GDF)
-
-
-* I took this workshop during undergrad. Some stuff I still use daily, and others not. It's a really great guide for getting started.
-
-> [Mira Rojanasakul Outtakes Gallery](https://www.are.na/mira-5m2rrf3l0am/outtakes-ydoowoskda0)
-
-* For those anxious about making mistakes, no fear. Every professional has some sort of "mistakes" part of their portfolio. 
-
-
 ### **Foundations**
 
 !!! warning
@@ -87,6 +68,8 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
              :material-link: <https://helpx.adobe.com/illustrator/using/tool-techniques/smooth-tool.html> <br>
             - Find the **Brush Library** <br>
                 * Use a new brush <br>
+            - Vectorize a raster image.
+               :material-link: <https://helpx.adobe.com/illustrator/using/image-trace.html>
             - Make an **Icon** <br>
               :material-link: <https://www.youtube.com/watch?v=ubx-Bhw7fy8https://adobe.design/stories/leading-design/how-to-design-effective-icons-part-1 
 
@@ -107,9 +90,23 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - Create your own **Brush**
 
 
+*References*
+
+> [Week 8 Lab Slides](https://docs.google.com/presentation/d/157tbAk1_-lMffWwcc_ygse4Tf4RUchuHIygd2Pf1bJA/edit?usp=sharing)
 
 
+> [NPS Cartography Adobe Illustrator Files](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20NPS%20.AI%20Files)
 
+* Inspect the "Yosemite Map" file and play with the layers. Notice the colors, type, symbols, brushes, hillshade, etc.
+
+> [Berkeley Art Center Adobe Illustrator Basics](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20Berkeley%20Art%20Center%20Adobe%20Illustrator%20GDF)
+
+
+* I took this workshop during undergrad. Some stuff I still use daily, and others not. It's a really great guide for getting started.
+
+> [Mira Rojanasakul Outtakes Gallery](https://www.are.na/mira-5m2rrf3l0am/outtakes-ydoowoskda0)
+
+* For those anxious about making mistakes, no fear. Every professional has some sort of "mistakes" part of their portfolio. 
 
 
 
