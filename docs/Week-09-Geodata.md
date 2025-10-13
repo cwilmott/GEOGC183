@@ -17,12 +17,15 @@ We will be using ```geoJSON``` as the key data format.
 This tasks asks you to manually geolocate 10 data points from the BAHA.  
 
 #### Find your Data
+First, let's find some data!
+
 :material-numeric-1-circle: Open your web browser <br>
-	* :material-arrow-right-bottom: In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
-	* :material-arrow-right-bottom: In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
+     :material-arrow-right-bottom: In one tab, **Tab-BAHA** go to <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
+     :material-arrow-right-bottom: In another tab, **Tab-JSON**, go to <https://geojson.io> <br>
 :material-numeric-2-circle: In **Tab-BAHA** on the BAHA Site, select 10 buildings you would like to digitize.<br>
 
 #### Start Digitizing
+Next, let's make it spatial!
 :material-numeric-1-circle: In **Tab-BAHA**, copy (++control+c++) the **street address** from the table.<br>
 :material-numeric-2-circle: In **Tab-JSON**, paste (++control+v++) the street address in the **search bar**. This should take you to the address in Berkeley. If not, you may need to find it on the map. <br>
 :material-numeric-3-circle: Select the "Point" marker from the toolbar on the right - when you toggle, it says *Draw Point (m)* - or press ++m++ on the keyboard.<br>
@@ -31,23 +34,23 @@ This tasks asks you to manually geolocate 10 data points from the BAHA.
 #### Add Feature Categories (or variables)
 :material-numeric-1-circle: Still in **Tab-JSON**, now select the tab on the right-hand side which says **Table**.<br>
 :material-numeric-2-circle: Then select **new column**<br>
-	:octicons-dot-16: In the new column pop-up, write "Landmark"<br>
+     :octicons-dot-16: In the new column pop-up, write "Landmark"<br>
 :material-numeric-3-circle: Repeat this step for the following categories:<br>
-    * "Address"
-    * "Architect + Date"
-    * ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
-    * "Designated"<br>
-    * "Notes"<br>
+     *"Address"
+     * "Architect + Date"
+     * ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
+     * "Designated"<br>
+     * "Notes"<br>
 :material-numeric-4-circle: Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. <br>
 
 
 #### Fill out your GeoJSON Feature Collection
 
 Now, repeat these steps for each address: <br>
-:material-arrow-right-bottom: Search for the address
-:material-arrow-right-bottom: Select the point tool
-:material-arrow-right-bottom: Make a point
-:material-arrow-right-bottom: Fill Out the Column Data
+     :material-arrow-right-bottom: Search for the address
+     :material-arrow-right-bottom: Select the point tool
+     :material-arrow-right-bottom: Make a point
+     :material-arrow-right-bottom: Fill Out the Column Data
 
 !!! warning
     Don't forget to save periodically to avoid losing your work. geojson.io has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*. Tell your instructor if you're one of the first to do this, so we can see where it is saving.
@@ -112,7 +115,7 @@ The first thing you need to do is examine the HTML code structure: how is the da
 :material-numeric-1-circle: Go to the BAHA website at <https://berkeleyheritage.com/berkeley_landmarks/all_landmarks.html> <br>
 :material-numeric-2-circle: Choose a list of 100 sites and click. <br>
 :material-numeric-3-circle: Right-click on the table with the data and select *Inspect*, *View Page Source*, *Developer Tools* - or similar. <br>
-    :material-arrow-right-bottom: You will see that the code is nested in a ```<table>``` tag, with sub-tags ```<td>``` and ```<tr>```. This means that the data is structured as a table within the HTML page.
+     :material-arrow-right-bottom: You will see that the code is nested in a ```<table>``` tag, with sub-tags ```<td>``` and ```<tr>```. This means that the data is structured as a table within the HTML page.
 
 #### Scrape Data 
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets. Since the data is in a table, we can use the ```IMPORTHTML``` function. <br>
@@ -154,6 +157,7 @@ Once you've set up your Github Repository, you'll need to add a folder to the re
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
