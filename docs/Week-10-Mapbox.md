@@ -2,7 +2,11 @@
 
 ## Foundations :turtle:
 
+Let's take it *slllooooowww*. Breathe!
+
 ### Mapbox
+First, we need to create our very own Mapbox map. Mapbox is a semi-open source tool we can use to make web maps. Its data is based on OpenStreetMap, and we get *a lot* of free views so it's a useful tool to begin your first web map. 
+
 #### Set up Mapbox
 
 #### Create a Mapbox Style
@@ -53,4 +57,5 @@
 #### Upload Files
 
 #### Check its worked!
+
 
