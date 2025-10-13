@@ -90,7 +90,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - Create your own **Brush**
 
 
-*References*
+### References
 
 > [Week 8 Lab Slides](https://docs.google.com/presentation/d/157tbAk1_-lMffWwcc_ygse4Tf4RUchuHIygd2Pf1bJA/edit?usp=sharing)
 
@@ -107,6 +107,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > [Mira Rojanasakul Outtakes Gallery](https://www.are.na/mira-5m2rrf3l0am/outtakes-ydoowoskda0)
 
 * For those anxious about making mistakes, no fear. Every professional has some sort of "mistakes" part of their portfolio. 
+
 
 
 
