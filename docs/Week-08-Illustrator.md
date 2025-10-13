@@ -11,6 +11,11 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 
 * Inspect the "Yosemite Map" file and play with the layers. Notice the colors, type, symbols, brushes, hillshade, etc.
 
+> [Berkeley Art Center Adobe Illustrator Basics](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20Berkeley%20Art%20Center%20Adobe%20Illustrator%20GDF)
+
+
+* I took this workshop during undergrad. Some stuff I still use daily, and others not. It's a really great guide for getting started.
+
 > [Mira Rojanasakul Outtakes Gallery](https://www.are.na/mira-5m2rrf3l0am/outtakes-ydoowoskda0)
 
 * For those anxious about making mistakes, no fear. Every professional has some sort of "mistakes" part of their portfolio. 
@@ -100,6 +105,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - Set up **Rulers and Guides**
 > - Use **Masks**
 > - Create your own **Brush**
+
 
 
 
