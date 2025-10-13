@@ -5,10 +5,14 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 *References*
 
 > [Week 8 Lab Slides](https://docs.google.com/presentation/d/157tbAk1_-lMffWwcc_ygse4Tf4RUchuHIygd2Pf1bJA/edit?usp=sharing)
-> 
+
+
 > [NPS Cartography Adobe Illustrator Files](https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab%208%20NPS%20.AI%20Files)
-> 
+
+* Inspect the "Yosemite Map" file and play with the layers. Notice the colors, type, symbols, brushes, hillshade, etc.
+
 > [Mira Rojanasakul Outtakes Gallery](https://www.are.na/mira-5m2rrf3l0am/outtakes-ydoowoskda0)
+
 * For those anxious about making mistakes, no fear. Every professional has some sort of "mistakes" part of their portfolio. 
 
 
@@ -96,6 +100,7 @@ This week we are going to look at Illustrator! Don't be afraid to play around at
 > - Set up **Rulers and Guides**
 > - Use **Masks**
 > - Create your own **Brush**
+
 
 
 
