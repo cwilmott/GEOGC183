@@ -26,31 +26,33 @@ First, let's find some data!
 
 #### Start Digitizing
 Next, let's make it spatial!
+
 :material-numeric-1-circle: In **Tab-BAHA**, copy (++control+c++) the **street address** from the table.<br>
 :material-numeric-2-circle: In **Tab-JSON**, paste (++control+v++) the street address in the **search bar**. This should take you to the address in Berkeley. If not, you may need to find it on the map. <br>
 :material-numeric-3-circle: Select the "Point" marker from the toolbar on the right - when you toggle, it says *Draw Point (m)* - or press ++m++ on the keyboard.<br>
 :material-numeric-4-circle: Place the marker on the map.<br>
 
-#### Add Feature Categories (or variables)
+#### Add Attributes 
+Now, we need to add in some attribute data to describe the points
+
 :material-numeric-1-circle: Still in **Tab-JSON**, now select the tab on the right-hand side which says **Table**.<br>
 :material-numeric-2-circle: Then select **new column**<br>
      :octicons-dot-16: In the new column pop-up, write "Landmark"<br>
 :material-numeric-3-circle: Repeat this step for the following categories:<br>
-     *"Address"
-     * "Architect + Date"
-     * ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
-     * "Designated"<br>
-     * "Notes"<br>
+     -"Address"
+     - "Architect + Date"
+     - ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
+     - "Designated"<br>
+     - "Notes"<br>
 :material-numeric-4-circle: Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. <br>
 
 
 #### Fill out your GeoJSON Feature Collection
-
-Now, repeat these steps for each address: <br>
-     :material-arrow-right-bottom: Search for the address
-     :material-arrow-right-bottom: Select the point tool
-     :material-arrow-right-bottom: Make a point
-     :material-arrow-right-bottom: Fill Out the Column Data
+Since you're a wizz at creating data, repeat these steps for each of the 9 remaining addresses: <br>
+     :material-arrow-right-bottom: Search for the address <br>
+     :material-arrow-right-bottom: Select the point tool <br>
+     :material-arrow-right-bottom: Make a point <br>
+     :material-arrow-right-bottom: Fill Out the Column Data <br>
 
 !!! warning
     Don't forget to save periodically to avoid losing your work. geojson.io has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*. Tell your instructor if you're one of the first to do this, so we can see where it is saving.
@@ -65,15 +67,17 @@ When you're done, you're ready to export your GeoJSON for the final time. <br>
 
 ### Set up your Github
 
-Now we need somewhere to put your new ```.geojson``` file! Github is a free repository where we can put code and share it with other people - one of the cornerstones of open source (for free) software development. It has the added bonus of also being a web-publisher, where we can actually host relatively sophisticated websites.
+Now we need somewhere to put your new ```.geojson``` file! *Github* is a free repository where we can put code and share it with other people - one of the cornerstones of open source (for free) software development. It has the added bonus of also being a web-publisher, where we can actually host relatively sophisticated websites.
 
 #### Sign Up to Github
+First, we need to sign up to Github.
 
 :material-numeric-1-circle: In your browser, create a new window or tab, and navigate to <https://github.com/> <br>
 :material-numeric-2-circle: On the top-right of the page, select [**Sign Up**](<https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github> "Github provides lots of support for the sign up process here"). I like to use my Berkeley credentials, but you may want to use your personal email as well. 
 
 #### Set Up A Repository
-Let's set up a repository to hold your hard-earned data. 
+Let's set up a repository to hold your hard-earned data. <br>
+
 :material-numeric-1-circle: In the upper-right corner of any page, select, then click *New repository*. <br>
 ![New Repository](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp ) <br>
 :material-numeric-2-circle: In the "Repository name" box, type **BAHA Map** <br>
@@ -96,12 +100,24 @@ So far, you should only see one file listed in the repository, the ```README.md`
 We don't want this to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder. <br>
 :material-numeric-1-circle: To do this, you need to select the 183data.geojson file. <br>
 :material-numeric-2-circle: Then, select the "Edit" icon to edit this file. <br>
-![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp)
+![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp) <br>
 :material-numeric-3-circle: Then, locate the file structure bar at the top. <br>
 :material-numeric-4-circle: Copy and paste (or write directly) ``` /data ```  into the file structure bar <br>
-![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp)
+![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp) <br>
 
 ### Publish to Web Using Github Pages
+
+Finally, we can publish to the web using Github pages so we can share our data.
+
+Under your repository name, click  :material-cog:*Settings*. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+![Image Title](https://docs.github.com/assets/cb-28260/mw-1440/images/help/repository/repo-actions-settings.webp)
+
+:material-numeric-1-circle: In the "Code and automation" section of the sidebar, click :octicons-browser-16:*Pages*.
+:material-numeric-2-circle: Under "Build and deployment", under "Source", select *Deploy from a branch*.
+:material-numeric-3-circle: Under "Build and deployment", under "Branch", use the branch dropdown menu and select ```main```.
+![Image Title](https://docs.github.com/assets/cb-47265/mw-1440/images/help/pages/publishing-source-drop-down.webp)
+
+Visit ````username.github.io```` to view your new website. Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
 
 ## Experimental Pathway :rabbit2:
 !!! tip "For Tech-Hares"
@@ -121,7 +137,7 @@ The first thing you need to do is examine the HTML code structure: how is the da
 There are lots (and lots!) of ways to scrape data (hit Clancy up if you'd like to know more and you're good at .py), but one of the easiest is actually using Google Sheets. Since the data is in a table, we can use the ```IMPORTHTML``` function. <br>
 :material-numeric-1-circle: Create a Google Sheet <br>
 :material-numeric-2-circle: Select the top left corner cell <br>
-:material-numeric-3-circle: Then, use the IMPORTHTML function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1)
+:material-numeric-3-circle: Then, use the ```IMPORTHTML``` function to scrape the data following the syntax here: <https://support.google.com/docs/answer/3093339?hl=en> . See if you can figure out how to format the syntax on your own first, otherwise, here is a hint (1)
 { .annotate }
    
 1.   Functions start with ```=```. This worked for me:  ```
@@ -136,27 +152,57 @@ Now that you [should] have the data imported as a table, you can start to work w
 
 #### Convert the Data
 
-For some reason, you can't just easily open the geocoded CSV into geojson.io - this is a new bug, and it's super annoying. 
-BUT, it's easier to just convert the data, rather than fight with geojson.io . 
+For some reason, you can't just easily open the geocoded CSV into <geojson.io> - this is a new bug, and it's super annoying. 
+BUT, it's easier to just convert the data, rather than fight with <geojson.io> . 
 
 There are lots of good csv to geoJSON converters out there. Again, have a search, but this one worked for me (the Czech are *great* for open source tools). I used this one: <https://mygeodata.cloud/converter/csv-to-geojson> 
 
 #### Export and Save
 
 Now you should be able to upload the data to geojson.io, using the "Open" option. <br>
-   :material-numeric-1-circle: Clean the data as you see fit, and then *Save > geoJSON* <br>
-   :material-numeric-2-circle: Locate the downloaded file, and rename it to **183data.geosjon** <br>
+     :material-numeric-1-circle: Clean the data as you see fit, and then *Save > geoJSON* <br>
+     :material-numeric-2-circle: Locate the downloaded file, and rename it to **183data.geosjon** <br>
 
 ### Set up your Github
+
+Sign up to *Github*, and create a new *Repository*: <https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories>
+
 ### Build your File Structure
 
-Once you've set up your Github Repository, you'll need to add a folder to the repositoy to put your 183data.geojson file in.
+Once you've set up your Github Repository, you'll need to add a folder to the repositoy to put your ```183data.geojson``` file in. So far, you should only see one file listed in the repository, the ```README.md``` file you created when you initialized the repository. Now, we'll upload some of our own files.
+
+ :material-numeric-1-circle: To the right of the page, select the **Add file** dropdown menu. <br>
+ :material-numeric-2-circle: From the dropdown menu, click *Upload* files. <br>
+ :material-numeric-3-circle: On your computer, return to the the folder containing your ```183data.geojson``` file, then drag and drop it into the browser. <br>
+ :material-numeric-4-circle: At the bottom of the page, under "Commit changes", select "Commit directly to the main branch, then click **Commit changes**. <br>
+ 
+We don't want your ```183data.geojson``` file to be in the main section because it's untidy (and you might end up with many more data files!), so we want to make a new folder to hold your data. <br>
+:material-numeric-1-circle: To do this, you need to select the ```183data.geojson file.``` <br>
+:material-numeric-2-circle: Then, select the "Edit" icon to edit this file. <br>
+![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp) <br>
+:material-numeric-3-circle: Then, locate the file structure bar at the top. <br>
+:material-numeric-4-circle: Copy and paste (or write directly) ``` /data ```  into the file structure bar <br>
+![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp) <br>
 
 ### Publish to Web
+
+Finally, we can publish to the web using Github pages so we can share our data.
+
+Under your repository name, click  :material-cog:*Settings*. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+![Image Title](https://docs.github.com/assets/cb-28260/mw-1440/images/help/repository/repo-actions-settings.webp)
+
+:material-numeric-1-circle: In the "Code and automation" section of the sidebar, click :octicons-browser-16:*Pages*.
+:material-numeric-2-circle: Under "Build and deployment", under "Source", select *Deploy from a branch*.
+:material-numeric-3-circle: Under "Build and deployment", under "Branch", use the branch dropdown menu and select ```main```.
+![Image Title](https://docs.github.com/assets/cb-47265/mw-1440/images/help/pages/publishing-source-drop-down.webp)
+
+Visit ````username.github.io```` to view your new website. Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
+
 ### Make A Basic HTML Page 
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
