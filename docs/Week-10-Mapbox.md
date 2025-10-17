@@ -22,9 +22,9 @@ Select the **Monochrome** style.
 Choose a base variation.These colors can be adjusted later.
 Click **Customize Monochrome**.
 
-<https://docs.mapbox.com/studio-manual/assets/medias/map-styles-style-templates-40d21091bffc14b8dc3f5ddfc6e5d31c.mp4>
+![Mapbox](assets/map-styles-style-templates.gif)
 
-Once you're in, have a play around with different styles and have some fun. The uglier, the better!
+Once you're in, have a play around with different styles and have some fun - change some fonts, and see if you can establish a different color scheme based on our lectures last week.
 If you'd like to learn more (or be more intentional), check out <https://docs.mapbox.com/studio-manual/reference/styles/>
 
 #### Publish your Style
@@ -40,14 +40,58 @@ We're going to publish to web, so at the bottom you'll need to save these two pi
 ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
 
 ### Create Your Web Map
+So now we are going to create a very basic framework to host your webmap using Github. We will use **Code Pen** while we get used to coding in html/css/js - and then export the as a .zip file, and upload it to Github.
 
-#### Log Into Code Pen
+#### Set up Code Pen
+The first thing you need to do is set up a Code Pen account - if you haven't already. 
+
+Go to <https://codepen.io/> and choose "Sign Up". You may sign up with either your email or your github account.
+
+On the top right, under the "Create" submenu, select **Pen**, then, **Pen**.
+
+Your page should look like this:
+
+![Code Pen](assets/codepen.jpg)
+
+As you may remember from lecture, code pen has three windows - one for HTML, one for CSS and one for .js - we will be putting different pieces of code into different windows! And remember, nothing is broken for ever! 
+
+**Now, let's start coding!**
+
+#### Set up your HTML
+
+First, we need to create a HTML container for your web map to be held in. We're going to use the ```<div>``` tag to create a division to hold your map.
+
+In the HTML box, either type or copy and paste the below code:
+
+```
+html <div id="map"></div> 
+```
+
+This code bascially means "this is a division, with the id of "map". 
+Nothing will change, because it's just an invisible structure! We haven't put anything into it yet!
 
 #### Set Up Your CSS
 
+Next, we need to style your map <div> using CSS. You can choose how big or small you want your map to be in future, but to make it easier for now, we are going to make the map full page, with no margins and to be 100% the width of the web browser.
+
+Your css component, thus has two components: a style for the ```<body>``` (```body```) and a style for the ```<div id=map>``` (```#map```)
+
+``` css
+body {
+margin: 0;
+padding: 0;
+}
+#map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%; }
+```
+The "position" element in #map sets *where* on the page your map sits - 
+
 #### Set up Your .js
 
-#### Set up your HTML
+
 
 ### Transfer to Github
 
@@ -83,6 +127,7 @@ We're going to publish to web, so at the bottom you'll need to save these two pi
 #### Upload Files
 
 #### Check its worked!
+
 
 
 
