@@ -22,7 +22,7 @@ Select the **Monochrome** style.
 Choose a base variation.These colors can be adjusted later.
 Click **Customize Monochrome**.
 
-![Mapbox](assets/map-styles-style-templates.gif)
+![Mapbox](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
 
 Once you're in, have a play around with different styles and have some fun - change some fonts, and see if you can establish a different color scheme based on our lectures last week.
 If you'd like to learn more (or be more intentional), check out <https://docs.mapbox.com/studio-manual/reference/styles/>
@@ -51,7 +51,7 @@ On the top right, under the "Create" submenu, select **Pen**, then, **Pen**.
 
 Your page should look like this:
 
-![Code Pen](assets/codepen.jpg)
+![Code Pen](https://github.com/cwilmott/GEOGC183/blob/main/assets/codepen.jpg)
 
 As you may remember from lecture, code pen has three windows - one for HTML, one for CSS and one for .js - we will be putting different pieces of code into different windows! And remember, nothing is broken for ever! 
 
@@ -63,8 +63,9 @@ First, we need to create a HTML container for your web map to be held in. We're 
 
 In the HTML box, either type or copy and paste the below code:
 
-```
-html <div id="map"></div> 
+``` html
+<div id="map">
+</div> 
 ```
 
 This code bascially means "this is a division, with the id of "map". 
@@ -78,30 +79,106 @@ Your css component, thus has two components: a style for the ```<body>``` (```bo
 
 ``` css
 body {
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 }
 #map {
-position: absolute;
-top: 0;
-bottom: 0;
-width: 100%; }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%; }
 ```
-The "position" element in #map sets *where* on the page your map sits - 
+
+Again, you'll see nothing because we haven't put anything in your <div id=map> section. 
 
 #### Set up Your .js
+*Now* we can set up your map using Javascript! To do this, we need to set up two elements:
+1.  Your mapbox access token so the web page knows which account to access.
+2.  The ``` const map ``` where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)
 
+This is the code that we need to add:
 
+``` js
+    mapboxgl.accessToken = 'Your token goes here';
+
+    const map = new mapboxgl.Map({
+        container: 'map', // this is the container ID that we set in the HTML
+        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you'd like.
+        zoom: 9 // starting zoom, again you can choose the level you'd like.
+    });
+```
+Now, here is an experiment for you. See if you can see where you put your **mapbox token** and try to remember where you might access it.
+If you are stuck, here is a hint (1).
+{ .annotate }
+
+1.  your mapbox access token can be found when you click **Share** on your mapbox map.
+
+#### Bring in your own custom Mapbox Map
+So, this is a fine map, but it's not *yours*. Let's add a little bit of code to bring in your own map. 
+We are going to add a parameter called **style** which allows us to set which kind of map we'd like.
+
+Copy and paste the code below into your map (make sure you include the comma at the very end!)
+
+``` js
+style: 'mapbox://styles/your-mapbox-username/your-custom-style-url',
+```
+
+Yes, yes - it's broken, but your overall js should look something like this:
+
+``` js
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/your-mapbox-username/your-custom-style-url',
+        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+```
+
+Now, return to Mapbox and click share! Above your Access Token, you'll see a **Style URL** - replace the text in ```style: 'xxx'``` with your own style url, making sure to keep the apostrophes on each side.
+
+Now your code should look something like this, and you should be able to see your map: 
+``` js
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+```
+
+If it hasn't worked - check your code carefully - the grammar (, ; ' :) is very important, and easy to get lost in copy/paste. 
 
 ### Transfer to Github
 
+If you've managed to get your map up and running, congrats! Now, let's get it out of Code Pen and into Github so we can host it on our own website. 
+
 #### Export
+At the *bottom-right* of your Code Pen is a button **Export**. 
+1. Click **Export**
+2. Select **Export .zip**
+
+This will export a zip file to your downloads folder. You need to go to the **dist** file, which has three files:
+- index.html
+- style.css
+- script.js
 
 #### Upload Files
+Now, we need to add these files to your Github. 
+1. Login to Github
+2. Go to your repository which you made last week.
+3. Then select **Add File** and **Upload Files**
+4. Drag these three files into the window
+5. Select **Commit Changes**
 
 #### Check its worked!
+Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away!
+1. Go back to **Settings**
+2. Select **Pages** from the menu on the left.
+3. At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
-
+(and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
 
 ## Experimental :rabbit2:
 
@@ -127,6 +204,7 @@ The "position" element in #map sets *where* on the page your map sits -
 #### Upload Files
 
 #### Check its worked!
+
 
 
 
