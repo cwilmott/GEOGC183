@@ -181,19 +181,100 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
 
 ## Experimental :rabbit2:
-
+Okay, fast rabbits! A few things to keep in mind:
+1. the commas, apostrophes - what is called **syntax** - is important. If your code doesn't work, chances are it's a syntax problem.
+2. We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.
+   
 ### Mapbox
+First, we're gonna make a custom map by creating our own stylesheet. Mapbox does most of the work for us.
+
 #### Set up Mapbox
+
+So, let's head over to <www.mapbox.com> . In the top-right corner select **Sign Up**. <br>
+Enter the credentials you wish to use, and set up your account.
 
 #### Create a Mapbox Style
 
+Now that you're successfully in Mapbox, let's create a custom map style!
+
+Open the *Mapbox Studio* styles page, where all your map styles will be listed.
+Click the drop down next to the **New Style** button.
+Select **Classic** template.
+Select the **Monochrome** style.
+Choose a base variation.These colors can be adjusted later.
+Click **Customize Monochrome**.
+
+![Mapbox](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
+
+Once you're in, have a play around - but i'd try to see if you can figure out how to add a new font, play with symbols, add new layers.
+Check out <https://docs.mapbox.com/studio-manual/reference/styles/>
+
 #### Publish your Style
+
+Once you're done with your style, we need to make sure it's publically visible before we put it in our web map!
+
+The **Publish** button in the upper right of the style editor allows you to save your style so you can use it.
+When you click **Publish** the following information appears:
+
+![Image Title](https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png)
+
+We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
+```Style URL``` - this is the unique identifier of your map
+``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
+
 
 ### Create Your Web Map
 
+We're going to use Visual Studio Code to set up your web map. If you're familiar with Git or Github, you can push directly to your respository. If not, let's stick with copy + paste for now.
+
+#### Set up your folder
+
+On your desktop, or somewhere you can find, **create a new folder** called 183webmap
+
 #### Set up Visual Studio Code
 
-#### Create your HTML file
+On your desktop, open **Visual Studio Code**. NB: It is different to Visual Studio - the logo looks like this: ![logo](https://github.com/user-attachments/assets/0fbdf649-d567-4ca9-b797-8bab5e00bdf8)
+
+1. Select **Open**
+2. Choose your **183webmap** folder
+3. Select **Open** or similar.
+
+#### Create + Code your HTML file
+
+Now, we need to create files in this folder which we can use to build our web map. 
+1. Select **New File**
+2. Call it **index.html**
+3. Then select **Create**.
+
+Once we have the file, let's code in the basic structure of our html file. 
+You'll recall HTML files have a basic structure. Copy and paste this into your ```index.html`` file.
+
+```html
+
+<!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
+<html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
+  <head>
+<!-- Your document set up goes here -->
+  </head> 
+  <body>
+<!-- your page structure goes here -->
+  </body>  
+</html>
+```
+Now, let's set up some info the head, so the browser knows what to expect. In the ```<head>``` tag 
+
+``` html
+<!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
+<html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
+  <head> <!-- Your document set up goes here -->
+    <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <title>183 Web Map</title> <!-- Call your map whatever title you want -->
+  </head> 
+  <body>
+<!-- Set your doctype, so the browser knows what language this is -->
+  </body>
+  
+</html>
 
 #### Create your CSS file
 
@@ -204,6 +285,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 #### Upload Files
 
 #### Check its worked!
+
 
 
 
