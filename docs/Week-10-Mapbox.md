@@ -15,14 +15,14 @@ Enter the credentials you wish to use, and set up your account.
 
 Now that you're successfully in Mapbox, let's create a custom map style!
 
-    1. Open the *Mapbox Studio* styles page, where all your map styles will be listed.
-    2. Click the drop down next to the **New Style** button.
-    3. Select **Classic** template.
-    4. Select the **Monochrome** style.
-    5. Choose a base variation.These colors can be adjusted later.
-    6. Click **Customize Monochrome**.
+1.    Open the *Mapbox Studio* styles page, where all your map styles will be listed.
+2.    Click the drop down next to the **New Style** button.
+3.    Select **Classic** template.
+4.     Select the **Monochrome** style.
+5.    Choose a base variation.These colors can be adjusted later.
+6.    Click **Customize Monochrome**.
 
-![Image Title](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
+![Image Title](https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/assets/map-styles-style-templates.gif)
 
 Once you're in, have a play around with different styles and have some fun - change some fonts, and see if you can establish a different color scheme based on our lectures last week.
 
@@ -37,8 +37,8 @@ When you click **Publish** the following information appears:
 ![Image Title](https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png)
 
 We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
-    - ```Style URL``` - this is the unique identifier of your map
-    - ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
+- ```Style URL``` - this is the unique identifier of your map
+- ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
 
 ### Create Your Web Map
 So now we are going to create a very basic framework to host your webmap using Github. We will use **Code Pen** while we get used to coding in html/css/js - and then export the as a .zip file, and upload it to Github.
@@ -52,9 +52,10 @@ On the top right, under the "Create" submenu, select **Pen**, then, **Pen**.
 
 Your page should look like this:
 
-![Image Title](https://github.com/cwilmott/GEOGC183/blob/main/assets/codepen.jpg)
+![Image Title](https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/assets/codepen.jpg)
 
-As you may remember from lecture, code pen has three windows - one for HTML, one for CSS and one for .js - we will be putting different pieces of code into different windows! And remember, nothing is broken for ever! 
+As you may remember from lecture, code pen has three windows - one for HTML, one for CSS and one for .js. 
+We will be putting different pieces of code into different windows! And remember, nothing is broken for ever! When in doubt, ++ctrl++ + ++z++
 
 **Now, let's start coding!**
 
@@ -74,7 +75,7 @@ Nothing will change, because it's just an invisible structure! We haven't put an
 
 #### 3. Set Up Your CSS
 
-Next, we need to style your map <div> using CSS. You can choose how big or small you want your map to be in future, but to make it easier for now, we are going to make the map full page, with no margins and to be 100% the width of the web browser.
+Next, we need to style your map ```<div>``` using CSS. You can choose how big or small you want your map to be in future, but to make it easier for now, we are going to make the map full page, with no margins and to be 100% the width of the web browser.
 
 Your css component, thus has two components: a style for the ```<body>``` (```body```) and a style for the ```<div id=map>``` (```#map```)
 
@@ -94,8 +95,8 @@ Again, you'll see nothing because we haven't put anything in your ```<div id=map
 
 #### 4. Set up Your .js
 *Now* we can set up your map using Javascript! To do this, we need to set up two elements:
-    1. Your mapbox access token so the web page knows which account to access.
-    2. The ``` const map ``` where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)
+1. Your mapbox access token so the web page knows which account to access.
+2. The ``` const map ``` where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)
 
 This is the code that we need to add:
 
@@ -109,7 +110,7 @@ This is the code that we need to add:
     });
 ```
 
-Now, here is an experiment for you. See if you can see where you put your **mapbox token** and try to remember where you might access it, (1) and if you are stuck, here is a hint.
+Now, here is an experiment for you. See if you can see where you put your **Mapbox Access Token** and try to remember where you might access it, (1) and if you are stuck, check out the arrow.
 { .annotate }
 
 1.  :octicons-share-16: your mapbox access token can be found when you click **Share** on your mapbox map. 
@@ -125,7 +126,7 @@ Copy and paste the code below into your map (make sure you include the comma at 
 style: 'mapbox://styles/your-mapbox-username/your-custom-style-url', // Your Style URL goes here
 ```
 
-Yes, yes - it's broken, but your overall js should look something like this:
+Yes, yes - it's broken, but that's because we haven't made it work yet! Don't worry as long as your js looks something like this:
 
 ``` js
     mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
@@ -150,7 +151,7 @@ Now your code should look something like this, and you should be able to see you
     });
 ```
 
-If it hasn't worked - check your code carefully - the grammar/syntax (, ; ' :) is very important, and easy to get lost in copy/paste. 
+If it hasn't worked - check your code carefully - the grammar/syntax (, ; ' :) is very important, and easy to get lost in copy/paste. In the worst case, just paste the above code, and change the Access Token and Style URL.
 
 ### Transfer to Github
 
@@ -184,15 +185,15 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 
 ## Experimental :rabbit2:
 Okay, fast rabbits! A few things to keep in mind:
-    1. the commas, apostrophes - what is called **syntax** - is important. If your code doesn't work, chances are it's a syntax problem.
-    2. We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.
+1. The commas, apostrophes - what is called **syntax** - is important. If your code doesn't work, chances are it's a syntax problem.
+2. We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.
    
 ### Mapbox
 First, we're gonna make a custom map by creating our own stylesheet. Mapbox does most of the work for us.
 
 #### 1. Set up Mapbox
 
-So, let's head over to <www.mapbox.com> . In the top-right corner select **Sign Up**. <br>
+So, let's head over to <https://www.mapbox.com/> . In the top-right corner select **Sign Up**. <br>
 Enter the credentials you wish to use, and set up your account.
 
 #### 2. Create a Mapbox Style
@@ -200,11 +201,11 @@ Enter the credentials you wish to use, and set up your account.
 Now that you're successfully in Mapbox, let's create a custom map style!
 
 Open the *Mapbox Studio* styles page, where all your map styles will be listed.
-    1. Click the drop down next to the **New Style** button.
-    2. Select **Classic** template.
-    3. Select the **Monochrome** style.
-    4. Choose a base variation.These colors can be adjusted later.
-    5. Click **Customize Monochrome**.
+1. Click the drop down next to the **New Style** button.
+2. Select **Classic** template.
+3. Select the **Monochrome** style.
+4. Choose a base variation.These colors can be adjusted later.
+5. Click **Customize Monochrome**.
 
 ![Image Title](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
 
@@ -221,8 +222,8 @@ When you click **Publish** the following information appears:
 ![Image Title](https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png)
 
 We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
-    - ```Style URL``` - this is the unique identifier of your map
-    - ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
+- ```Style URL``` - this is the unique identifier of your map
+- ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
 
 
 ### Create Your Web Map
@@ -231,22 +232,22 @@ We're going to use Visual Studio Code to set up your web map. If you're familiar
 
 #### 1. Set up your folder
 
-On your desktop, or somewhere you can find, **create a new folder** called 183webmap
+On your desktop, or somewhere you can find, **create a new folder** called "183webmap"
 
 #### 2. Set up Visual Studio Code
 
 On your desktop, open **Visual Studio Code**. NB: It is different to Visual Studio - the logo looks like this: ![logo](https://github.com/user-attachments/assets/0fbdf649-d567-4ca9-b797-8bab5e00bdf8)
 
-    1. Select **Open**
-    2. Choose your **183webmap** folder
-    3. Select **Open** or similar.
+1. Select **Open**
+2. Choose your **183webmap** folder
+3. Select **Open** or similar.
 
 #### 3. Create + Code your HTML file
 
 Now, we need to create files in this folder which we can use to build our web map. 
-    1. Select **New File**
-    2. Call it **index.html**
-    3. Then select **Create**.
+1. Select **New File**
+2. Call it **index.html**
+3. Then select **Create**.
 
 Once we have the file, let's code in the basic structure of our html file. 
 You'll recall HTML files have a basic structure. Copy and paste this into your ```index.html`` file.
@@ -313,8 +314,8 @@ Let's quickly now create a CSS stylesheet for your map, so we can style it easil
     2. Call it **style.css**
 
 Now, let's style some elements. We want our map to be full size, so we need to add two components:
-    1. a ```body``` style element, which styles the overall ```<body>``` section
-    2. a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
+1. a ```body``` style element, which styles the overall ```<body>``` section
+2. a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
 
 Here is the code:
 
@@ -332,18 +333,77 @@ body {
 ```
 See if you can have a quick look and figure out what each of the paramenters (like ```position: absolute;```) do. 
 
-Finally - we need to link your style.css sheet to your index.html file, and add a style 
+Finally - we need to link your style.css sheet to your index.html file, as well as the stylesheet from Mapbox to help out with the map styling.
+In the ```<head>``` section, copy and paste the two links below. 
 
+``` html
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
 <link rel="stylesheet" href="./style.css">
+```
+The first link is an absolute link to the Mapbox CSS, the second is a relative link to your own stylesheet - which means it will look for the style.css file in the same folder that it is in. For more info see <https://www.w3schools.com/html/html_filepaths.asp> (this is an absolute link!).
 
-#### 5. Create your .js file
+Your code should look something like this: 
+``` html
+<!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
+<html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
+  <head> <!-- Your document set up goes here -->
+    <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <title>183 Web Map</title> <!-- Call your map whatever title you want -->
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
+    <link rel="stylesheet" href="./style.css">
+  </head> 
+  <body>
+    <div id="map"></div>
+  </body>  
+</html>
+```
+**And don't forget to hit "Save"**
+
+#### 5. Create and set up your .js file 
+
+Finally, we are ready to create our Javascript file, which is when we will finally be able to test our map and make sure it works.
+As above, **create a new file** and name it **script.js**.
+
+Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:
+1. One relative link to our own script.js file
+2. One absolute link to the Mapbox GL JS script file.
+
+This will go in the ```<body>``` section of the ```index.html``` file.
+
+Here is the code which will link to the script:
+``` html
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script>
+<script src="./script.js"></script>
+```
+Your code should look something like this:
+
+``` html
+<!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
+<html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
+  <head> <!-- Your document set up goes here -->
+    <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <title>183 Web Map</title> <!-- Call your map whatever title you want -->
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
+    <link rel="stylesheet" href="./style.css">
+  </head> 
+  <body>
+    <div id="map"></div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script>
+    <script src="./script.js"></script>
+  </body>  
+</html>
+```
+Now we are ready to make the Javascript!
+
+#### 6. Write your map object
+#### 7. Add a custom map style
 
 ### Transfer to Github
 
 #### 1. Upload Files
 
 #### 2. Check its worked!
+
 
 
 
