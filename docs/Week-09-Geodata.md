@@ -43,11 +43,11 @@ Now, we need to add in some attribute data to describe the points
 :material-numeric-2-circle: Then select **new column**<br>
      :octicons-dot-16: In the new column pop-up, write "Landmark"<br>
 :material-numeric-3-circle: Repeat this step for the following categories:<br>
-     -"Address"
-     - "Architect + Date"
-     - ["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
-     - "Designated"<br>
-     - "Notes"<br>
+-	"Address"
+- 	"Architect + Date"
+- 	["Link"]("**Right-Click** on the **Landmark Name** (if it is underlined) and select **Copy Link Address** to fill in the "Link" column")
+- 	"Designated"<br>
+- 	"Notes"<br>
 :material-numeric-4-circle: Then copy (++control+c++) and paste (++control+v++) the information for each of the categories. <br>
 
 
@@ -154,6 +154,10 @@ Now that you [should] have the data imported as a table, you can start to work w
 :material-numeric-1-circle: Start by exporting your new Feature Collection to **.csv** <br>
 :material-numeric-2-circle: Then, we need to *geocode* the address data into ```x``` and ```y``` coordinates. To do this, while ArcGIS and QGIS both have geocoders, it's sometimes easier to find a lighter solution online. Have a look around and see what you can find. This one worked okay for me <https://www.geoapify.com/tools/geocoding-online/>. If you'd like to learn more about how geocoding works, see <https://www.mapbox.com/insights/geocoding>
 
+!!! Tip "ArcGIS Detour"
+Benny has pointed out another pathway for geocoding if you're not happy with the results from the free geocoding tools. You can use the Address Points dataset here <https://data.acgov.org/search?q=Address%20points> . He writes, once in ArcGIS, then "drag and drop it into the catalog pane, and it should automatically appear as an option in the "geocode addresses" tool. If your address is in separate fields, you put the address number in "Address1," the street name in "Address2," and the street type in "Address3", and leave county and neighborhood blank. I get a ~95+% match rate with my dataset of all registered voters in Alameda County." Have fun! 
+
+
 #### Convert the Data
 
 For some reason, you can't just easily open the geocoded CSV into <geojson.io> - this is a new bug, and it's super annoying. 
@@ -206,6 +210,7 @@ Visit ````username.github.io```` to view your new website. Note that it can take
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
