@@ -1,6 +1,10 @@
 # Week 09 Geodata
 
-This exercise asks you to: <br>
+Now we are going to move onto **Web Mapping**. Web Mapping is a combination of data visualization and cartography, so we are going to start by making our own data, then move on from there. It's a bit like this:
+
+![Image Title](https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/docs/images/WebMapping.jpg)
+
+As such, this exercise asks you to: <br>
  - digitize historic landmarks from the Berkeley Architectural Heritage Association (BAHA), and; <br>
  - set up Github as a host for this data, and your future web map. 
 
@@ -202,6 +206,7 @@ Visit ````username.github.io```` to view your new website. Note that it can take
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
