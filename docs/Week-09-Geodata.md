@@ -107,7 +107,7 @@ We don't want this to be in the main section because it's untidy (and you might 
 ![Image title](https://docs.github.com/assets/cb-47646/mw-1440/images/help/repository/edit-file-edit-button.webp) <br>
 :material-numeric-3-circle: Then, locate the file structure bar at the top. <br>
 :material-numeric-4-circle: Copy and paste (or write directly) ``` /data ```  into the file structure bar <br>
-![Image title](https://docs.github.com/assets/cb-29857/mw-1440/images/help/repository/changing-file-name.webp) <br>
+![Image title](https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/docs/images/github-file-name.png) <br>
 
 ### Publish to Web Using Github Pages
 
@@ -206,6 +206,7 @@ Visit ````username.github.io```` to view your new website. Note that it can take
 If you're feeling confident, and you still have 15-30 mins left, you can start messing around with HTML. 
 
 Code Pen is a good place to start, alongside W3 Schools. See if you can figure out how to style text, and add links. This will be useful for Lab 10.
+
 
 
 
