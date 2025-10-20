@@ -396,6 +396,23 @@ Your code should look something like this:
 Now we are ready to make the Javascript!
 
 #### 6. Write your map object
+First, we need to write our map object in our ```script.js``` file - we are going to use a library called **Mapbox GL JS** which makes it easy, and has lots of useful tools like built-in popups, and location trackers. 
+
+All Mapbox maps require access to your mapbox account. It gets access through an access token, with the code 
+``` js
+mapboxgl.accessToken = '\\your access token goes here';
+```
+
+```
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+      style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+```
+
 #### 7. Add a custom map style
 
 ### Transfer to Github
@@ -403,6 +420,7 @@ Now we are ready to make the Javascript!
 #### 1. Upload Files
 
 #### 2. Check its worked!
+
 
 
 
