@@ -95,8 +95,8 @@ Again, you'll see nothing because we haven't put anything in your ```<div id=map
 
 #### 4. Set up Your .js
 *Now* we can set up your map using Javascript! To do this, we need to set up two elements:
-1. Your mapbox access token so the web page knows which account to access.
-2. The ``` const map ``` where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)
+1.   Your mapbox access token so the web page knows which account to access.
+2.   The ``` const map ``` where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)
 
 This is the code that we need to add:
 
@@ -159,8 +159,8 @@ If you've managed to get your map up and running, congrats! Now, let's get it ou
 
 #### 1. Export
 At the *bottom-right* of your Code Pen is a button **Export**. 
-    1. Click **Export**
-    2. Select **Export .zip**
+1.   Click **Export**
+2.   Select **Export .zip**
 
 This will export a zip file to your downloads folder. You need to go to the **dist** file, which has three files:
     - index.html
@@ -169,24 +169,24 @@ This will export a zip file to your downloads folder. You need to go to the **di
 
 #### 2. Upload Files
 Now, we need to add these files to your Github. 
-    1. Login to Github
-    2. Go to your repository which you made last week.
-    3. Then select **Add File** and **Upload Files**
-    4. Drag these three files into the window
-    5. Select **Commit Changes**
+1.   Login to Github
+2.   Go to your repository which you made last week.
+3.   Then select **Add File** and **Upload Files**
+4.   Drag these three files into the window
+5.   Select **Commit Changes**
 
 #### 3. Check its worked!
 Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away!
-    1. Go back to **Settings**
-    2. Select **Pages** from the menu on the left.
-    3. At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
+1.   Go back to **Settings**
+2.   Select **Pages** from the menu on the left.
+3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
 
 ## Experimental :rabbit2:
 Okay, fast rabbits! A few things to keep in mind:
-1. The commas, apostrophes - what is called **syntax** - is important. If your code doesn't work, chances are it's a syntax problem.
-2. We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.
+1.   The commas, apostrophes - what is called **syntax** - is important. If your code doesn't work, chances are it's a syntax problem.
+2.   We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.
    
 ### Mapbox
 First, we're gonna make a custom map by creating our own stylesheet. Mapbox does most of the work for us.
@@ -201,11 +201,11 @@ Enter the credentials you wish to use, and set up your account.
 Now that you're successfully in Mapbox, let's create a custom map style!
 
 Open the *Mapbox Studio* styles page, where all your map styles will be listed.
-     1. Click the drop down next to the **New Style** button.
-     2. Select **Classic** template.
-     3. Select the **Monochrome** style.
-     4. Choose a base variation.These colors can be adjusted later.
-     5. Click **Customize Monochrome**.
+1.   Click the drop down next to the **New Style** button.
+2.   Select **Classic** template.
+3.   Select the **Monochrome** style.
+4.   Choose a base variation.These colors can be adjusted later.
+5.   Click **Customize Monochrome**.
 
 ![Image Title](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
 
@@ -238,16 +238,16 @@ On your desktop, or somewhere you can find, **create a new folder** called "183w
 
 On your desktop, open **Visual Studio Code**. NB: It is different to Visual Studio - the logo looks like this: ![logo](https://github.com/user-attachments/assets/0fbdf649-d567-4ca9-b797-8bab5e00bdf8)
 
-1. Select **Open**
-2. Choose your **183webmap** folder
-3. Select **Open** or similar.
+1.   Select **Open**
+2.   Choose your **183webmap** folder
+3.   Select **Open** or similar.
 
 #### 3. Create + Code your HTML file
 
 Now, we need to create files in this folder which we can use to build our web map. 
-     1. Select **New File**
-     2. Call it **index.html**
-     3. Then select **Create**.
+1.  Select **New File**
+2.  Call it **index.html**
+3.  Then select **Create**.
 
 Once we have the file, let's code in the basic structure of our html file. 
 You'll recall HTML files have a basic structure. Copy and paste this into your ```index.html`` file.
@@ -291,8 +291,7 @@ We will place the following code in our ```<body>``` section, which bascially cr
 ```
 Your HTML code should look something like this:
 
-```
-html
+``` html
 <!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head> <!-- Your document set up goes here -->
@@ -309,12 +308,12 @@ html
 #### 4. Create your CSS file + Link to your HTML
 
 Let's quickly now create a CSS stylesheet for your map, so we can style it easily. 
-     1. Go to **File > New File**
-     2. Call it **style.css**
+1.   Go to **File > New File**
+2.   Call it **style.css**
 
 Now, let's style some elements. We want our map to be full size, so we need to add two components:
-     1. a ```body``` style element, which styles the overall ```<body>``` section
-     2. a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
+1.   a ```body``` style element, which styles the overall ```<body>``` section
+2.   a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
 
 Here is the code:
 
@@ -364,8 +363,8 @@ Finally, we are ready to create our Javascript file, which is when we will final
 As above, **create a new file** and name it **script.js**.
 
 Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:<br>
-     1. One relative link to our own script.js file;
-     2. One absolute link to the Mapbox GL JS script file.
+1.  One relative link to our own script.js file;
+2.  One absolute link to the Mapbox GL JS script file.
 
 This will go in the ```<body>``` section of the ```index.html``` file.
 
@@ -456,23 +455,24 @@ const map = new mapboxgl.Map({
 ### Transfer to Github
 
 Now, we need to add these files to your Github.
-    1. Save your files, and close Visual Studio Code.
-    2. Login to Github
-    3. Go to your repository which you made last week.
+1.   Save your files, and close Visual Studio Code.
+2.   Login to Github
+3.   Go to your repository which you made last week.
 
 #### 1. Upload Files
 In the repository,  select **Add File** and **Upload Files**
-    1. Drag these three files into the window
-    2. Select **Commit Changes**
+1.  Drag these three files into the window
+2.  Select **Commit Changes**
 
 #### 2. Check its worked!
 
-Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away!
-    1. Go back to **Settings**
-    2. Select **Pages** from the menu on the left.
-    3. At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
+Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away! <br>
+1.  Go back to **Settings**
+2.  Select **Pages** from the menu on the left.
+3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
