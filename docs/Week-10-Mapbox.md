@@ -252,7 +252,7 @@ Now, we need to create files in this folder which we can use to build our web ma
 Once we have the file, let's code in the basic structure of our html file. 
 You'll recall HTML files have a basic structure. Copy and paste this into your ```index.html`` file.
 
-```html
+``` html
 <!DOCTYPE html> <!-- Set your doctype, so the browser knows what coding language this is -->
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head>
@@ -265,7 +265,7 @@ You'll recall HTML files have a basic structure. Copy and paste this into your `
 ```
 Now, let's set up some info the head, so the browser knows what to expect. In the ```<head>``` section we need to add two tags, which tells the browser which language to expect, and what the title of your web page is:
 
-```html
+``` html
     <meta charset="UTF-8"> <!-- what character set are you using? -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
 ```
@@ -365,8 +365,8 @@ Finally, we are ready to create our Javascript file, which is when we will final
 As above, **create a new file** and name it **script.js**.
 
 Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:
-1. One relative link to our own script.js file
-2. One absolute link to the Mapbox GL JS script file.
+     1. One relative link to our own script.js file
+     2. One absolute link to the Mapbox GL JS script file.
 
 This will go in the ```<body>``` section of the ```index.html``` file.
 
@@ -402,24 +402,78 @@ All Mapbox maps require access to your mapbox account. It gets access through an
 ``` js
 mapboxgl.accessToken = '\\your access token goes here';
 ```
+**Copy + paste the above code** into your ```script.js``` file and replace the ```\\your access token goes here``` component with your access token from Mapbox (see if you can remember where you find it. Don't forget to make sure the apostrophes (' ') remain on either side of the access token. 
 
-```
+Your ```script.js``` file should now look something like this:
+
+``` js
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
-    const map = new mapboxgl.Map({
+```
+Now, we need to make a ```const``` function for the map, which will use ```mapboxgl``` to bring in a javascript map and allow us to define some parameters. 
+
+The ```const map``` function is structured like this:
+
+``` js
+const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  center: [0, 0], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+  zoom: 0 // starting zoom
+    });
+```
+Copy and paste the code into your ```script.js``` document **under** your ```accessToken```, and see if you can figure out how to change the ```zoom:``` or the ```center:``` parameters so that it starts in Berkeley on z9.
+
+Since we're not running this live like we would be in CodePen, we actually need to run the code to check that it's worked - this is called **debugging**. 
+There are two ways of doing this: 
+
+1.  Save your files, and then in Visual Studio Code return to your ```index.html``` page, and select from the icons on the left, "Run and Debug". It will look like this: ![Image Title](https://code.visualstudio.com/assets/docs/debugtest/debugging/debug-start.png)
+
+2.  Or, alternatively, save your files and then drag your index.html file into a web browser of your choice.
+
+If it has worked, you should see a map in your web browser! If it hasn't, try to debug it!
+
+#### 7. Add a custom map style
+Once your map is working, we can finally add the Mapbox Style we were working on! To do this, it's fairly simple - you just add another parameter to your ```const map``` constant called ```style```
+
+The code looks like this
+``` js
+  style: '//your style ID goes here',
+```
+In your ```const map``` function, copy and paste the parameter afer ```container```, and then add your own ```Style ID``` from Mapbox.
+
+Your ```script.js``` file should look something like this:
+
+``` js
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+const map = new mapboxgl.Map({
         container: 'map', // container ID
-      style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
-        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-74.5, -122.27], // starting position [lng, lat]. Note that lat must be set between -90 and 90
         zoom: 9 // starting zoom
     });
 ```
 
-#### 7. Add a custom map style
+**Save** and then **Debug**. If it works, we are good to go to the next phase!
 
 ### Transfer to Github
 
+Now, we need to add these files to your Github.
+    1. Save your files, and close Visual Studio Code.
+    2. Login to Github
+    3. Go to your repository which you made last week.
+
 #### 1. Upload Files
+In the repository,  select **Add File** and **Upload Files**
+    1. Drag these three files into the window
+    2. Select **Commit Changes**
 
 #### 2. Check its worked!
+
+Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away!
+    1. Go back to **Settings**
+    2. Select **Pages** from the menu on the left.
+    3. At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
+
+(and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
 
 
 
