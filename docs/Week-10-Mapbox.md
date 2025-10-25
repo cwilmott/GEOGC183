@@ -101,12 +101,12 @@ Again, you'll see nothing because we haven't put anything in your ```<div id=map
 This is the code that we need to add:
 
 ``` js
-    mapboxgl.accessToken = 'Your token goes here';
+mapboxgl.accessToken = 'Your token goes here';
 
-    const map = new mapboxgl.Map({
-        container: 'map', // this is the container ID that we set in the HTML
-        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you'd like.
-        zoom: 9 // starting zoom, again you can choose the level you'd like.
+const map = new mapboxgl.Map({
+  container: 'map', // this is the container ID that we set in the HTML
+  center: [-122.27, 37.87], // starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you'd like.
+  zoom: 9 // starting zoom, again you can choose the level you'd like.
     });
 ```
 
@@ -129,12 +129,12 @@ style: 'mapbox://styles/your-mapbox-username/your-custom-style-url', // Your Sty
 Yes, yes - it's broken, but that's because we haven't made it work yet! Don't worry as long as your js looks something like this:
 
 ``` js
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/your-mapbox-username/your-custom-style-url', //Your Style URL goes here
-        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-        zoom: 9 // starting zoom
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/your-mapbox-username/your-custom-style-url', //Your Style URL goes here
+  center: [-122.27, 37.87], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+  zoom: 9 // starting zoom
     });
 ```
 
@@ -142,12 +142,12 @@ Now, return to Mapbox and click share! Above your *Access Token*, you'll see a *
 
 Now your code should look something like this, and you should be able to see your map: 
 ``` js
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0', // your Style URL goes here
-        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-        zoom: 9 // starting zoom
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0', // your Style URL goes here
+  center: [-122.27, 37.87], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+  zoom: 9 // starting zoom
     });
 ```
 
@@ -201,11 +201,11 @@ Enter the credentials you wish to use, and set up your account.
 Now that you're successfully in Mapbox, let's create a custom map style!
 
 Open the *Mapbox Studio* styles page, where all your map styles will be listed.
-1. Click the drop down next to the **New Style** button.
-2. Select **Classic** template.
-3. Select the **Monochrome** style.
-4. Choose a base variation.These colors can be adjusted later.
-5. Click **Customize Monochrome**.
+     1. Click the drop down next to the **New Style** button.
+     2. Select **Classic** template.
+     3. Select the **Monochrome** style.
+     4. Choose a base variation.These colors can be adjusted later.
+     5. Click **Customize Monochrome**.
 
 ![Image Title](https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif)
 
@@ -222,8 +222,8 @@ When you click **Publish** the following information appears:
 ![Image Title](https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png)
 
 We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
-- ```Style URL``` - this is the unique identifier of your map
-- ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
+     - ```Style URL``` - this is the unique identifier of your map
+     - ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
 
 
 ### Create Your Web Map
@@ -245,9 +245,9 @@ On your desktop, open **Visual Studio Code**. NB: It is different to Visual Stud
 #### 3. Create + Code your HTML file
 
 Now, we need to create files in this folder which we can use to build our web map. 
-1. Select **New File**
-2. Call it **index.html**
-3. Then select **Create**.
+     1. Select **New File**
+     2. Call it **index.html**
+     3. Then select **Create**.
 
 Once we have the file, let's code in the basic structure of our html file. 
 You'll recall HTML files have a basic structure. Copy and paste this into your ```index.html`` file.
@@ -309,13 +309,12 @@ html
 #### 4. Create your CSS file + Link to your HTML
 
 Let's quickly now create a CSS stylesheet for your map, so we can style it easily. 
-
-    1. Go to **File > New File ***
-    2. Call it **style.css**
+     1. Go to **File > New File**
+     2. Call it **style.css**
 
 Now, let's style some elements. We want our map to be full size, so we need to add two components:
-1. a ```body``` style element, which styles the overall ```<body>``` section
-2. a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
+     1. a ```body``` style element, which styles the overall ```<body>``` section
+     2. a ```#map``` style element, which styles <html> elements which have the ```id=map``` tag.
 
 Here is the code:
 
@@ -333,7 +332,7 @@ body {
 ```
 See if you can have a quick look and figure out what each of the paramenters (like ```position: absolute;```) do. 
 
-Finally - we need to link your style.css sheet to your index.html file, as well as the stylesheet from Mapbox to help out with the map styling.
+Finally - we need to link your ```style.css``` sheet to your index.html file, as well as the stylesheet from Mapbox to help out with the map styling.
 In the ```<head>``` section, copy and paste the two links below. 
 
 ``` html
@@ -364,8 +363,8 @@ Your code should look something like this:
 Finally, we are ready to create our Javascript file, which is when we will finally be able to test our map and make sure it works.
 As above, **create a new file** and name it **script.js**.
 
-Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:
-     1. One relative link to our own script.js file
+Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:<br>
+     1. One relative link to our own script.js file;
      2. One absolute link to the Mapbox GL JS script file.
 
 This will go in the ```<body>``` section of the ```index.html``` file.
@@ -474,6 +473,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
     3. At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
