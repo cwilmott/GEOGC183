@@ -267,6 +267,7 @@ Now, let's set up some info the head, so the browser knows what to expect. In th
 
 ``` html
     <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setting up responsive design (see next week!) -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
 ```
 Your code should now look something like this: 
@@ -276,6 +277,7 @@ Your code should now look something like this:
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head> <!-- Your document set up goes here -->
     <meta charset="UTF-8"> <!-- what character set are you using? -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setting up responsive design (see next week!) -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
   </head> 
   <body>
@@ -296,6 +298,7 @@ Your HTML code should look something like this:
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head> <!-- Your document set up goes here -->
     <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setting up responsive design (see next week!) -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
   </head> 
   <body>
@@ -346,6 +349,7 @@ Your code should look something like this:
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head> <!-- Your document set up goes here -->
     <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setting up responsive design (see next week!) -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
     <link rel="stylesheet" href="./style.css">
@@ -380,6 +384,7 @@ Your code should look something like this:
 <html lang="en"> <!-- tell the browser where the code is and what speaking language this is -->
   <head> <!-- Your document set up goes here -->
     <meta charset="UTF-8"> <!-- what character set are you using? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setting up responsive design (see next week!) -->
     <title>183 Web Map</title> <!-- Call your map whatever title you want -->
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
     <link rel="stylesheet" href="./style.css">
@@ -472,6 +477,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
