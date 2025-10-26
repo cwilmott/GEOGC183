@@ -85,23 +85,27 @@ map.on('load', function() {
     });
 
     // Add click event for popups
-map.on('click', 'points-layer', (e) => {
+    map.on('click', 'points-layer', (e) => {
         // Copy coordinates array
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const properties = e.features[0].properties;
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const properties = e.features[0].properties;
         
-        // Create popup content - customize this based on your data properties
-    const popupContent = `
-        <div>
-            <h3>${properties.name || 'Point'}</h3>
-            <p>${properties.description || 'No description available'}</p>
-        </div>
+        // Create popup content using the actual data properties
+        const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
         `;
 
-    new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(popupContent)
-        .addTo(map);
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
     });
 
     // Change cursor to pointer when hovering over points
@@ -117,4 +121,5 @@ map.on('click', 'points-layer', (e) => {
         
 });
 ```
+
 
