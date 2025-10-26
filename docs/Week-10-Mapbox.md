@@ -1,5 +1,8 @@
 # Week 10 Mapbox Basemap
 
+If you're stuck - this is how your webmap for this week will be structured!
+<https://github.com/cwilmott/c183-webmap>
+
 ## Foundations :turtle:
 
 Let's take it *slllooooowww*. Breathe!
@@ -477,6 +480,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
