@@ -105,7 +105,7 @@ mapboxgl.accessToken = 'Your token goes here';
 
 const map = new mapboxgl.Map({
   container: 'map', // this is the container ID that we set in the HTML
-  center: [-122.27, 37.87], // starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you'd like.
+  center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you'd like.
   zoom: 9 // starting zoom, again you can choose the level you'd like.
     });
 ```
@@ -450,7 +450,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkb
 const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
-        center: [-74.5, -122.27], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
         zoom: 9 // starting zoom
     });
 ```
@@ -477,6 +477,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
