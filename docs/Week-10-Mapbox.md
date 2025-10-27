@@ -21,9 +21,9 @@ Now that you're successfully in Mapbox, let's create a custom map style!
 1.    Open the *Mapbox Studio* styles page, where all your map styles will be listed.
 2.    Click the drop down next to the **New Style** button.
 3.    Select **Classic** template.
-4.     Select the **Monochrome** style.
+4.     Select the **Default** style.
 5.    Choose a base variation.These colors can be adjusted later.
-6.    Click **Customize Monochrome**.
+6.    Click **Customize Defaulte**.
 
 ![Image Title](https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/assets/map-styles-style-templates.gif)
 
@@ -490,6 +490,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
