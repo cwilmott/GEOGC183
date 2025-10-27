@@ -39,6 +39,8 @@ When you click **Publish** the following information appears:
 
 ![Image Title](https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png)
 
+**Make sure you make your style public!**
+
 We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
 - ```Style URL``` - this is the unique identifier of your map
 - ``` Mapbox Token ``` - this is a secret code which links to your Mapbox Account.
@@ -488,6 +490,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
