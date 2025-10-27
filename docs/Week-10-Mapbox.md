@@ -76,6 +76,14 @@ In the HTML box, either type or copy and paste the below code:
 This code bascially means "this is a division, with the id of "map". 
 Nothing will change, because it's just an invisible structure! We haven't put anything into it yet!
 
+Now, we need one extra piece of code so the HTML knows where to access the Mapbox GL JS library. Following your ```<div></div>``` tag, let's create a ```<script>``` tag, which is a little bit of javascript, showing the HTML where to go:
+
+``` html
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script>
+```
+
+
+
 #### 3. Set Up Your CSS
 
 Next, we need to style your map ```<div>``` using CSS. You can choose how big or small you want your map to be in future, but to make it easier for now, we are going to make the map full page, with no margins and to be 100% the width of the web browser.
@@ -480,6 +488,7 @@ Now, we're going to see if our website has worked - it might take over 10 minute
 3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!
 
 (and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )
+
 
 
 
