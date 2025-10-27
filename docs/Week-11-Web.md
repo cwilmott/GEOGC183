@@ -1,10 +1,24 @@
 # Week 11 Web Map
 
-In-process lab addressing the basics of moving geodata and a stylized basemap onto a web server for display.  
- 
- [Week 11 Worksheet: Web Map]()
+This week we will be completing your web map by adding data from Week 9 onto the custom base map we created in Week 10. 
 
-## 1. Download your code
+## 1. Set up your Development Environment
+
+First, we need to get our code back from our Github Repository onto our laptops for editing. This is called setting up a Development Environment. Ours will not be complicated, 
+
+!!! tip "For Tech-Hares!"
+If you're a wizz at git and interested in the experimental pathways, feel free to set up the site as a git using either Github Desktop or pulling straight from the repostitory 
+
+### Download your code
+First, we need to download our code back onto our laptops/computers in visual studio code. 
+
+To do this, go to your repository and select **code**, then **download zip**.
+
+Move the <c183-webmap.zip> file somewhere you'll be able to find it, and then unzip.
+
+### Bring it into 
+
+ 
 
 ## 2. Add Markers
 
@@ -243,5 +257,6 @@ map.on('load', function() {
         
 });
 ```
+
 
 
