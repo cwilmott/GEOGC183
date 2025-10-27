@@ -4,24 +4,39 @@ This week we will be completing your web map by adding data from Week 9 onto the
 
 ## 1. Set up your Development Environment
 
-First, we need to get our code back from our Github Repository onto our laptops for editing. This is called setting up a Development Environment. Ours will not be complicated, 
+First, we need to get our code back from our Github Repository onto our laptops for editing. This is called setting up a Development Environment. Ours will not be complicated - we are simply going to download the files, and reupload them once we are done, and use a browser to test the ```index.html``` file.
 
 !!! tip "For Tech-Hares!"
-If you're a wizz at git and interested in the experimental pathways, feel free to set up the site as a git using either Github Desktop or pulling straight from the repostitory 
+If you're a wizz at git and interested in the experimental pathways, feel free to set up the site as a git using either Github Desktop or pull straight from the repostitory 
 
 ### Download your code
+
 First, we need to download our code back onto our laptops/computers in visual studio code. 
 
 To do this, go to your repository and select **code**, then **download zip**.
 
-Move the <c183-webmap.zip> file somewhere you'll be able to find it, and then unzip.
+Move the <c183-webmap.zip> file somewhere you'll be able to find it, and then unzip (double click for MacOSX).
 
-### Bring it into 
+### Bring it into Visual Studio Code
+Now we need to open our files. 
 
- 
+Go to Visual Studio Code (or download it here <https://code.visualstudio.com/Download> if you're using your laptop and it's not already downloaded).
+
+Select Open Folder, and then select the folder you have just downloaded (called BAHA-Map or similar)
+! [Image Title] (https://code.visualstudio.com/assets/docs/getstarted/getting-started/open-folder.png)
+
+All three of your files - ```index.html```, ```style.css``` and ```script.js``` should be there, alongside your ```/data``` folder.
+
+!!! tip "For Tech-Tortoises"
+Your ```index.html``` file will look different to the one on Code Pen - this is because when you downloaded your code pen files, it automatically linked your ```style.css``` and ```script.js``` files into your index.html as it packaged them. It needs to do this so you html knows where to find your style and your javascript!
+
+### Check it still works!
+On your desktop, locate your index.html file and drag it into a browser - you should see your map (as long as you're on the internet!). 
+DO NOT CLOSE THIS BROWSER WINDOW - we will be using this to test the updates to your map when we add your markers and such.
 
 ## 2. Add Markers
 
+Now, we are going to add our markers - 
 - Map onLoad function.
 
 ### a. Add Source Data
@@ -257,6 +272,7 @@ map.on('load', function() {
         
 });
 ```
+
 
 
 
