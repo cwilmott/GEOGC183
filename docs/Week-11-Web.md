@@ -262,7 +262,7 @@ Copy and paste these **inside your on click event** like this:
 
 ### c. Design your popup.
 
-Now we've retrieved the coordinates, and told the javascript where to find the propertes, we need to actually create a pop-up using the actual properties from the data. We do this by creating a new constant ```const popupContent```, which is a mix of html and javascript. 
+Now we've retrieved the coordinates, and told the javascript where to find the propertes, we need to actually tell our popup what we want it to display using the actual properties from the data. We do this by creating a new constant ```const popupContent```, which is a mix of html and javascript. 
 
 This is the code for my data:
 
@@ -305,12 +305,14 @@ Copy and paste this into your on click function under your coordinate and proper
     });
 ```
 
-*If your properties headers are not the same, change the code here, not your geojson*. If you're confused, come and grab us!
+*If your properties headers are not the same, change the code in your popip, not the headers in your geojson*. If you're confused, come and grab us!
 
 
 ### b. Add it to your map
 
-In js
+Now, finally, we need to add the pop-up to the map at the location we have clicked. To do this, we can actually use a Mapbox GL JS framework which provided to us through the API: ```mapboxgl.Popup()```
+
+The code is simple: we create a new popup, set the x,y to the ```coordinates``` we collected above from the click, set the content of the popup to the ```const popupContent``` we created above, and add it to the map. 
 
 ```js
 new mapboxgl.Popup()
@@ -318,8 +320,59 @@ new mapboxgl.Popup()
             .setHTML(popupContent)
             .addTo(map);
 ```
+Like before, we just add it to our **on click** event so it looks like this:
 
-``` js
+```js
+// Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+        // Copy coordinates array
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const properties = e.features[0].properties;
+        
+        // Create popup content using the actual data properties
+        const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
+        `;
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+    });
+```
+Reload the ```index.html``` in the web browser and test it out!
+
+## Easter egg! Changing the cursor
+
+!!! tip
+      You don't have to do this to make the code work! So if it's getting late in the lab, don't worry!
+
+If you're keen on trying just a little more JS, there is a fairly simple piece of code which we can add which changes the cursor to a pointer when we hover over a data point. 
+
+The code looks like this and it goes **inside the Load function** but **outside the Click event**:
+
+```js
+ // Change cursor to pointer when hovering over points
+    map.on('mouseenter', 'points-layer', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change cursor back when leaving points
+    map.on('mouseleave', 'points-layer', () => {
+        map.getCanvas().style.cursor = '';
+    });
+```
+
+Your Javascript will look like this:
+
+```js
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
 const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -379,10 +432,51 @@ map.on('load', function() {
     map.on('mouseleave', 'points-layer', () => {
         map.getCanvas().style.cursor = '';
     });
-
         
 });
 ```
+## Final Final Easter Egg - Add a Heading.
+
+If you'd like to add a heading - here is some code to play with. 
+
+In your HTML ```<body>```
+``` html
+<h1> Heritage Map of Berkeley</h1>
+```
+And in your ```style.css```
+``` css
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: #333;
+}
+
+Save both files, and reload ```index.html``` to make sure its worked! See if you can figure out how to change it - hahhhahahah!
+
+## Check your code and reupload to Github.
+
+Now, back to reality. We are ready to reupload our code.
+
+!!! tip "For Tech-Tortoises
+      If you have not added a header, nothing in your HTML or CSS code should be different - so you can just copy and paste the code in your ```script.js``` file.
+
+There are two ways of doing this. The first way, involves deleting your files and uploading the new ones.
+
+The second, cheaty way - which I recommend - is to *edit your Github files*, by deleting the current code, and copying and pasting the code from VS Studio into Github directly.
+
+See if you can figure out how to do this on your own - and call us over if you get stuck!
+
+### The Final Code
+
 === "index.html"
 
     ``` html
@@ -505,6 +599,7 @@ map.on('load', function() {
         
 });
 ```
+
 
 
 
