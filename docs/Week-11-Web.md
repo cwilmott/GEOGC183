@@ -175,16 +175,149 @@ Check it has worked by refreshing your ```index.html``` page in the browser. If 
 
 ## 3. Add Pop-Ups to Markers
 
-Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts. You need to be careful, take note of the syntax, debug or go back a few steps - and pay attention to the little alerts that pop up in VS Code.
+Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts - this is why we discussed it so much in lecture! You need to be careful, take note of the syntax, debug or go back a few steps - and pay attention to the little alerts that pop up in VS Code.
 
 Error is not a failure in coding - it's a part of the process. I'm not going to even tell you how many error warnings I got learning to code. 
 
-### a. Style Your Pop-Up
-In CSS
+Thankfully, like markers, Mapbox GL JS provides us with a pre-made pop-up option, which we can just amend. 
+
+!!! tip
+      For more information on mapbox popups see: <https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup>
+
+### a. Create an "On Click" event, inside your "On Load" event. 
+
+First, we don't want pop-ups all the time, we only want them when we click. So we need to create an **on click** event *inside* our Load Event. It looks very much the same:
+
+``` js
+
+ map.on('click', 'points-layer', (e) => {
+       
+    });
+
+```
+
+Copy and paste the code inside your on load event. Your ```script.js``` so far should look a little like this:
+
+``` js
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+map.on('load', function() {
+    map.addSource('points-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+    });
+
+    map.addLayer({
+        id: 'points-layer',
+        type: 'circle',
+        source: 'points-data',
+        paint: {
+            'circle-color': '#4264FB',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+        }
+    });
+
+    // Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+       
+    });
+        
+});
+```
+
+### b. Get the coordinates of where you have clicked
+
+Next, we have to actually get the coordinates of where you have clicked, so it can be matched to your geojson data, so it knows which information to pull!
+
+To do this, we create two constants - one for the **coordinates**, one for **properties**
+
+```js
+
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const properties = e.features[0].properties;
+```
+
+Copy and paste these **inside your on click event** like this:
+
+```js
+// Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+          const coordinates = e.features[0].geometry.coordinates.slice();
+            const properties = e.features[0].properties;
+       
+    });
+```
+
+!!! tip "Make your code pretty again!"
+      At this point, your code will be getting kind of messy. You can make it formatted again by selecting the keyboard shortcut Ctrl+Shift+I (Windows/Linux) or Cmd+Shift+I (macOS). It'll direct you to the command palette at the top - just write "Format Document" and press enter.
+
+### c. Design your popup.
+
+Now we've retrieved the coordinates, and told the javascript where to find the propertes, we need to actually create a pop-up using the actual properties from the data. We do this by creating a new constant ```const popupContent```, which is a mix of html and javascript. 
+
+This is the code for my data:
+
+```js
+const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
+        `;
+```
+You'll notice this piece of code where it says ```properties.XXX```:
+<p><strong>Address:</strong> $**{properties.Address}**</p>
+The "XXX" bit needs to be the **exact same word / lettering / spacing / capitalization ** as YOUR data. These "XXX" refer to the names of the columns you created in geojson.io, and are the property labels in your raw data. You MUST double check each of these match - **especially Tech-Hares** :rabbit2: who are more likely to have different labels due to the scraping process. 
+
+Copy and paste this into your on click function under your coordinate and property constants, so it looks like this:
+
+``` js
+ map.on('click', 'points-layer', (e) => {
+        // Copy coordinates array
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const properties = e.features[0].properties;
+
+        // Create popup content using the actual data properties
+        const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
+        `;
+
+    });
+```
+
+*If your properties headers are not the same, change the code here, not your geojson*. If you're confused, come and grab us!
+
 
 ### b. Add it to your map
 
 In js
+
+```js
+new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+```
 
 ``` js
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
@@ -372,6 +505,7 @@ map.on('load', function() {
         
 });
 ```
+
 
 
 
