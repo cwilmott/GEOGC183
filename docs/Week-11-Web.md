@@ -32,16 +32,12 @@ All three of your files - ```index.html```, ```style.css``` and ```script.js``` 
 
 ### Check it still works!
 On your desktop, locate your index.html file and drag it into a browser - you should see your map (as long as you're on the internet!). <br>
+
 DO NOT CLOSE THIS BROWSER WINDOW - we will be using this to test the updates to your map when we add your markers and such.
 
-## 2. Add Markers
+## Create an "On Load" function
 
-Now, we are going to add our markers. To do this, we have to do two things:
-1.     Make a link to our geojson data
-2.     Add it as a marker (or symbol) layer to our webmap
-
-### create ```map.on('load')``` function
-Firstly, we don't want our markers to load before our map, so we are going to create an on('load') for our map. This will be a wrapper for all of our markers (and pop-ups) which will go inside the function. 
+Before we add our markers and pop-ups, we need to make sure our markers don't load before our map. So, we are going to create an on('load') for our map. This will be a wrapper for all of our markers (and pop-ups) which will go inside the function. 
 
 It's made up of several parts. 
 
@@ -56,6 +52,7 @@ You can see there are lots of syntax also nested in there - you have to be caref
 Now, copy and paste the function into your ```script.js``` file under your ```const map```.
 
 Your code should look something like this:
+
 ```js
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
 const map = new mapboxgl.Map({
@@ -69,14 +66,76 @@ map.on('load', function() {
 
 });
 ```
+## 2. Add Markers
+
+Now, we are going to add our markers *inside* our **load function**. To do this, we have to do two things:
+1.  Make a link to our geojson data
+2.  Add it as a marker (or symbol) layer to our webmap
 
 ### a. Add Source Data
 
-Now, we are going to add our geoJSON data into our load function. 
-- add Geojson raw source
+Adding source data is relatively easy. But first, we need to locate our source data! 
+
+There are two ways of creating links using code: one is what is called a **relative path**, in which the link structured according to its position to your code. In this cse, the relative path to your data source would be: data/yourdata.geojson (i.e. it's in the data folder, with your geojson). *In most cases for web development, this is what is recommended because it contains all the links in the same structure of the program and makes it easy to move*. 
+
+But today, I want to make sure it works, so I'm going to recommend we do an **absolute path** to the location of your raw data on the internet - in a large part because I've seen your repositories and they're all over the shop with naming and structure.
+
+So, :material-numeric-1-circle: I want you to go to your **Github repository**, select your **183data.geojson** file, and select **raw**. The link in the address bar is what you will need.
+
+Now, :material-numeric-2-circle:, I want you to look at this piece of code:
+
+``` js
+
+map.addSource('points-data', {
+        type: 'geojson',
+        data: 'thefullwebaddressofyourdata.geojson'
+    });
+
+```
+Can you see what is happening here? If what you think is happening is that we are adding a source (```addSource```) to the map (```map```), called **'points-data'**, which has the type 'geojson', and a link to the data - you are correct. :fire: :fire: :fire: :fire:
+
+Now, see if you can paste the code **inside the Load Function** and then replace the address of the data with the address of YOUR data. (and don't worry, you won't see anything change, because we haven't added our markers).
+
+If it looks something like this, you're doing great! AND PAY ATTENTION TO THAT SYNTAX!
+
+``` js
+
+map.on('load', function() {
+    map.addSource('points-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+    });
+});
+
+Nice! :t_rex:
+
+!!! warning
+      You'll notice on the Mapbox documentation that a lot of the examples have the geoJSON code in the html, or directly in the javascript. This is one way to do it, but it takes far far longer to render for large datasets and is not as dynamic. 
 
 ### b. Add Your Markers / Symbol Layer
-- Add Markers constant
+
+Okay, now we have added our source (addSource), we need to create a marker layer (addLayer) which puts a marker at each point in your data.
+
+Mapbox has some handy configurations available which means we don't need to do the work of creating our own markers (right now at least!). I've coded up a basic **circle** marker like this:
+
+``` js
+map.addLayer({
+        id: 'points-layer',
+        type: 'circle',
+        source: 'points-data',
+        paint: {
+            'circle-color': '#4264FB',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+        }
+    });
+```
+We chatted in lecture about the different elements of the marker - note the source data! That's important.
+
+Copy and paste the above code into your **Load Function** *under* your addSource function. Order matters! If the data hasn't loaded, how will the markers know where to go!
+
+Your code should now look something like this:
 
 ``` js
 
@@ -107,10 +166,18 @@ map.on('load', function() {
     });
 });
 ```
+Check it has worked by refreshing your ```index.html``` page in the browser. If it does, proceed! :champagne_glass:
+
+!!! tip "For Tech-Hares"
+      See if you can change the color, radius, stroke width and stroke color - have some fun, but don't lose that syntax!
+
+
 
 ## 3. Add Pop-Ups to Markers
 
-Now overlay pop-ups ontol markers 
+Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts. You need to be careful, take note of the syntax, debug or go back a few steps - and pay attention to the little alerts that pop up in VS Code.
+
+Error is not a failure in coding - it's a part of the process. I'm not going to even tell you how many error warnings I got learning to code. 
 
 ### a. Style Your Pop-Up
 In CSS
@@ -305,6 +372,7 @@ map.on('load', function() {
         
 });
 ```
+
 
 
 
