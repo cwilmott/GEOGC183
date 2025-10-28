@@ -27,23 +27,52 @@ Select Open Folder, and then select the folder you have just downloaded (called 
 
 All three of your files - ```index.html```, ```style.css``` and ```script.js``` should be there, alongside your ```/data``` folder.
 
-!!! tip "For Tech-Tortoises"
-        Your ```index.html``` file will look different to the one on Code Pen - this is because when you downloaded your code pen files, it automatically linked your         ```style.css``` and ```script.js``` files into your index.html as it packaged them. It needs to do this so you html knows where to find your style and your javascript!
+!!! tip "For Tech-Tortoises :material-tortoise:"
+     Your ```index.html``` file will look different to the one on Code Pen - this is because when you downloaded your code pen files, it automatically linked your             ```style.css``` and ```script.js``` files into your index.html as it packaged them. It needs to do this so you html knows where to find your style and your javascript!
 
 ### Check it still works!
-On your desktop, locate your index.html file and drag it into a browser - you should see your map (as long as you're on the internet!). 
+On your desktop, locate your index.html file and drag it into a browser - you should see your map (as long as you're on the internet!). <br>
 DO NOT CLOSE THIS BROWSER WINDOW - we will be using this to test the updates to your map when we add your markers and such.
 
 ## 2. Add Markers
 
 Now, we are going to add our markers. To do this, we have to do two things:
-1)    Make a link to our geojson data
-2)    Add it as a marker (or symbol) layer to our webmap
+1.     Make a link to our geojson data
+2.     Add it as a marker (or symbol) layer to our webmap
 
 ### create ```map.on('load')``` function
-- Map onLoad function.
+Firstly, we don't want our markers to load before our map, so we are going to create an on('load') for our map. This will be a wrapper for all of our markers (and pop-ups) which will go inside the function. 
+
+It's made up of several parts. 
+
+``` js
+map.on('load', function() {
+});
+```
+Take a careful look: what is happening here is that when the map object (i.e. ```map```) has an event (```on```) where it has loaded (```load```) then, run these pieces of code ```function() {}```
+
+You can see there are lots of syntax also nested in there - you have to be careful - make sure every bracket and parenthesis has a pair, and pay attention to the semi-colons going forward!
+
+Now, copy and paste the function into your ```script.js``` file under your ```const map```.
+
+Your code should look something like this:
+```js
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew';
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+map.on('load', function() {
+
+});
+```
 
 ### a. Add Source Data
+
+Now, we are going to add our geoJSON data into our load function. 
 - add Geojson raw source
 
 ### b. Add Your Markers / Symbol Layer
@@ -276,6 +305,7 @@ map.on('load', function() {
         
 });
 ```
+
 
 
 
