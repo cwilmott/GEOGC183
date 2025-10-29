@@ -496,7 +496,7 @@ This is the final code, without the two easter eggs, if you get stuck.
               <script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script><script  src="./script.js"></script>
         </body>
         </html>
-    ```
+      ```
 
 === "style.css"
 
@@ -568,15 +568,4 @@ This is the final code, without the two easter eggs, if you get stuck.
                 map.getCanvas().style.cursor = '';
           });       
       });
-```
-
-
-
-
-
-
-
-
-
-
-
+      ```
