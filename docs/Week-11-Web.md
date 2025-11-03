@@ -349,6 +349,11 @@ Like before, we just add it to our **on click** event so it looks like this:
 ```
 Reload the ```index.html``` in the web browser and test it out!
 
+!!! tip "Broken Pop-Up Appearing from the bottom"
+
+      If your pop-up is coming up from the bottom, you'll need to add the following code into you ```<head>``` tag in index.html, then save and reload:
+      ```<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>```
+
 ## Easter egg! Changing the cursor
 
 !!! tip
@@ -489,7 +494,8 @@ This is the final code, without the two easter eggs, if you get stuck.
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Mapbox GL JS map</title>
-          <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'><link rel="stylesheet" href="./style.css">
+          <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
+          <link rel="stylesheet" href="./style.css">
         </head>
         <body>
               <div id="map"></div>
@@ -569,3 +575,4 @@ This is the final code, without the two easter eggs, if you get stuck.
           });       
       });
       ```
+
