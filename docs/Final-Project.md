@@ -1,4 +1,4 @@
-# Overivew
+# Overview
 
 This final project represents a capstone for your learning in C183. It is your opportunity to demonstrate the critical design, creative, technical* and analytical skills you’ve acquired throughout the course - and to develop further particular approaches which interest you.
 
