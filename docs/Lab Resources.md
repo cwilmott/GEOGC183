@@ -24,8 +24,6 @@ Students who are angling for an extra point or two on a summative assessment/fin
 Additionally, we have a GIS data source spreadsheet. Students were using compelling public datasets for their projects, and it would be neat to share with others what kinds of stories you were able to tell with one set of cartographic data. 
 
 Guidelines are as follows: 
-* To keep track of student contributions, complete this [google form](https://docs.google.com/forms/d/1Yoivx4M39Q25X4lH31SbMyCAD-rcyo2xe3y5ovayVeQ/edit)
-** The google form is for record keeping. I’ve given permission for you to directly edit this document, please add the resource here, too. 
-** I will verify the validity of the resource, if it's a random link, then no points. 
+* To keep track of student contributions, complete this [google form](https://docs.google.com/forms/d/1Yoivx4M39Q25X4lH31SbMyCAD-rcyo2xe3y5ovayVeQ/edit). The google form is for record keeping. I’ve given permission for you to directly edit this document, please add the resource here, too. I will verify the validity of the resource, if it's a random link, then no points. 
 * Adding a resource to this document or the GIS data spreadsheet can potentially earn up to two points 
 * Submit up to two different resources in two different categories, or one contribution here and one contribution to the spreadsheet
