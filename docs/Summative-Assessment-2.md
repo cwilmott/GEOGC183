@@ -11,7 +11,7 @@ Each map must be accompanied by a short c. 1000 word essay explaining your choic
 
 ## Print Map Student Gallery 
 
-[Curated selection of student projects for the print cartography assessment](https://docs.google.com/presentation/d/1uq1fAHC6uLpns946eM6cCpxzvkdlabOcd-4Njdfv924/edit?usp=drive_link) 
+[Curated selection of student projects from the assessment](https://docs.google.com/presentation/d/1uq1fAHC6uLpns946eM6cCpxzvkdlabOcd-4Njdfv924/edit?usp=drive_link) 
 
 
 ## Full Rubric and Assessment Guidelines
