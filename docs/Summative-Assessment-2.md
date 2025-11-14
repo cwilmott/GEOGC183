@@ -9,6 +9,11 @@ In this second summative assessment, you are required to make a map for print pr
 Each map must be accompanied by a short c. 1000 word essay explaining your choices and techniques used.
 
 
+## Print Map Student Gallery 
+
+[Curated selection of student projects for the print cartography assessment](https://docs.google.com/presentation/d/1uq1fAHC6uLpns946eM6cCpxzvkdlabOcd-4Njdfv924/edit?usp=drive_link) 
+
+
 ## Full Rubric and Assessment Guidelines
 
 
