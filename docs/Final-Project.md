@@ -14,9 +14,10 @@ This final project represents a capstone for your learning in C183. It is your o
 
 ## Week 13: Lab Community Feedback 
 
-[Community Feedback Guidance](https://docs.google.com/document/d/1xvZUiHCIx_lcYYsK6iPGGoNJetqodpZH-kdGOb-mP6g/edit?usp=sharing) 
+[Lab Activity](https://docs.google.com/presentation/d/1mbPz4AEii7ugUMnGdmuz2bKaGDZBWuxqsEtA-qv7suY/edit?usp=sharing) 
 
-**This worksheet is not due**, it is meant to help keep us on track with both community feedback on our initial visualizations. Included in the document are reflection questions to ask yourself if, after the activity, you are struggling with how to advance the project. 
+[Further Reflection Questions](https://docs.google.com/document/d/1xvZUiHCIx_lcYYsK6iPGGoNJetqodpZH-kdGOb-mP6g/edit?usp=sharing) 
+
 
 
 ## Full Rubric and Assessment Guidelines
