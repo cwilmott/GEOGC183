@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inclusive Sans', Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1800px;
+            margin: 0 auto;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background-color: #daddd8;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px;
+            margin-right: 10px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: transparent;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .preview-box {
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 30px;
+            box-shadow: none;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .container {
+            background-color: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .color-picker-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="color"] {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .color-preview {
+            display: none;
+        }
+
+        .font-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .font-preview {
+            display: none;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .sidebar h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .sidebar-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-value {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-colors-row {
+            display: flex;
+            gap: 0;
+        }
+
+        .sidebar-color-box {
+            flex: 1;
+            height: 200px;
+            border: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 12px;
+        }
+
+        .sidebar-fonts-row {
+            display: flex;
+            gap: 15px;
+            justify-content: space-around;
+        }
+
+        .sidebar-font-preview {
+            font-size: 28px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .sidebar-textures-row {
+            display: flex;
+            gap: 0;
+        }
+
+        .sidebar-texture-preview {
+            flex: 1;
+            height: 200px;
+            border: none;
+            border-radius: 0;
+            background-color: #f9f9f9;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .sidebar-texture-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        .texture-preview {
+            display: none;
+        }
+
+        input[type="text"].font-search {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .font-dropdown {
+            position: relative;
+        }
+
+        .font-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .font-options.show {
+            display: block;
+        }
+
+        .font-option {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .font-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .font-option:last-child {
+            border-bottom: none;
+        }
+
+        .print-button {
+            display: inline-block;
+            width: auto;
+            margin: 30px 5px 0;
+            padding: 10px 20px;
+            background-color: #788585;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button-container {
+            text-align: center;
+        }
+
+        .print-button:hover {
+            background-color: #545e56;
+        }
+
+        /* Print styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .main-container {
+                display: block;
+            }
+
+            .form-section {
+                display: none;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .preview-box {
+                max-width: 100%;
+                border: none;
+                box-shadow: none;
+            }
+
+            .sidebar-color-box {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .sidebar-texture-preview {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            textarea,
+            select {
+                border: none;
+                border-bottom: 1px solid #000;
+                padding: 5px 0;
+                background-color: transparent;
+            }
+
+            .checkbox-item input[type="checkbox"] {
+                -webkit-appearance: checkbox;
+                appearance: checkbox;
+            }
+
+            input[type="color"] {
+                border: 1px solid #000;
+            }
+
+            .color-preview {
+                border: none;
+                border-bottom: 1px solid #000;
+                background-color: transparent;
+            }
+
+            .font-preview {
+                border: 1px solid #000;
+                background-color: transparent;
+            }
+
+            .font-options {
+                display: none !important;
+            }
+
+            .texture-preview {
+                border: 1px solid #000;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Display values on screen */
+        .output-value {
+            display: none;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            min-height: 30px;
+        }
+
+        @media print {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            textarea,
+            select {
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="form-section">
+            <div class="container">
+                <h1>Map Style Sheet Generator</h1>
+                
+                <form id="printableForm">
+            <div class="form-group">
+                <label for="mapName">Map Name:</label>
+                <input type="text" id="mapName" name="mapName" placeholder="Enter Map Name here">
+            </div>
+
+            <div class="form-group">
+                <label for="yourName">Your Name:</label>
+                <input type="text" id="yourName" name="yourName" placeholder="Enter your name here">
+            </div>
+
+            <div class="form-group">
+                <label for="mapStyle">Map Style:</label>
+                <input type="text" id="mapStyle" name="mapStyle" placeholder="e.g. minimalist, rustic, modernist">
+            </div>
+
+            <div class="form-group">
+                <label>Colors:</label>
+                <div class="color-picker-group">
+                    <input type="color" id="color1" name="color1" value="#606c38" onchange="updateColorPreview('color1')">
+                    <input type="color" id="color2" name="color2" value="#283618" onchange="updateColorPreview('color2')">
+                    <input type="color" id="color3" name="color3" value="#fefae0" onchange="updateColorPreview('color3')">
+                    <input type="color" id="color4" name="color4" value="#dda15e" onchange="updateColorPreview('color4')">
+                    <input type="color" id="color5" name="color5" value="#bc6c25" onchange="updateColorPreview('color5')">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="font1">Font 1:</label>
+                <div class="font-group">
+                    <input type="text" id="font1Word" name="font1Word" placeholder="Type a word" oninput="updateFontPreview('font1')">
+                    <div class="font-dropdown">
+                        <input type="text" class="font-search" id="font1Search" placeholder="Search fonts..." 
+                               oninput="filterFonts('font1')" onfocus="showFontDropdown('font1')" autocomplete="off">
+                        <input type="hidden" id="font1" name="font1" value="Roboto">
+                        <div class="font-options" id="font1Options"></div>
+                    </div>
+                    <div class="font-preview" id="fontPreview1">Sample Text</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="font2">Font 2:</label>
+                <div class="font-group">
+                    <input type="text" id="font2Word" name="font2Word" placeholder="Type a word" oninput="updateFontPreview('font2')">
+                    <div class="font-dropdown">
+                        <input type="text" class="font-search" id="font2Search" placeholder="Search fonts..." 
+                               oninput="filterFonts('font2')" onfocus="showFontDropdown('font2')" autocomplete="off">
+                        <input type="hidden" id="font2" name="font2" value="Open Sans">
+                        <div class="font-options" id="font2Options"></div>
+                    </div>
+                    <div class="font-preview" id="fontPreview2">Sample Text</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="font3">Font 3:</label>
+                <div class="font-group">
+                    <input type="text" id="font3Word" name="font3Word" placeholder="Type a word" oninput="updateFontPreview('font3')">
+                    <div class="font-dropdown">
+                        <input type="text" class="font-search" id="font3Search" placeholder="Search fonts..." 
+                               oninput="filterFonts('font3')" onfocus="showFontDropdown('font3')" autocomplete="off">
+                        <input type="hidden" id="font3" name="font3" value="Lato">
+                        <div class="font-options" id="font3Options"></div>
+                    </div>
+                    <div class="font-preview" id="fontPreview3">Sample Text</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="texture1">Texture 1:</label>
+                <input type="url" id="texture1" name="texture1" placeholder="Paste image URL (e.g. https://example.com/texture.jpg)" oninput="updateTexturePreview('texture1')">
+                <div class="texture-preview" id="texturePreview1">No image loaded</div>
+            </div>
+
+            <div class="form-group">
+                <label for="texture2">Texture 2:</label>
+                <input type="url" id="texture2" name="texture2" placeholder="Paste image URL (e.g. https://example.com/texture.jpg)" oninput="updateTexturePreview('texture2')">
+                <div class="texture-preview" id="texturePreview2">No image loaded</div>
+            </div>
+
+            <div class="form-group">
+                <label for="texture3">Texture 3:</label>
+                <input type="url" id="texture3" name="texture3" placeholder="Paste image URL (e.g. https://example.com/texture.jpg)" oninput="updateTexturePreview('texture3')">
+                <div class="texture-preview" id="texturePreview3">No image loaded</div>
+            </div>
+        </form>
+
+        <div class="button-container">
+            <button type="button" class="print-button" onclick="window.print()">Print Style Sheet</button>
+            <button type="button" class="print-button" onclick="exportToSVG()">Export to SVG</button>
+        </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="preview-box">
+                <div class="sidebar-item">
+                    <div class="sidebar-value"><span id="sidebarMapName">Map Name</span></div>
+                    <div class="sidebar-value"><span id="sidebarYourName">Your Name</span></div>
+                    <div class="sidebar-value"><span id="sidebarMapStyle">Map Style</span></div>
+                </div>
+
+                <div class="sidebar-item">
+                <div class="sidebar-colors-row">
+                    <div class="sidebar-color-box" id="sidebarColor1" style="background-color: #606c38;">#606c38</div>
+                    <div class="sidebar-color-box" id="sidebarColor2" style="background-color: #283618;">#283618</div>
+                    <div class="sidebar-color-box" id="sidebarColor3" style="background-color: #fefae0;">#fefae0</div>
+                    <div class="sidebar-color-box" id="sidebarColor4" style="background-color: #dda15e;">#dda15e</div>
+                    <div class="sidebar-color-box" id="sidebarColor5" style="background-color: #bc6c25;">#bc6c25</div>
+                </div>
+            </div>
+
+            <div class="sidebar-item">
+                <div class="sidebar-fonts-row">
+                    <div class="sidebar-font-preview" id="sidebarFont1">Sample Text</div>
+                    <div class="sidebar-font-preview" id="sidebarFont2">Sample Text</div>
+                    <div class="sidebar-font-preview" id="sidebarFont3">Sample Text</div>
+                </div>
+            </div>
+
+            <div class="sidebar-item">
+                <div class="sidebar-textures-row">
+                    <div class="sidebar-texture-preview" id="sidebarTexture1">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">No image</div>
+                    </div>
+                    <div class="sidebar-texture-preview" id="sidebarTexture2">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">No image</div>
+                    </div>
+                    <div class="sidebar-texture-preview" id="sidebarTexture3">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">No image</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let googleFonts = [];
+
+        // Fetch all Google Fonts from public source (no API key needed)
+        async function fetchGoogleFonts() {
+            try {
+                // Using a public endpoint that lists all Google Fonts
+                const response = await fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity');
+                const data = await response.json();
+                
+                if (data.items) {
+                    googleFonts = data.items.map(font => font.family);
+                } else {
+                    // If that fails, use the embedded font list
+                    useEmbeddedFonts();
+                }
+                
+                initializeFonts();
+            } catch (error) {
+                console.error('Error fetching fonts:', error);
+                // Use embedded comprehensive list of popular Google Fonts
+                useEmbeddedFonts();
+                initializeFonts();
+            }
+        }
+
+        function useEmbeddedFonts() {
+            // Comprehensive list of 300+ fonts including system fonts and Google Fonts
+            googleFonts = [
+                // System Fonts (always available)
+                'Arial', 'Times New Roman', 'Georgia', 'Helvetica', 'Courier New', 'Verdana', 'Trebuchet MS',
+                'Comic Sans MS', 'Impact', 'Lucida Console', 'Tahoma', 'Palatino', 'Garamond', 'Bookman',
+                'Courier', 'Monaco', 'Optima', 'Didot', 'Futura', 'Copperplate', 'Baskerville',
+                
+                // Popular Google Fonts (Sans-Serif)
+                'Roboto', 'Open Sans', 'Lato', 'Montserrat', 'Oswald', 'Raleway', 'Poppins', 'PT Sans', 
+                'Ubuntu', 'Nunito', 'Rubik', 'Work Sans', 'Inter', 'Noto Sans', 'Roboto Condensed', 
+                'Karla', 'Barlow', 'Source Sans Pro', 'Titillium Web', 'Quicksand', 'Cabin', 'Oxygen',
+                'Arimo', 'Josefin Sans', 'Abel', 'Fira Sans', 'Nunito Sans', 'Dosis', 'Questrial',
+                'Catamaran', 'Hind', 'Varela Round', 'Prompt', 'Archivo', 'Assistant', 'Fjalla One',
+                'Exo 2', 'Asap', 'Archivo Narrow', 'IBM Plex Sans', 'DM Sans', 'Mulish', 'Manrope',
+                'Lexend', 'Space Grotesk', 'Plus Jakarta Sans', 'Outfit', 'Jost', 'Urbanist', 'Public Sans',
+                'Kanit', 'Red Hat Display', 'Sora', 'Epilogue', 'Commissioner', 'Spartan', 'Alata',
+                
+                // Serif Fonts
+                'Merriweather', 'Playfair Display', 'PT Serif', 'Crimson Text', 'Libre Baskerville',
+                'Roboto Slab', 'Lora', 'EB Garamond', 'Rokkitt', 'Bree Serif', 'Zilla Slab', 'Alegreya',
+                'Cormorant Garamond', 'Spectral', 'Domine', 'Cardo', 'Arvo', 'Bitter', 'Vollkorn',
+                'Old Standard TT', 'Crimson Pro', 'Libre Caslon Text', 'Neuton', 'Noticia Text',
+                'Pridi', 'Frank Ruhl Libre', 'Slabo 27px', 'Judson', 'Enriqueta', 'Gentium Basic',
+                
+                // Display & Decorative
+                'Bebas Neue', 'Anton', 'Righteous', 'Abril Fatface', 'Alfa Slab One', 'Passion One',
+                'Russo One', 'Patua One', 'Acme', 'Bangers', 'Lilita One', 'Staatliches', 'Fredoka One',
+                'Lobster', 'Pacifico', 'Righteous', 'Secular One', 'Saira Condensed', 'Archivo Black',
+                'Fugaz One', 'Bungee', 'Teko', 'Khand', 'Barlow Condensed', 'Monoton', 'Audiowide',
+                'Saira', 'Vast Shadow', 'Shrikhand', 'Fascinate', 'Chango', 'Emblema One', 'Racing Sans One',
+                
+                // Handwriting & Script
+                'Dancing Script', 'Indie Flower', 'Shadows Into Light', 'Amatic SC', 'Caveat', 'Satisfy',
+                'Great Vibes', 'Courgette', 'Kalam', 'Cookie', 'Yellowtail', 'Kaushan Script', 
+                'Gloria Hallelujah', 'Homemade Apple', 'Reenie Beanie', 'Just Another Hand', 'Gochi Hand',
+                'Patrick Hand', 'Covered By Your Grace', 'Permanent Marker', 'Bad Script', 'Crafty Girls',
+                'Rock Salt', 'Shadows Into Light Two', 'Waiting for the Sunrise', 'Sue Ellen Francisco',
+                
+                // Monospace & Code
+                'Inconsolata', 'Roboto Mono', 'Source Code Pro', 'PT Mono', 'Space Mono', 'IBM Plex Mono',
+                'Fira Code', 'JetBrains Mono', 'Anonymous Pro', 'Cousine', 'Overpass Mono', 'Ubuntu Mono',
+                'DM Mono', 'Red Hat Mono', 'B612 Mono', 'Nanum Gothic Coding', 'Share Tech Mono',
+                
+                // International & Unique
+                'Nanum Gothic', 'Cairo', 'Tajawal', 'Amiri', 'Markazi Text', 'Almarai', 'Rakkas',
+                'Changa', 'Lalezar', 'Reem Kufi', 'Scheherazade', 'Aref Ruqaa', 'Harmattan', 'Jomhuria',
+                'Vibes', 'El Messiri', 'Lemonada', 'Mada', 'IBM Plex Sans Arabic', 'Taviraj',
+                
+                // Fun & Creative
+                'Press Start 2P', 'VT323', 'Orbitron', 'Syncopate', 'Black Ops One', 'Creepster',
+                'Eater', 'Nosifer', 'Metal Mania', 'New Rocker', 'Butcherman', 'Caesar Dressing',
+                'Ewert', 'Frijole', 'Kirang Haerang', 'Life Savers', 'Londrina Outline', 'Rammetto One',
+                'Rye', 'Sancreek', 'Slackey', 'Smokum', 'Special Elite', 'Stint Ultra Condensed',
+                
+                // Elegant & Professional
+                'Cormorant', 'Cinzel', 'Marcellus', 'Playfair Display SC', 'Cinzel Decorative',
+                'Vidaloka', 'Sorts Mill Goudy', 'Forum', 'Gilda Display', 'Bentham', 'Fanwood Text',
+                'Unna', 'Lustria', 'Quattrocento', 'Belgrano', 'Rufina', 'Suranna', 'Poly',
+                
+                // Geometric & Modern
+                'Maven Pro', 'Comfortaa', 'Varela', 'Muli', 'Signika', 'ABeeZee', 'Alef', 'Didact Gothic',
+                'Electrolize', 'Michroma', 'Rajdhani', 'Squada One', 'Gruppo', 'Cantarell', 'Basic',
+                'Inder', 'Pontano Sans', 'Gudea', 'Telex', 'Carme', 'Actor', 'Mako', 'Hammersmith One',
+                
+                // Condensed & Narrow
+                'Yanone Kaffeesatz', 'PT Sans Narrow', 'Cuprum', 'News Cycle', 'Armata', 'Economica',
+                'Chivo', 'Ruda', 'Pathway Gothic One', 'BenchNine', 'Abel', 'Oxygen Mono'
+            ];
+        }
+
+        function initializeFonts() {
+            // Set initial values
+            document.getElementById('font1Search').value = 'Roboto';
+            document.getElementById('font2Search').value = 'Open Sans';
+            document.getElementById('font3Search').value = 'Lato';
+            
+            // Update previews
+            updateFontPreview('font1');
+            updateFontPreview('font2');
+            updateFontPreview('font3');
+        }
+
+        // Load Google Fonts dynamically
+        function loadGoogleFont(fontName) {
+            const fontLink = fontName.replace(/\s+/g, '+');
+            const linkId = 'font-' + fontLink;
+            
+            if (!document.getElementById(linkId)) {
+                const link = document.createElement('link');
+                link.id = linkId;
+                link.href = `https://fonts.googleapis.com/css2?family=${fontLink}&display=swap`;
+                link.rel = 'stylesheet';
+                document.head.appendChild(link);
+            }
+        }
+
+        function updateColorPreview(colorId) {
+            const colorInput = document.getElementById(colorId);
+            const previewId = 'preview' + colorId.slice(-1);
+            const preview = document.getElementById(previewId);
+            preview.textContent = colorInput.value.toUpperCase();
+            
+            // Update sidebar
+            const colorNum = colorId.slice(-1);
+            const sidebarBox = document.getElementById('sidebarColor' + colorNum);
+            const colorValue = colorInput.value.toUpperCase();
+            
+            sidebarBox.style.backgroundColor = colorValue;
+            sidebarBox.textContent = colorValue;
+        }
+
+        function showFontDropdown(fontId) {
+            const dropdown = document.getElementById(fontId + 'Options');
+            filterFonts(fontId);
+            dropdown.classList.add('show');
+        }
+
+        function filterFonts(fontId) {
+            const searchInput = document.getElementById(fontId + 'Search');
+            const dropdown = document.getElementById(fontId + 'Options');
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            const filtered = googleFonts.filter(font => 
+                font.toLowerCase().includes(searchTerm)
+            ).slice(0, 50); // Show top 50 matches
+            
+            dropdown.innerHTML = '';
+            filtered.forEach(font => {
+                const option = document.createElement('div');
+                option.className = 'font-option';
+                option.textContent = font;
+                option.style.fontFamily = `'${font}', sans-serif`;
+                option.onclick = () => selectFont(fontId, font);
+                dropdown.appendChild(option);
+                
+                // Load the font for preview
+                loadGoogleFont(font);
+            });
+            
+            dropdown.classList.add('show');
+        }
+
+        function selectFont(fontId, fontName) {
+            document.getElementById(fontId).value = fontName;
+            document.getElementById(fontId + 'Search').value = fontName;
+            document.getElementById(fontId + 'Options').classList.remove('show');
+            updateFontPreview(fontId);
+        }
+
+        function updateFontPreview(fontId) {
+            const fontNum = fontId.slice(-1);
+            const wordInput = document.getElementById(fontId + 'Word');
+            const fontHidden = document.getElementById(fontId);
+            const preview = document.getElementById('fontPreview' + fontNum);
+            
+            const selectedFont = fontHidden.value;
+            const displayText = wordInput.value || 'Sample Text';
+            
+            preview.style.fontFamily = `'${selectedFont}', sans-serif`;
+            preview.textContent = displayText;
+            
+            // Load the font
+            loadGoogleFont(selectedFont);
+            
+            // Update sidebar
+            const sidebarPreview = document.getElementById('sidebarFont' + fontNum);
+            
+            sidebarPreview.style.fontFamily = `'${selectedFont}', sans-serif`;
+            sidebarPreview.textContent = displayText;
+        }
+
+        function updateTexturePreview(textureId) {
+            const input = document.getElementById(textureId);
+            const preview = document.getElementById(textureId.replace('texture', 'texturePreview'));
+            const url = input.value.trim();
+            
+            // Update sidebar
+            const textureNum = textureId.slice(-1);
+            const sidebarPreview = document.getElementById('sidebarTexture' + textureNum);
+            
+            if (url) {
+                // Clear preview
+                preview.innerHTML = '';
+                preview.classList.add('has-image');
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = 'Texture Preview';
+                
+                img.onload = function() {
+                    preview.style.backgroundImage = `url('${url}')`;
+                    
+                    // Update sidebar
+                    sidebarPreview.innerHTML = '';
+                    const sidebarImg = document.createElement('img');
+                    sidebarImg.src = url;
+                    sidebarImg.alt = 'Texture ' + textureNum;
+                    sidebarPreview.appendChild(sidebarImg);
+                };
+                
+                img.onerror = function() {
+                    preview.innerHTML = 'Failed to load image';
+                    preview.classList.remove('has-image');
+                    preview.style.backgroundImage = '';
+                    
+                    // Update sidebar
+                    sidebarPreview.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">Failed to load</div>';
+                };
+                
+                preview.appendChild(img);
+            } else {
+                preview.innerHTML = 'No image loaded';
+                preview.classList.remove('has-image');
+                preview.style.backgroundImage = '';
+                
+                // Update sidebar
+                sidebarPreview.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;">No image</div>';
+            }
+        }
+
+        // Update text fields in sidebar
+        function updateSidebarText() {
+            document.getElementById('sidebarMapName').textContent = document.getElementById('mapName').value || '-';
+            document.getElementById('sidebarYourName').textContent = document.getElementById('yourName').value || '-';
+            document.getElementById('sidebarMapStyle').textContent = document.getElementById('mapStyle').value || '-';
+        }
+
+        // Add event listeners for text inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('mapName').addEventListener('input', updateSidebarText);
+            document.getElementById('yourName').addEventListener('input', updateSidebarText);
+            document.getElementById('mapStyle').addEventListener('input', updateSidebarText);
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.font-search')) {
+                const dropdowns = document.querySelectorAll('.font-options');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+            }
+        });
+
+        // Load fonts on page load
+        fetchGoogleFonts();
+
+        // Export to SVG function
+        function exportToSVG() {
+            // Get all the values
+            const mapName = document.getElementById('mapName').value || 'Map Name';
+            const yourName = document.getElementById('yourName').value || 'Your Name';
+            const mapStyle = document.getElementById('mapStyle').value || 'Map Style';
+            
+            // Get colors
+            const colors = [];
+            for (let i = 1; i <= 5; i++) {
+                colors.push(document.getElementById('color' + i).value);
+            }
+            
+            // Get fonts
+            const fonts = [];
+            for (let i = 1; i <= 3; i++) {
+                const fontName = document.getElementById('font' + i).value || 'Arial';
+                const fontWord = document.getElementById('font' + i + 'Word').value || 'Sample';
+                fonts.push({ name: fontName, word: fontWord });
+            }
+            
+            // Get textures
+            const textures = [];
+            for (let i = 1; i <= 3; i++) {
+                const textureUrl = document.getElementById('texture' + i).value;
+                textures.push(textureUrl);
+            }
+            
+            // Create SVG
+            const svgWidth = 800;
+            const svgHeight = 1000;
+            let svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${svgWidth}" height="${svgHeight}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>`;
+            
+            // Add font styles
+            fonts.forEach((font, index) => {
+                svgContent += `
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css2?family=${font.name.replace(/ /g, '+')}:wght@400&amp;display=swap');
+        </style>`;
+            });
+            
+            svgContent += `
+    </defs>
+    
+    <!-- Background -->
+    <rect width="${svgWidth}" height="${svgHeight}" fill="white"/>
+    
+    <!-- Map Information -->
+    <text x="40" y="50" font-family="Inclusive Sans, Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">${escapeXml(mapName)}</text>
+    <text x="40" y="80" font-family="Inclusive Sans, Arial, sans-serif" font-size="18" fill="#666">${escapeXml(yourName)}</text>
+    <text x="40" y="110" font-family="Inclusive Sans, Arial, sans-serif" font-size="18" fill="#666">${escapeXml(mapStyle)}</text>
+    
+    <!-- Colors Section -->
+    <text x="40" y="160" font-family="Inclusive Sans, Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Color Palette</text>`;
+            
+            // Add color rectangles
+            const colorWidth = (svgWidth - 80) / 5;
+            colors.forEach((color, index) => {
+                const x = 40 + (index * colorWidth);
+                svgContent += `
+    <rect x="${x}" y="180" width="${colorWidth}" height="200" fill="${color}"/>
+    <text x="${x + colorWidth/2}" y="395" font-family="Inclusive Sans, Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">${color.toUpperCase()}</text>`;
+            });
+            
+            // Add fonts section
+            svgContent += `
+    
+    <!-- Typography Section -->
+    <text x="40" y="440" font-family="Inclusive Sans, Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Typography</text>`;
+            
+            const fontSpacing = (svgWidth - 80) / 3;
+            fonts.forEach((font, index) => {
+                const x = 40 + (index * fontSpacing);
+                svgContent += `
+    <text x="${x}" y="480" font-family="${font.name}, Arial, sans-serif" font-size="28" fill="#333">${escapeXml(font.word)}</text>
+    <text x="${x}" y="505" font-family="Inclusive Sans, Arial, sans-serif" font-size="12" fill="#999">${escapeXml(font.name)}</text>`;
+            });
+            
+            // Add textures section
+            svgContent += `
+    
+    <!-- Textures Section -->
+    <text x="40" y="550" font-family="Inclusive Sans, Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Textures</text>`;
+            
+            const textureWidth = (svgWidth - 80) / 3;
+            textures.forEach((textureUrl, index) => {
+                const x = 40 + (index * textureWidth);
+                if (textureUrl) {
+                    svgContent += `
+    <image x="${x}" y="570" width="${textureWidth}" height="200" xlink:href="${escapeXml(textureUrl)}" preserveAspectRatio="xMidYMid slice"/>`;
+                } else {
+                    svgContent += `
+    <rect x="${x}" y="570" width="${textureWidth}" height="200" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+    <text x="${x + textureWidth/2}" y="680" font-family="Inclusive Sans, Arial, sans-serif" font-size="14" fill="#999" text-anchor="middle">No image</text>`;
+                }
+            });
+            
+            svgContent += `
+</svg>`;
+            
+            // Create blob and download
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'map-style-sheet.svg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Helper function to escape XML special characters
+        function escapeXml(unsafe) {
+            return unsafe.replace(/[<>&'"]/g, function (c) {
+                switch (c) {
+                    case '<': return '&lt;';
+                    case '>': return '&gt;';
+                    case '&': return '&amp;';
+                    case '\'': return '&apos;';
+                    case '"': return '&quot;';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
