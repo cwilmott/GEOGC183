@@ -16,6 +16,7 @@
 
 * Spreadsheet is still in raw format from the wikipedia scrape, feel free to add your favorite projection or one you used on a project.
 
+[Map Style Generator](https://cwilmott.github.io/Map-Style-Generator/)
 
 ## Extra Credit 
 
