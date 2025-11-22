@@ -12,12 +12,18 @@ This final project represents a capstone for your learning in C183. It is your o
 **This worksheet is not due**, it is meant to be a guide for the proposal you turn in Friday 11/14. For guidance on the proposal submission, please see the final project assessment guide. 
 
 
-## Week 13: Lab Community Feedback 
+## Week 13: Community Feedback & Counterfactuals
 
 [Lab Activity](https://docs.google.com/presentation/d/1mbPz4AEii7ugUMnGdmuz2bKaGDZBWuxqsEtA-qv7suY/edit?usp=sharing) 
 
 [Further Reflection Questions](https://docs.google.com/document/d/1xvZUiHCIx_lcYYsK6iPGGoNJetqodpZH-kdGOb-mP6g/edit?usp=sharing) 
 
+
+## Week 14: Hierarchy and Guides 
+
+Moving past research and ideation, we will be drawing out our visualization ideas for print and web projects. The worksheet below is not meant to be completed, but rather a guide for thinking about the hierarchy and layout of your map. 
+
+[Lab Guidance](https://docs.google.com/document/d/1kGnv0VEyvqvwOVQfzh-uCiYEU6dxADVOzZMV82xcCZw/edit?usp=sharing) 
 
 
 ## Full Rubric and Assessment Guidelines
