@@ -1,0 +1,1088 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cwilmott.github.io/GEOGC183/Week-06-Projection/">
+      
+      
+        <link rel="prev" href="../Week-05-Objects%20of%20Study/">
+      
+      
+        <link rel="next" href="../Week-07-GIS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../octicons/code-square-24.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Week 06 Projection - GEOGC183 - Cartographic Representation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%201.5c-2.363%200-4%201.69-4%203.75%200%20.984.424%201.625.984%202.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621%201.49a.75.75%200%200%201-1.484.211c-.04-.282-.163-.547-.37-.847a9%209%200%200%200-.542-.68q-.126-.149-.268-.32C3.201%207.75%202.5%206.766%202.5%205.25%202.5%202.31%204.863%200%208%200s5.5%202.31%205.5%205.25c0%201.516-.701%202.5-1.328%203.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751%200%200%201-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304%200-2.06-1.637-3.75-4-3.75M5.75%2012h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M6%2015.25a.75.75%200%200%201%20.75-.75h2.5a.75.75%200%200%201%200%201.5h-2.5a.75.75%200%200%201-.75-.75%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M22%2012a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010M6%2013h8l-3.5%203.5%201.42%201.42L17.84%2012l-5.92-5.92L10.5%207.5%2014%2011H6z%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"EB Garamond";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-06-projection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GEOGC183 - Cartographic Representation" class="md-header__button md-logo" aria-label="GEOGC183 - Cartographic Representation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3 8.24a.75.75 0 0 1-.04 1.06L7.352 12l2.908 2.7a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 0 1 1.06.04m3.44 1.06a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.908-2.7z"/><path d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H3.75A1.75 1.75 0 0 1 2 20.25Zm1.75-.25a.25.25 0 0 0-.25.25v16.5c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEOGC183 - Cartographic Representation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 06 Projection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GEOGC183 - Cartographic Representation" class="md-nav__button md-logo" aria-label="GEOGC183 - Cartographic Representation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3 8.24a.75.75 0 0 1-.04 1.06L7.352 12l2.908 2.7a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 0 1 1.06.04m3.44 1.06a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.908-2.7z"/><path d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H3.75A1.75 1.75 0 0 1 2 20.25Zm1.75-.25a.25.25 0 0 0-.25.25v16.5c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25Z"/></svg>
+
+    </a>
+    GEOGC183 - Cartographic Representation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Final-Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab%20Guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab%20Resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-1-Essay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-02-LookItUp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 02 Looking it Up!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-03-HandDrawn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 03 Hand Drawn Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-04-ReadingYourMap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 04 Reading Your Map!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-05-Objects%20of%20Study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 05 Objects of Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 06 Projection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-07-GIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 07 Cartographic Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-08-Illustrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 08 Illustrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-09-Geodata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 09 Geodata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-10-Mapbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 Mapbox Basemap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-11-Web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 Web Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-tutorial-page/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample tutorial page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-06-projection">Week 06 Projection</h1>
+<p>Use the knowledge gained last week in lecture concerning the mathematical, historical and political issues on map projections to now be responsible for creating one for your project basemap. </p>
+<p><a href="https://github.com/cwilmott/GEOGC183/blob/main/assets/C183%20Week%206%20-%20Projection%20.docx">Week 6 Worksheet: Projection</a> Click the download icon in the top right, I promise the file is there.</p>
+<p><a href="https://github.com/cwilmott/GEOGC183/blob/main/assets/C183%20Week%206%20-%20Projection%20Lab%20Discussion.pdf">Week 6 Lab Discussion Slides: Projection</a> Slides Jack discussed in the evening, take a glance if you want to understand the context of the foundations walkthrough. </p>
+<p><a href="https://scribehow.com/viewer/Lab_6__Projection__MR2X2m2KRSan4Jm8zmJ8ow">Week 6 Lab Walkthrough: Projection</a> Direct link to the scribe website if this is more accessible for students!</p>
+<p><a href="https://bcourses.berkeley.edu/courses/1547598/files/folder/Lab6_Projection%20Data">Week 6 Lab Data</a> Choose the dataset corresponding to your prompt. </p>
+<p><em>Optional Resources</em></p>
+<p><a href="https://www.leventhalmap.org/digital-exhibitions/bending-lines/how-to-bend/projections/">Leventhal Map Center Projection Exhibit "Bending Lines"</a></p>
+<p><a href="http://www.radicalcartography.net/index.html?projectionref">Bill Rankin Projection Guide and Experiments</a></p>
+<h1 id="foundations-walkthrough">Foundations Walkthrough</h1>
+<p>Using the freelance project request from a book publisher, we will go through the first step of determining the contextually appropriate GCS/PCS/Projection system for the Great Basin regional scale. </p>
+<p>1. <strong>[0 - NOT PART OF THE WALKTHROUGH]</strong> Refer to this step of the tutorial should you encounter this problem in future cartographic work.</p>
+<p>Something I won't have you practice is the scenario when a GIS data layer possessing an <strong>Unknown Coordinate Reference System</strong> is added to the [[Map ]]processing frame.</p>
+<p>Use this <a href="https://youtu.be/kOv1tgGw9Ss?si=gtziosA8bT9qqSZC"><strong>quick and dirty tutorial from an instructor at U-Mass Amherst</strong></a>. He identifies the common issue, and which tools you use in [[ArcPro ]]to quickly resolve the crisis.</p>
+<p>The steps you follow below are part of the troubleshooting process you'll undertake when this (inevitably) happens.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-28/51dbdd86-3c3d-47e3-9e35-e8c8e3b8c137/screenshot.webp?tl_px=0,0&amp;br_px=912,473&amp;force_format=jpeg&amp;q=100&amp;width=913" /></p>
+<p>2. Navigate to your desktop file directory</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/77d3b058-66a3-44fa-a5ed-1fd1dcb356a7/ascreenshot.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=210,576" /></p>
+<p>3. Within the file directory, navigate to the [[!geographer]] folder. This will store data you create onto this specific desktop.</p>
+<p>It is advised to bring a flash drive or figure out your own cloud-based method for storing the data if you wish to work with your data elsewhere.</p>
+<p>Otherwise it will be on this computer, in the CAGE Lab.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/1892248a-e9e5-4bc9-87ea-b43487556502/ascreenshot.jpeg?tl_px=0,244&amp;br_px=1376,1013&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=493,277" /></p>
+<p>4. Create a new folder on your directory of choice, and title it <strong>Lab6Projection_LastName</strong></p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/45956dfb-7d31-4b72-8a3a-6e3fee1da346/ascreenshot.jpeg?tl_px=307,84&amp;br_px=1683,853&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,277" /></p>
+<p>5. Right click within the folder or use the keystroke <a href="Windows Users">[Ctrl+Shift+N ]</a> to create a new folder within the Lab6 folder.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/217e574d-f340-4cb7-bd9c-a319cfb9ac80/ascreenshot.jpeg?tl_px=326,245&amp;br_px=1703,1014&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,276" /></p>
+<p>6. For every GIS/Cartography project you work on, it is always best practice to name the project folder as it relates to the project you are working on.</p>
+<p>In this case, my project is for the Great Basin region. So I will name it [[GreatBasin]]</p>
+<p>NOTE: When you eventually interface with advanced computing and navigating files via a coding terminal, it makes life a bit easier if you combine names together or utilize underscores. Code is case and character sensitive.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/53815e3c-7a83-41fa-ba28-8e2f4af8d7aa/ascreenshot.jpeg?tl_px=0,6&amp;br_px=1919,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0" /></p>
+<p>7. Create a new folder within the project folder, and name it [[Data]].</p>
+<p>As you will begin to see in future lab assignments, your project directory will consist of subfolders such as "pdfs", "case studies", "research", "meeting notes," etc.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/494646f4-a163-4f86-958c-402e222c92ed/ascreenshot.jpeg?tl_px=0,6&amp;br_px=1919,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0" /></p>
+<p>8. And yet again, create another folder within the newly created [[Data ]]folder. This one can be named along the lines of [[_datacopy]]</p>
+<p>It is always best practice to store raw copies of your data in its own folder. As you will come to learn, data gets overwritten once it is manipulated in a processing frame.</p>
+<p>Always store a clean, raw copy of the data you collected so you can restart if needed.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/914ab517-6e26-4841-8eb0-fcc1fcf28530/ascreenshot.jpeg?tl_px=178,186&amp;br_px=1555,955&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,277" /></p>
+<p>9. Navigate to <a href="https://naturalearthdata.com">naturalearthdata.com</a> and download their dataset <strong>Admin 1 - States, Provinces</strong></p>
+<p>This will download a [[.zip]] file with U.S. State boundaries at a 110m scale (small scale), and at a source spatial coordinate reference system of <strong>WGS1984</strong> (more on that once we are in ArcPro)</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/37ed3336-e698-4671-a5b8-b37efd400832/ascreenshot.jpeg?tl_px=106,0&amp;br_px=1483,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,260" /></p>
+<p>10. Navigate to <a href="https://nbmg.unr.edu/geothermal/Data.html">https://nbmg.unr.edu/geothermal/Data.html</a></p>
+<p>The Nevada Bureau of Mines and Geology (NBMG) is a research and public service unit of the University of Nevada and is the state geological survey. And thanks to their work, I can easily go and download an <em>authoritative GIS data layer</em> of the Great Basin hydrological boundary.</p>
+<p>A good student will suddenly remember all the data classification and institutional power issues Clancy lectured on during the first few weeks.</p>
+<p>Yes. There might be some issues in the grand scheme of cartographic discourse. And it is also true, that this data is the <em>most appropriate</em> GIS boundary files for my project context.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/5d84a90b-fbc9-422d-84d3-00bd17ba906e/ascreenshot.jpeg?tl_px=264,310&amp;br_px=1640,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,314" /></p>
+<p>11. After downloading those two datasets as [[.zip]] files. Navigate back to your file directory and go to [[Downloads]].</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/9fdb3e14-d7ae-4b3b-8481-4dd7ea0e5022/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=165,20" /></p>
+<p>12. Right click on the [[GreatBasinOutline.zip]], and select [[Extract All]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/8fcfe59b-9d0c-40a5-ae4d-fe5c42a0783c/ascreenshot.jpeg?tl_px=0,210&amp;br_px=1376,979&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=429,277" /></p>
+<p>13. Extracting a compressed ([[.zip]]) folder transports the large collection data onto your desktop.</p>
+<p>Hit the [[Browse... ]]button and navigate to the project file directory you created at the beginning of the lab.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/682f391a-0592-48aa-9ea4-02d060af7246/ascreenshot.jpeg?tl_px=494,61&amp;br_px=1870,830&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,277" /></p>
+<p>14. Click [[Select Folder]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/f0bbd954-cfc3-4eca-ab9a-c59a0f5b1528/ascreenshot.jpeg?tl_px=544,310&amp;br_px=1920,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=681,380" /></p>
+<p>15. Click [[Extract]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/46d8a682-4df4-4c46-9400-95f7832c7c3c/ascreenshot.jpeg?tl_px=452,310&amp;br_px=1829,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,292" /></p>
+<p>16. And now the GreatBasinOutline data suite is in the project folder.</p>
+<p>It is important to keep all the separate files <em>together</em> in the <em>same folder</em>. When the [[.SHP]] file is read into the GIS processing frame, it is reading all its accessory files structuring the [[.SHP]] file (i.e the .PRJ file stores the source GCS/PCS information).</p>
+<p>A nice technical elaboration and diagram can be found here: <a href="https://gisrsstudy.com/create-shapefile/">https://gisrsstudy.com/create-shapefile/</a></p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/274fc850-6ee7-430d-8676-6f5418ce64c1/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=292,31" /></p>
+<p>17. Perform the same steps for the Natural Earth U.S. States data.</p>
+<p>And now your [[Lab6Projection_LastName/GreatBasin/Data]] project directory has both datasets (it is advised to familiarize yourself with the basics of file path terminology and functions).</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/8e936f7c-31b3-4d6a-b501-d42cb0d286e2/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=305,35" /></p>
+<p>18. Remember the [[_datacopy]] folder you created in the beginning?</p>
+<p>Move the two [[.ZIP]] file folders into[[ _datacopy]]</p>
+<p><em>Is this necessary?</em> Not really. But when your projects become more complex, you will be thankful that you understand how to create 'fail safe' copies of your data. It will save you time not going back to the data portal and re-downloading it.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/cf65cfe3-e91e-41f6-a014-f8ef27a6d598/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=157,21" /></p>
+<p>19. Additionally, you can create a copy of all the individual raw data files into the [[\\_datacopy]] folder.</p>
+<p><em>Always always always</em> practice data management. It is not talked about enough in job descriptions. And that's the case since a hiring manager will assume you know what you're doing.</p>
+<p>Get used to this now, while your 'client demands' consist of a P/NP lab assignment in a fun upper division class.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/54acc645-8774-496f-a0ea-cf0ddd79f38a/ascreenshot.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=487,384" /></p>
+<p>20. In the desktop search engine, navigate to [[ArcGIS Pro]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/c759784e-2c6f-4f51-8e2e-d6d67e51d1ee/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=84,269" /></p>
+<p>21. Click [[Map]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/bd2270db-15ab-4820-b006-9cc3ac52057a/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=193,174" /></p>
+<p>22. Rename the ArcPro project to [[Lab6Projection_LastName]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/f712402d-90a7-492b-bfcb-2b8cf3995ff6/ascreenshot.jpeg?tl_px=211,65&amp;br_px=1588,834&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,277" /></p>
+<p>23. Finally!</p>
+<p>Welcome to the [[ArcPro ]]interface. This is that desktop GUI Clancy and I always have a few choice words for.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/18e0d15e-54da-4700-9da9-6cdc97c14ec2/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=10,222" /></p>
+<p>24. Recall a core concept from the History and Theory lectures. As a new GIS user, you are presented with a world so obvious that it is <em>normalized and unquestioned</em>. A world which emerges from a certain scientific research corporation, and their sets of practices.</p>
+<p>Now is your chance to shake things up a bit. </p>
+<p>Select both of the default basemap layers and remove them.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/006f4940-a31f-4b88-a2ce-f654a2112a03/ascreenshot.jpeg?tl_px=0,13&amp;br_px=1376,782&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=55,277" /></p>
+<p>25. And now the world doesn't exist. Territory isn't real.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/50b72357-c95e-46a7-815a-e7b8d78786c9/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=36,3" /></p>
+<p>26. From the [[Basemap ]]dropdown, select the [[Imagery ]]basemap.</p>
+<p>If this is getting you excited, I advise diving into the world of basemap tiles.</p>
+<p>One of my tasks at SFDPW was helping <a href="https://gis.sf.gov/ipa/?lat=37.76&amp;lon=-122.45">geo-rectify a new USGS satellite image</a> for the scale of San Francisco (to my knowledge not public facing yet). Play around with [[Inspect Element]] enough, and you can siphon the <strong>tile server path</strong>. And then you got yourself a nice basemap.</p>
+<p>Soon, your basemap can be anything and can come from anywhere. Not only what the desktop GIS has to offer. <strong>QGIS</strong>, comes as a blank slate, with several basemap plug-ins that can be installed.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/01b56e5b-af9a-4896-95e3-c56b86186788/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=354,170" /></p>
+<p>27. Under [[Add Data]], select the[[ Browse...]] option.</p>
+<p>This will open a dialog box with the windows file directory, navigate to the [[!geographer]] folder.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/f7820a03-adce-4052-b1f4-40e15de3e4cd/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=384,98" /></p>
+<p>28. Thankfully, I'm a good student who followed Jack's data management tutorial and can easily access the project file directory with my [[Data ]]folder</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/b13a639b-9861-4f37-9983-8959299cb542/ascreenshot.jpeg?tl_px=89,102&amp;br_px=1465,871&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,276" /></p>
+<p>29. Select both the [[GreatBasinOutline.shp]] and the [[ne_110m_admin_1_states_provinces.shp]] and add to the map</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/e8bc7e0b-7f69-4218-9d31-98198cac189f/ascreenshot.jpeg?tl_px=63,0&amp;br_px=1440,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,202" /></p>
+<p>30. Cool, this a perfect map and we can stop studying cartography forever.</p>
+<p>All this research is pointless.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/0ba32c4c-72bd-4498-8514-a49cf1b49bbb/ascreenshot.jpeg?tl_px=0,14&amp;br_px=1376,783&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=38,277" /></p>
+<p>31. Either by double-clicking or right-clicking on the layer, <strong>rename</strong> both of your data layers.</p>
+<p>NOTE: When in doubt, double click or right click. The dialog box you are looking for will appear.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/f3bdee86-1398-4009-b986-b36cc8eac7ae/ascreenshot.jpeg?tl_px=148,0&amp;br_px=1524,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,270" /></p>
+<p>32. Your new data layers should be named similar to this. Or any naming scheme of your choice.</p>
+<p>A scheme for your layers is a huge component of data management. You will thank yourself in more complicated cartography projects when you take the extra couple of seconds to rename each layer.</p>
+<p>NOTE: renaming the data layer in a GIS interface does not change the name of the file. Never change the name of the file. Yes, its ugly. But recall how the ESRI processing environment is directly talking to your project file path. If anything becomes renamed in the [[Lab6Projection_LastName/GreatBasin/Data/(data type).shp]] folder, your data will disappear.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/08911063-fe90-4a96-9a45-ba279b6e2a62/ascreenshot.jpeg?tl_px=0,150&amp;br_px=1376,919&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=99,277" /></p>
+<p>33. You are welcome to play around with the styles if the default visual design style hurts your eyes. Design is not the focus of this lab, so we will skip everything I do to change it up.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/a41b6c18-77e1-45b0-8efa-f3bc10d9d243/ascreenshot.jpeg?tl_px=544,0&amp;br_px=1920,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=776,160" /></p>
+<p>34. Right click on the [[Map ]]feature.</p>
+<p>In ArcPro, [[Map]] acts as your [[Data Frame]] (for those of you familiar with coding, it's a similar structure to [[.df ]]in Python). You can rename the [[Map ]]frame if your ESRI GUI becomes stacked with [[Map ]]frames on a complicated project.</p>
+<p>If you want to perform different manipulations on the data for different purposes, please load the raw data from your [[\_datacopy]] folder into a new [[Map ]]frame.</p>
+<p>Yes! Now you see why you create copies of data.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/7648abf7-a00e-4a4e-893f-efcfa53652d2/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=15,224" /></p>
+<p>35. Click [[Properties ]]on the [[Map ]]frame</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/30ff068b-66ed-436f-a4d7-3c1aee6f4c3d/ascreenshot.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=62,371" /></p>
+<p>36. Lets now inspect which <strong>Coordinate Reference System(s)</strong> are controlling how we see our data.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/accf80d9-8239-471a-a631-494d953349d3/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=472,200" /></p>
+<p>37. As mentioned earlier during data collection, Natural Earth builds their datasets in the [[WGS 1984 GCS]] since its intended for users at a global scale. And WGS 1984 is the default for world scale across computing environments.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/11021567-7a69-42bd-81e8-1d07c850e993/ascreenshot.jpeg?tl_px=100,54&amp;br_px=1477,823&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,277" /></p>
+<p>38. Right click on [[US States]] to activate its properties panel</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/70b688a0-cf80-436c-8988-0cf3531e0497/ascreenshot.jpeg?tl_px=0,13&amp;br_px=1376,782&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=42,277" /></p>
+<p>39. Upon inspecting the [[US States]] layer, we can learn more about the components of the [[WGS 1984 GCS]] properties controlling the Map frame.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/66f8d808-2e52-4677-b9fa-3132d3b44a74/user_cropped_screenshot.webp?tl_px=0,0&amp;br_px=1141,730&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=883,654" /></p>
+<p>40. So, after inspecting the properties of the controlling GIS data layer, we know the world being presented to us is from the perspective of [[WGS 1984]].</p>
+<p>Considering the scope of my project discussed at the beginning of lab, i<em>s WGS 1984 the most appropriate GCS/PCS system for my cartographic image?</em></p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/2c12fee2-e4fc-46cd-8079-1b7dee5748a2/ascreenshot.jpeg?tl_px=0,6&amp;br_px=1919,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0" /></p>
+<p>41. Navigate to the properties of the [[Great Basin]] layer to learn how the Nevada Bureau of Mines and Geology collected the data.</p>
+<p>We learn that it was collected at the [[NAD 1983 Datum]] for the <strong>GCS</strong>, and the data is best projected at the [[NAD 1983 UTM Zone 11N]] <strong>PCS</strong>. With the cartographic image being distorted in a [[Transverse Mercator]] <strong>projection</strong>.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/d1fc9cdd-c107-45ad-ac1f-c48d7b27b1d4/user_cropped_screenshot.webp?tl_px=0,0&amp;br_px=1172,742&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=873,638" /></p>
+<p>42. Okay, so now we have an idea of the spatial manipulation we need to do to our data. </p>
+<p>Navigate to [[Tools]].</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/71dab089-d1e0-4687-b58e-cdf6e8532c9a/ascreenshot.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=189,51" /></p>
+<p>43. Find the [[Project ]]tool</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/3c9b1f66-d8f7-4207-bb7d-6971f9f14052/ascreenshot.jpeg?tl_px=544,0&amp;br_px=1920,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=856,177" /></p>
+<p>44. Input your [[US States]] layer into the first dialog prompt</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/98100f28-a49f-4a14-b893-a27dc5f0be4e/File.jpeg?tl_px=544,0&amp;br_px=1920,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=869,243" /></p>
+<p>45. Rename the output dataset to something which will make sense to you in the future, and ensure the output dataset will be sent to your [[Data ]]folder. </p>
+<p>Select the [[Great Basin]] layer as the GCS/PCS properties to be transformed onto the [[US States]] layer.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/20dc96b3-efc6-4c12-bbc9-964908f9747f/File.jpeg?tl_px=544,71&amp;br_px=1920,840&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=884,276" /></p>
+<p>46. After running the [[Project ]]tool, you will notice you have a new data layer.</p>
+<p>This is the [[US States]] layer with the <strong>UTM Zone 11N</strong> and <strong>NAD 1983</strong> properties structured into its composition.</p>
+<p>Alaska and Hawaii are... sorta missing? More on that in a later step.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/5679d7a3-dc4c-486b-8a5a-e439adab8431/File.jpeg?tl_px=0,65&amp;br_px=1376,834&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=29,277" /></p>
+<p>47. After renaming the newly projected layer, ensure the [[drawing order]] is restored.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/45dd8114-ac02-4411-a01b-5182831ff75f/File.jpeg?tl_px=0,59&amp;br_px=1376,828&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=-5,276" /></p>
+<p>48. Inserting the reference basemap is perfect for instances when you need to troubleshoot an action you commanded your data to do.</p>
+<p>Using the basemap reference, we can see that how the <strong>GCS</strong> is influencing the data. Parts of Hawaii, Alaska and the Northeast are missing since parts of those polygons were not <em>located</em> on the the <strong>NAD 1983 GCS</strong> when it was <em>projected</em> in <strong>UTM Zone 11N</strong>.</p>
+<p>Now... what happens when we change the [[Map ]]frame <strong>projection</strong> to Transverse Mercator and our data is <em>drawn</em> onto a 2-D representation surface specific to the Great Basin region?</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/ff33d415-69a3-4bb2-9531-c607bcb0b54e/File.jpeg?tl_px=0,226&amp;br_px=1376,995&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=498,277" /></p>
+<p>49. Right click [[Map]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/6dba4769-0644-4e55-bbd4-e0d419e529ee/File.jpeg?tl_px=0,0&amp;br_px=1376,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=16,228" /></p>
+<p>50. Click [[Properties]]</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/9ff49fbf-36d7-41b9-857e-19287dfeee0c/File.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=62,373" /></p>
+<p>51. Unlike the specific properties panel for each individual layer, the [[Coordinate Systems]] panel for the [[Map ]]frame allows us to do a 'Projection On-the-Fly'. Here, we are switching the <strong>CRS</strong> system controlling the visual perception from <strong>WGS 1984</strong> to <strong>NAD 1983 UTM Zone 11N</strong> (a detailed inspection of the <strong>CRS</strong> properties will show that it contains the <strong>GCS/PCS/Projection</strong> components previously outlined).</p>
+<p><strong>Projection On-the-Fly</strong> <em>does not</em> alter the composition of your original data, which is why we did that laborious step previously of converting the U.S. States layer into <strong>NAD1983</strong> and <strong>UTM Zone 11N</strong></p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/6fa7dc90-835d-4dfa-8da7-7d4779f8ae3e/File.jpeg?tl_px=544,310&amp;br_px=1920,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=851,462" /></p>
+<p>52. Woah! Now we're seeing things a bit differently.</p>
+<p>Hey, I wonder how this Projection On-the-Fly altered my basemap reference?</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/82c377b4-caf8-473b-a474-3db2c5e034d1/File.jpeg?tl_px=0,60&amp;br_px=1376,829&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=-4,277" /></p>
+<p>53. Oh... it totally altered the <em>world as you see it, through the <a href="https://www.e-education.psu.edu/natureofgeoinfo/c2_p22.html">mathematics of Transverse Mercator</a></em>.</p>
+<p>And, since we took that [[Projection ]]step earlier, it altered the underlying structure of the data. The two datasets we collected earlier both now align to the contextually appropriate <strong>CRS</strong> for the project scope and scale.</p>
+<p>If you are currently taking LDARCH 188, you might now be connecting the dots on how setting the <strong>CRS</strong> for the entire [[Map ]]frame will have a huge impact on the spatial analysis, cartographic image and the landscape narrative you are able to tell.</p>
+<p>Recall the slide from lecture showing how a slight change in the [[Map ]]frame <strong>CRS</strong> altered the measurement of the buffer zone.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/ce24356c-9bcb-4407-9c9d-9b26bc3402e1/File.jpeg?tl_px=44,310&amp;br_px=1420,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,402" /></p>
+<p>54. Pan around your new <em>World</em> and reflect on the content from last week's lectures.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/8fee8951-e563-401d-b8fa-12f4c515b813/File.jpeg?tl_px=211,310&amp;br_px=1588,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=524,296" /></p>
+<p>55. Before moving on to the lab prompts, make sure to alter the [[Extent ]]you think would be appropriate for the data.</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/7153b609-c6ca-4441-8ec1-abfa776cda32/File.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=181,535" /></p>
+<p>56. How does it feel now that you've completed the whole process? </p>
+<p>Are you ready to do this independently, and carry the weight of responsibly mapping the landscape?</p>
+<p><img alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-27/ecf59737-2958-44b1-b294-da5859aa5ef9/File.jpeg?tl_px=0,310&amp;br_px=1376,1080&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=444,320" /></p>
+<h4 id="made-with-scribe"><a href="https://scribehow.com/shared/Lab_6_-_Projection__MR2X2m2KRSan4Jm8zmJ8ow">Made with Scribe</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

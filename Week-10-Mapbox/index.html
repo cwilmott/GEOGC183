@@ -1,0 +1,2198 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cwilmott.github.io/GEOGC183/Week-10-Mapbox/">
+      
+      
+        <link rel="prev" href="../Week-09-Geodata/">
+      
+      
+        <link rel="next" href="../Week-11-Web/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../octicons/code-square-24.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Week 10 Mapbox Basemap - GEOGC183 - Cartographic Representation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%201.5c-2.363%200-4%201.69-4%203.75%200%20.984.424%201.625.984%202.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621%201.49a.75.75%200%200%201-1.484.211c-.04-.282-.163-.547-.37-.847a9%209%200%200%200-.542-.68q-.126-.149-.268-.32C3.201%207.75%202.5%206.766%202.5%205.25%202.5%202.31%204.863%200%208%200s5.5%202.31%205.5%205.25c0%201.516-.701%202.5-1.328%203.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751%200%200%201-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304%200-2.06-1.637-3.75-4-3.75M5.75%2012h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M6%2015.25a.75.75%200%200%201%20.75-.75h2.5a.75.75%200%200%201%200%201.5h-2.5a.75.75%200%200%201-.75-.75%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M22%2012a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010M6%2013h8l-3.5%203.5%201.42%201.42L17.84%2012l-5.92-5.92L10.5%207.5%2014%2011H6z%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"EB Garamond";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-10-mapbox-basemap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GEOGC183 - Cartographic Representation" class="md-header__button md-logo" aria-label="GEOGC183 - Cartographic Representation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3 8.24a.75.75 0 0 1-.04 1.06L7.352 12l2.908 2.7a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 0 1 1.06.04m3.44 1.06a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.908-2.7z"/><path d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H3.75A1.75 1.75 0 0 1 2 20.25Zm1.75-.25a.25.25 0 0 0-.25.25v16.5c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEOGC183 - Cartographic Representation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 10 Mapbox Basemap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GEOGC183 - Cartographic Representation" class="md-nav__button md-logo" aria-label="GEOGC183 - Cartographic Representation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3 8.24a.75.75 0 0 1-.04 1.06L7.352 12l2.908 2.7a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 0 1 1.06.04m3.44 1.06a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.908-2.7z"/><path d="M2 3.75C2 2.784 2.784 2 3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H3.75A1.75 1.75 0 0 1 2 20.25Zm1.75-.25a.25.25 0 0 0-.25.25v16.5c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25Z"/></svg>
+
+    </a>
+    GEOGC183 - Cartographic Representation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Final-Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab%20Guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab%20Resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-1-Essay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Summative-Assessment-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summative Assessment 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-02-LookItUp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 02 Looking it Up!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-03-HandDrawn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 03 Hand Drawn Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-04-ReadingYourMap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 04 Reading Your Map!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-05-Objects%20of%20Study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 05 Objects of Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-06-Projection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 06 Projection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-07-GIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 07 Cartographic Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-08-Illustrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 08 Illustrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-09-Geodata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 09 Geodata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 Mapbox Basemap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 Mapbox Basemap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foundations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-mapbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Mapbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-mapbox-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Mapbox Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-publish-your-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Publish your Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-web-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Your Web Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Web Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-code-pen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Code Pen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-your-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set up your HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-up-your-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set Up Your CSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-up-your-js" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Set up Your .js
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-bring-in-your-own-custom-mapbox-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bring in your own custom Mapbox Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer to Github
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer to Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Upload Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-its-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Check its worked!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experimental
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experimental">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapbox_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-mapbox_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Mapbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-mapbox-style_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Mapbox Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-publish-your-style_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Publish your Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-web-map_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Your Web Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Web Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-your-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up your folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set up Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-code-your-html-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create + Code your HTML file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-your-css-file-link-to-your-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create your CSS file + Link to your HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-and-set-up-your-js-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create and set up your .js file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-write-your-map-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Write your map object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-add-a-custom-map-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Add a custom map style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-to-github_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer to Github
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer to Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-upload-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Upload Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-its-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check its worked!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Week-11-Web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 Web Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-tutorial-page/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample tutorial page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foundations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-mapbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Mapbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-mapbox-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Mapbox Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-publish-your-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Publish your Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-web-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Your Web Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Web Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-code-pen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Code Pen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-your-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set up your HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-up-your-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set Up Your CSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-up-your-js" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Set up Your .js
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-bring-in-your-own-custom-mapbox-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bring in your own custom Mapbox Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer to Github
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer to Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Upload Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-its-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Check its worked!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experimental
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experimental">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapbox_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-mapbox_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up Mapbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-mapbox-style_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Mapbox Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-publish-your-style_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Publish your Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-web-map_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Your Web Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Web Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-your-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up your folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set up Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-code-your-html-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create + Code your HTML file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-your-css-file-link-to-your-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create your CSS file + Link to your HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-and-set-up-your-js-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create and set up your .js file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-write-your-map-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Write your map object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-add-a-custom-map-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Add a custom map style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-to-github_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer to Github
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transfer to Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-upload-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Upload Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-its-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check its worked!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-10-mapbox-basemap">Week 10 Mapbox Basemap</h1>
+<p>If you're stuck - this is how your webmap for this week will be structured!
+<a href="https://github.com/cwilmott/c183-webmap">https://github.com/cwilmott/c183-webmap</a></p>
+<h2 id="foundations">Foundations <img alt="🐢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f422.svg" title=":turtle:" /></h2>
+<p>Let's take it <em>slllooooowww</em>. Breathe!</p>
+<h3 id="mapbox">Mapbox</h3>
+<p>First, we need to create our very own <em>Mapbox</em> map. Mapbox is a semi-open source tool we can use to make web maps. Its data is based on <em>OpenStreetMap</em>, and we get <em>a lot</em> of free views so it's a useful tool to begin your first web map. </p>
+<h4 id="1-set-up-mapbox">1. Set up Mapbox</h4>
+<p>So, let's head over to <www.mapbox.com> . In the top-right corner select <strong>Sign Up</strong>. <br>
+Enter the credentials you wish to use, and set up your account.</p>
+<h4 id="2-create-a-mapbox-style">2. Create a Mapbox Style</h4>
+<p>Now that you're successfully in Mapbox, let's create a custom map style!</p>
+<ol>
+<li>Open the <em>Mapbox Studio</em> styles page, where all your map styles will be listed.</li>
+<li>Click the drop down next to the <strong>New Style</strong> button.</li>
+<li>Select <strong>Classic</strong> template.</li>
+<li>Select the <strong>Default</strong> style.</li>
+<li>Choose a base variation.These colors can be adjusted later.</li>
+<li>Click <strong>Customize Defaulte</strong>.</li>
+</ol>
+<p><img alt="Image Title" src="https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/assets/map-styles-style-templates.gif" /></p>
+<p>Once you're in, have a play around with different styles and have some fun - change some fonts, and see if you can establish a different color scheme based on our lectures last week.</p>
+<p>If you'd like to learn more (or be more intentional), check out <a href="https://docs.mapbox.com/studio-manual/reference/styles/">https://docs.mapbox.com/studio-manual/reference/styles/</a></p>
+<h4 id="3-publish-your-style">3. Publish your Style</h4>
+<p>Once you're done with your style, we need to make sure it's publically visible before we put it in our web map!</p>
+<p>The <strong>Publish</strong> button in the upper right of the style editor allows you to save your style so you can use it.
+When you click <strong>Publish</strong> the following information appears:</p>
+<p><img alt="Image Title" src="https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png" /></p>
+<p><strong>Make sure you make your style public!</strong></p>
+<p>We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
+- <code>Style URL</code> - this is the unique identifier of your map
+- <code>Mapbox Token</code> - this is a secret code which links to your Mapbox Account.</p>
+<h3 id="create-your-web-map">Create Your Web Map</h3>
+<p>So now we are going to create a very basic framework to host your webmap using Github. We will use <strong>Code Pen</strong> while we get used to coding in html/css/js - and then export the as a .zip file, and upload it to Github.</p>
+<h4 id="1-set-up-code-pen">1. Set up Code Pen</h4>
+<p>The first thing you need to do is set up a Code Pen account - if you haven't already. </p>
+<p>Go to <a href="https://codepen.io/">https://codepen.io/</a> and choose "Sign Up". You may sign up with either your email or your github account.</p>
+<p>On the top right, under the "Create" submenu, select <strong>Pen</strong>, then, <strong>Pen</strong>.</p>
+<p>Your page should look like this:</p>
+<p><img alt="Image Title" src="https://raw.githubusercontent.com/cwilmott/GEOGC183/refs/heads/main/assets/codepen.jpg" /></p>
+<p>As you may remember from lecture, code pen has three windows - one for HTML, one for CSS and one for .js. 
+We will be putting different pieces of code into different windows! And remember, nothing is broken for ever! When in doubt, <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-z">Z</kbd></span></p>
+<p><strong>Now, let's start coding!</strong></p>
+<h4 id="2-set-up-your-html">2. Set up your HTML</h4>
+<p>First, we need to create a HTML container for your web map to be held in. We're going to use the <code>&lt;div&gt;</code> tag to create a division to hold your map.</p>
+<p>In the HTML box, either type or copy and paste the below code:</p>
+<div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> 
+</span></code></pre></div></td></tr></table></div>
+<p>This code bascially means "this is a division, with the id of "map". 
+Nothing will change, because it's just an invisible structure! We haven't put anything into it yet!</p>
+<p>Now, we need one extra piece of code so the HTML knows where to access the Mapbox GL JS library. Following your <code>&lt;div&gt;&lt;/div&gt;</code> tag, let's create a <code>&lt;script&gt;</code> tag, which is a little bit of javascript, showing the HTML where to go:</p>
+<div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="3-set-up-your-css">3. Set Up Your CSS</h4>
+<p>Next, we need to style your map <code>&lt;div&gt;</code> using CSS. You can choose how big or small you want your map to be in future, but to make it easier for now, we are going to make the map full page, with no margins and to be 100% the width of the web browser.</p>
+<p>Your css component, thus has two components: a style for the <code>&lt;body&gt;</code> (<code>body</code>) and a style for the <code>&lt;div id=map&gt;</code> (<code>#map</code>)</p>
+<div class="language-css highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">#</span><span class="nn">map</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Again, you'll see nothing because we haven't put anything in your <code>&lt;div id=map&gt;</code> section. </p>
+<h4 id="4-set-up-your-js">4. Set up Your .js</h4>
+<p><em>Now</em> we can set up your map using Javascript! To do this, we need to set up two elements:
+1.   Your mapbox access token so the web page knows which account to access.
+2.   The <code>const map</code> where we set up the map's interactive elements (zoom, pan). (Next week, we will add variables and events!)</p>
+<p>This is the code that we need to add:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Your token goes here&#39;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mapboxgl</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// this is the container ID that we set in the HTML</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">122.27</span><span class="p">,</span><span class="w"> </span><span class="mf">37.8</span><span class="p">],</span><span class="w"> </span><span class="c1">// starting position [lng, lat]. Note that lat must be set between -90 and 90. You can choose what you&#39;d like.</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="c1">// starting zoom, again you can choose the level you&#39;d like.</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div></td></tr></table></div>
+<p class="annotate">Now, here is an experiment for you. See if you can see where you put your <strong>Mapbox Access Token</strong> and try to remember where you might access it, (1) and if you are stuck, check out the arrow.</p>
+<ol>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 6.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-6.5a.25.25 0 0 0-.25-.25h-1a.75.75 0 0 1 0-1.5h1c.966 0 1.75.784 1.75 1.75v6.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25v-6.5C2 5.784 2.784 5 3.75 5h1a.75.75 0 0 1 0 1.5ZM7.823.177a.25.25 0 0 1 .354 0l2.896 2.896a.25.25 0 0 1-.177.427H8.75v5.75a.75.75 0 0 1-1.5 0V3.5H5.104a.25.25 0 0 1-.177-.427Z"/></svg></span> your mapbox access token can be found when you click <strong>Share</strong> on your mapbox map. </li>
+</ol>
+<h4 id="5-bring-in-your-own-custom-mapbox-map">5. Bring in your own custom Mapbox Map</h4>
+<p>So, this is a fine map, but it's not <em>yours</em>. Let's add a little bit of code to bring in your own map. 
+We are going to add a parameter called <strong>style</strong> which allows us to set which kind of map we'd like.</p>
+<p>Copy and paste the code below into your map (make sure you include the comma at the very end!)</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mapbox://styles/your-mapbox-username/your-custom-style-url&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Your Style URL goes here</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Yes, yes - it's broken, but that's because we haven't made it work yet! Don't worry as long as your js looks something like this:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew&#39;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mapboxgl</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// container ID</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mapbox://styles/your-mapbox-username/your-custom-style-url&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">//Your Style URL goes here</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">122.27</span><span class="p">,</span><span class="w"> </span><span class="mf">37.87</span><span class="p">],</span><span class="w"> </span><span class="c1">// starting position [lng, lat]. Note that lat must be set between -90 and 90</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">  </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="c1">// starting zoom</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Now, return to Mapbox and click share! Above your <em>Access Token</em>, you'll see a <strong>Style URL</strong> - replace the text in <code>style: 'mapbox://styles/your-mapbox-username/your-custom-style-url'</code> with your own style url, making sure to keep the apostrophes/syntax on each side.</p>
+<p>Now your code should look something like this, and you should be able to see your map: 
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew&#39;</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mapboxgl</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// container ID</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// your Style URL goes here</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">122.27</span><span class="p">,</span><span class="w"> </span><span class="mf">37.87</span><span class="p">],</span><span class="w"> </span><span class="c1">// starting position [lng, lat]. Note that lat must be set between -90 and 90</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="c1">// starting zoom</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>If it hasn't worked - check your code carefully - the grammar/syntax (, ; ' :) is very important, and easy to get lost in copy/paste. In the worst case, just paste the above code, and change the Access Token and Style URL.</p>
+<h3 id="transfer-to-github">Transfer to Github</h3>
+<p>If you've managed to get your map up and running, congrats! Now, let's get it out of Code Pen and into Github so we can host it on our own website. </p>
+<h4 id="1-export">1. Export</h4>
+<p>At the <em>bottom-right</em> of your Code Pen is a button <strong>Export</strong>. 
+1.   Click <strong>Export</strong>
+2.   Select <strong>Export .zip</strong></p>
+<p>This will export a zip file to your downloads folder. You need to go to the <strong>dist</strong> file, which has three files:
+    - index.html
+    - style.css
+    - script.js</p>
+<h4 id="2-upload-files">2. Upload Files</h4>
+<p>Now, we need to add these files to your Github. 
+1.   Login to Github
+2.   Go to your repository which you made last week.
+3.   Then select <strong>Add File</strong> and <strong>Upload Files</strong>
+4.   Drag these three files into the window
+5.   Select <strong>Commit Changes</strong></p>
+<h4 id="3-check-its-worked">3. Check its worked!</h4>
+<p>Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away!
+1.   Go back to <strong>Settings</strong>
+2.   Select <strong>Pages</strong> from the menu on the left.
+3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!</p>
+<p>(and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )</p>
+<h2 id="experimental">Experimental <img alt="🐇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f407.svg" title=":rabbit2:" /></h2>
+<p>Okay, fast rabbits! A few things to keep in mind:
+1.   The commas, apostrophes - what is called <strong>syntax</strong> - is important. If your code doesn't work, chances are it's a syntax problem.
+2.   We are setting up our website the traditional way, using files + folders (not codepen) so you get used to the structure of a website. Strong recommend to install Visual Studio Code on your laptop.</p>
+<h3 id="mapbox_1">Mapbox</h3>
+<p>First, we're gonna make a custom map by creating our own stylesheet. Mapbox does most of the work for us.</p>
+<h4 id="1-set-up-mapbox_1">1. Set up Mapbox</h4>
+<p>So, let's head over to <a href="https://www.mapbox.com/">https://www.mapbox.com/</a> . In the top-right corner select <strong>Sign Up</strong>. <br>
+Enter the credentials you wish to use, and set up your account.</p>
+<h4 id="2-create-a-mapbox-style_1">2. Create a Mapbox Style</h4>
+<p>Now that you're successfully in Mapbox, let's create a custom map style!</p>
+<p>Open the <em>Mapbox Studio</em> styles page, where all your map styles will be listed.
+1.   Click the drop down next to the <strong>New Style</strong> button.
+2.   Select <strong>Classic</strong> template.
+3.   Select the <strong>Monochrome</strong> style.
+4.   Choose a base variation.These colors can be adjusted later.
+5.   Click <strong>Customize Monochrome</strong>.</p>
+<p><img alt="Image Title" src="https://github.com/cwilmott/GEOGC183/blob/main/assets/map-styles-style-templates.gif" /></p>
+<p>Once you're in, have a play around - but i'd try to see if you can figure out how to add a new font, play with symbols, add new layers.
+Check out <a href="https://docs.mapbox.com/studio-manual/reference/styles/">https://docs.mapbox.com/studio-manual/reference/styles/</a></p>
+<h4 id="3-publish-your-style_1">3. Publish your Style</h4>
+<p>Once you're done with your style, we need to make sure it's publically visible before we put it in our web map!</p>
+<p>The <strong>Publish</strong> button in the upper right of the style editor allows you to save your style so you can use it.
+When you click <strong>Publish</strong> the following information appears:</p>
+<p><img alt="Image Title" src="https://docs.mapbox.com/studio-manual/assets/ideal-img/overview-publish-share-production.2823d1b.960.png" /></p>
+<p>We're going to publish to web, so at the bottom you'll need to save these two pieces of code somewhere safe (but don't worry, you can always get them back!):<br>
+     - <code>Style URL</code> - this is the unique identifier of your map
+     - <code>Mapbox Token</code> - this is a secret code which links to your Mapbox Account.</p>
+<h3 id="create-your-web-map_1">Create Your Web Map</h3>
+<p>We're going to use Visual Studio Code to set up your web map. If you're familiar with Git or Github, you can push directly to your respository. If not, let's stick with copy + paste for now.</p>
+<h4 id="1-set-up-your-folder">1. Set up your folder</h4>
+<p>On your desktop, or somewhere you can find, <strong>create a new folder</strong> called "183webmap"</p>
+<h4 id="2-set-up-visual-studio-code">2. Set up Visual Studio Code</h4>
+<p>On your desktop, open <strong>Visual Studio Code</strong>. NB: It is different to Visual Studio - the logo looks like this: <img alt="logo" src="https://github.com/user-attachments/assets/0fbdf649-d567-4ca9-b797-8bab5e00bdf8" /></p>
+<ol>
+<li>Select <strong>Open</strong></li>
+<li>Choose your <strong>183webmap</strong> folder</li>
+<li>Select <strong>Open</strong> or similar.</li>
+</ol>
+<h4 id="3-create-code-your-html-file">3. Create + Code your HTML file</h4>
+<p>Now, we need to create files in this folder which we can use to build our web map. 
+1.  Select <strong>New File</strong>
+2.  Call it <strong>index.html</strong>
+3.  Then select <strong>Create</strong>.</p>
+<p>Once we have the file, let's code in the basic structure of our html file. 
+You'll recall HTML files have a basic structure. Copy and paste this into your <code>`index.html</code> file.</p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span> <span class="cm">&lt;!-- Set your doctype, so the browser knows what coding language this is --&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- tell the browser where the code is and what speaking language this is --&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="cm">&lt;!-- Your document set up goes here --&gt;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span> 
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">&lt;!-- your page structure goes here --&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Now, let's set up some info the head, so the browser knows what to expect. In the <code>&lt;head&gt;</code> section we need to add two tags, which tells the browser which language to expect, and what the title of your web page is:</p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- what character set are you using? --&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- setting up responsive design (see next week!) --&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>183 Web Map<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Call your map whatever title you want --&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Your code should now look something like this: </p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span> <span class="cm">&lt;!-- Set your doctype, so the browser knows what coding language this is --&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- tell the browser where the code is and what speaking language this is --&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Your document set up goes here --&gt;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- what character set are you using? --&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- setting up responsive design (see next week!) --&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>183 Web Map<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Call your map whatever title you want --&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span> 
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span class="cm">&lt;!-- your page structure goes here --&gt;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Now, we need to add a division to hold our map - which will be invisible until we do our .js, but is an important placeholder.
+We will place the following code in our <code>&lt;body&gt;</code> section, which bascially creates a division with the id of "map", so our js can find it later.</p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Your HTML code should look something like this:</p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span> <span class="cm">&lt;!-- Set your doctype, so the browser knows what coding language this is --&gt;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- tell the browser where the code is and what speaking language this is --&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Your document set up goes here --&gt;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- what character set are you using? --&gt;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- setting up responsive design (see next week!) --&gt;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>183 Web Map<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Call your map whatever title you want --&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span> 
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<strong>DO NOT CLOSE YOUR</strong> <code>index.html</code> <strong>FILE.</strong></p>
+<h4 id="4-create-your-css-file-link-to-your-html">4. Create your CSS file + Link to your HTML</h4>
+<p>Let's quickly now create a CSS stylesheet for your map, so we can style it easily. 
+1.   Go to <strong>File &gt; New File</strong>
+2.   Call it <strong>style.css</strong></p>
+<p>Now, let's style some elements. We want our map to be full size, so we need to add two components:
+1.   a <code>body</code> style element, which styles the overall <code>&lt;body&gt;</code> section
+2.   a <code>#map</code> style element, which styles <html> elements which have the <code>id=map</code> tag.</p>
+<p>Here is the code:</p>
+<p><div class="language-css highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="p">}</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">#</span><span class="nn">map</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+See if you can have a quick look and figure out what each of the paramenters (like <code>position: absolute;</code>) do. </p>
+<p>Finally - we need to link your <code>style.css</code> sheet to your index.html file, as well as the stylesheet from Mapbox to help out with the map styling.
+In the <code>&lt;head&gt;</code> section, copy and paste the two links below. </p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css&#39;</span><span class="p">&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./style.css&quot;</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+The first link is an absolute link to the Mapbox CSS, the second is a relative link to your own stylesheet - which means it will look for the style.css file in the same folder that it is in. For more info see <a href="https://www.w3schools.com/html/html_filepaths.asp">https://www.w3schools.com/html/html_filepaths.asp</a> (this is an absolute link!).</p>
+<p>Your code should look something like this: 
+<div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span> <span class="cm">&lt;!-- Set your doctype, so the browser knows what coding language this is --&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- tell the browser where the code is and what speaking language this is --&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Your document set up goes here --&gt;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- what character set are you using? --&gt;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- setting up responsive design (see next week!) --&gt;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>183 Web Map<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Call your map whatever title you want --&gt;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css&#39;</span><span class="p">&gt;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./style.css&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span> 
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<strong>And don't forget to hit "Save"</strong></p>
+<h4 id="5-create-and-set-up-your-js-file">5. Create and set up your .js file</h4>
+<p>Finally, we are ready to create our Javascript file, which is when we will finally be able to test our map and make sure it works.
+As above, <strong>create a new file</strong> and name it <strong>script.js</strong>.</p>
+<p>Before we put any scripting into it, let's make sure our HTML file knows where to look to find it the different scripts it will need. Again, we need to add two Javascript files:<br>
+1.  One relative link to our own script.js file;
+2.  One absolute link to the Mapbox GL JS script file.</p>
+<p>This will go in the <code>&lt;body&gt;</code> section of the <code>index.html</code> file.</p>
+<p>Here is the code which will link to the script:
+<div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./script.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Your code should look something like this:</p>
+<p><div class="language-html highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span> <span class="cm">&lt;!-- Set your doctype, so the browser knows what coding language this is --&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- tell the browser where the code is and what speaking language this is --&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Your document set up goes here --&gt;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- what character set are you using? --&gt;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- setting up responsive design (see next week!) --&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>183 Web Map<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span> <span class="cm">&lt;!-- Call your map whatever title you want --&gt;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css&#39;</span><span class="p">&gt;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./style.css&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span> 
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./script.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+Now we are ready to make the Javascript!</p>
+<h4 id="6-write-your-map-object">6. Write your map object</h4>
+<p>First, we need to write our map object in our <code>script.js</code> file - we are going to use a library called <strong>Mapbox GL JS</strong> which makes it easy, and has lots of useful tools like built-in popups, and location trackers. </p>
+<p>All Mapbox maps require access to your mapbox account. It gets access through an access token, with the code 
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;\\your access token goes here&#39;</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<strong>Copy + paste the above code</strong> into your <code>script.js</code> file and replace the <code>\\your access token goes here</code> component with your access token from Mapbox (see if you can remember where you find it. Don't forget to make sure the apostrophes (' ') remain on either side of the access token. </p>
+<p>Your <code>script.js</code> file should now look something like this:</p>
+<p><div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew&#39;</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+Now, we need to make a <code>const</code> function for the map, which will use <code>mapboxgl</code> to bring in a javascript map and allow us to define some parameters. </p>
+<p>The <code>const map</code> function is structured like this:</p>
+<p><div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mapboxgl</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// container ID</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">  </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="c1">// starting position [lng, lat]. Note that lat must be set between -90 and 90</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">  </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="c1">// starting zoom</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div></td></tr></table></div>
+Copy and paste the code into your <code>script.js</code> document <strong>under</strong> your <code>accessToken</code>, and see if you can figure out how to change the <code>zoom:</code> or the <code>center:</code> parameters so that it starts in Berkeley on z9.</p>
+<p>Since we're not running this live like we would be in CodePen, we actually need to run the code to check that it's worked - this is called <strong>debugging</strong>. 
+There are two ways of doing this: </p>
+<ol>
+<li>
+<p>Save your files, and then in Visual Studio Code return to your <code>index.html</code> page, and select from the icons on the left, "Run and Debug". It will look like this: <img alt="Image Title" src="https://code.visualstudio.com/assets/docs/debugtest/debugging/debug-start.png" /></p>
+</li>
+<li>
+<p>Or, alternatively, save your files and then drag your index.html file into a web browser of your choice.</p>
+</li>
+</ol>
+<p>If it has worked, you should see a map in your web browser! If it hasn't, try to debug it!</p>
+<h4 id="7-add-a-custom-map-style">7. Add a custom map style</h4>
+<p>Once your map is working, we can finally add the Mapbox Style we were working on! To do this, it's fairly simple - you just add another parameter to your <code>const map</code> constant called <code>style</code></p>
+<p>The code looks like this
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="w">  </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;//your style ID goes here&#39;</span><span class="p">,</span>
+</span></code></pre></div></td></tr></table></div>
+In your <code>const map</code> function, copy and paste the parameter afer <code>container</code>, and then add your own <code>Style ID</code> from Mapbox.</p>
+<p>Your <code>script.js</code> file should look something like this:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span>
+<span class="normal"><a href="#__codelineno-21-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nx">mapboxgl</span><span class="p">.</span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pk.eyJ1IjoiY3dpbG1vdHQiLCJhIjoiY2s2bWRjb2tiMG1xMjNqcDZkbGNjcjVraiJ9.2nNOYL23A1cfZSE4hdC9ew&#39;</span><span class="p">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mapboxgl</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">        </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// container ID</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">        </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0&#39;</span><span class="p">,</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">        </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">122.27</span><span class="p">,</span><span class="w"> </span><span class="mf">37.8</span><span class="p">],</span><span class="w"> </span><span class="c1">// starting position [lng, lat]. Note that lat must be set between -90 and 90</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">        </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="c1">// starting zoom</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Save</strong> and then <strong>Debug</strong>. If it works, we are good to go to the next phase!</p>
+<h3 id="transfer-to-github_1">Transfer to Github</h3>
+<p>Now, we need to add these files to your Github.
+1.   Save your files, and close Visual Studio Code.
+2.   Login to Github
+3.   Go to your repository which you made last week.</p>
+<h4 id="1-upload-files">1. Upload Files</h4>
+<p>In the repository,  select <strong>Add File</strong> and <strong>Upload Files</strong>
+1.  Drag these three files into the window
+2.  Select <strong>Commit Changes</strong></p>
+<h4 id="2-check-its-worked">2. Check its worked!</h4>
+<p>Now, we're going to see if our website has worked - it might take over 10 minutes for your files to commit (Github is a little slow!) so don't panic right away! <br>
+1.  Go back to <strong>Settings</strong>
+2.  Select <strong>Pages</strong> from the menu on the left.
+3.   At the top of the page, there will be a section where you can see the link to your website. Click on it and see if your map loads!</p>
+<p>(and if not, no worries! submit the link to repository for the lab, and trouble shoot in office hours :-) )</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
