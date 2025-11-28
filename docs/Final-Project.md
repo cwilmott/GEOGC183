@@ -28,7 +28,7 @@ Moving past research and ideation, we will be drawing out our visualization idea
 
 ## Week 15: Critique
 
-You are now in the refinement stages of project development. What sets apart a satisfactory project from a compelling story is the fine grain details: how successful is your message, is your information competing, what techniques or tools can you use to make the information pop, what is it missing that makes it less successful. 
+You are now in the refinement stages of project development. What sets apart a satisfactory project from a compelling story is the fine grain details: how successful is your message, is your information competing, what techniques or tools can you use to make the information pop, what is it missing that makes it less successful?
 
 [Week 15 Guide](https://docs.google.com/document/d/1bblzSxwYNHL_0d3XKNsPw_Fap51WfKds0mUW6_DEXvU/edit?usp=drive_link)
 
